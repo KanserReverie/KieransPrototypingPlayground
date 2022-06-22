@@ -52,14 +52,14 @@ namespace PrototypingPlayground.UnityActions.Scripts
         private void AddChangeColourToAction()
         {
             Debug.Log("Added a 'void ChangeCubeColor()'/[actionReceiver.ChangeCubeColor] to our UnityAction");
-            var actionReceiver = GameObject.FindObjectOfType<ActionReceiver>();
+            ActionReceiver actionReceiver = GameObject.FindObjectOfType<ActionReceiver>();
             _firstUnityAction += actionReceiver.ChangeCubeColor;
         }
 
         private void AddChangeColourToEvent()
         {
             Debug.Log("Added a 'void ChangeCubeColor()'/[actionReceiver.ChangeCubeColor] to our UnityEvent");
-            var actionReceiver = GameObject.FindObjectOfType<ActionReceiver>();
+            ActionReceiver actionReceiver = GameObject.FindObjectOfType<ActionReceiver>();
             onFirstUnityEvent.AddListener(actionReceiver.ChangeCubeColor);
         }
         

@@ -44,7 +44,7 @@ namespace PrototypingPlayground.StateMachine.Obstacle
 
         public void SpawnFinish()
         {
-            var rotation = transform.rotation;
+            Quaternion rotation = transform.rotation;
             Instantiate(endGamePrefab, (endPoint + dropLocation), rotation);
             Instantiate(endGamePrefab, (endPoint + dropLocation + Vector3.left * 2), rotation);
             Instantiate(endGamePrefab, (endPoint + dropLocation + Vector3.left * 4), rotation);

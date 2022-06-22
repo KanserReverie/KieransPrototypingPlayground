@@ -30,7 +30,7 @@ namespace PrototypingPlayground.Singleton
 			gameManagerComponents.Clear();
 			GameManagerComponent[] gameManagerComponentsInScene;
 			gameManagerComponentsInScene = GameObject.FindObjectsOfType<GameManagerComponent>();
-			foreach (var component in gameManagerComponentsInScene)
+			foreach (GameManagerComponent component in gameManagerComponentsInScene)
 			{
 				gameManagerComponents.Add(component);
 			}

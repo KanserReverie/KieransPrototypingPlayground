@@ -29,9 +29,9 @@ namespace PrototypingPlayground.UnityEvents.Scripts
         {
             for (int i = 0; i < _spheresRigidbodies.Length; i++)
             {
-                var powerForce = Random.Range(power, power * 2f);
-                var position = transform.position;
-                var explosiveLocation = new Vector3(
+                float powerForce = Random.Range(power, power * 2f);
+                Vector3 position = transform.position;
+                Vector3 explosiveLocation = new Vector3(
                     Random.Range(0f, position.x),
                     Random.Range(0f, position.y),
                     Random.Range(0f, position.z));
