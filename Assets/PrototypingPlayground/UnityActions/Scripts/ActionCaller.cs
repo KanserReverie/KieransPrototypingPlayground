@@ -11,6 +11,12 @@ namespace PrototypingPlayground.UnityActions.Scripts
         {
             Debug.Log("UnityActions (same as actions) send out a message when called..." +
                       "\n...other objects can listen for this message and react to it accordingly :)");
+                      
+            Debug.Log("UnityActions vs UnityEvents");
+            Debug.Log("Unity Events - They are serializable event based delegates" +
+                      "\nPROs: They are SERIALIZABLE delegates. CONs: They use an EVENT system and thus expensive.");
+            Debug.Log("UnityActions - They are a simple delegates that can take in multiple parameters" +
+                      "\nPROs: Not as expensive and can take in different parameters. CONs: Not Serializable.");
         }
 
         private void OnGUI()
