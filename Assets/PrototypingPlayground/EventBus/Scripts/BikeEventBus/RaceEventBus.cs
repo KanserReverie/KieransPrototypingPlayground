@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Events;
-namespace PrototypingPlayground.EventBus.Scripts
+namespace PrototypingPlayground.EventBus.BikeEventBus
 {
     public class RaceEventBus
     {
@@ -36,6 +37,7 @@ namespace PrototypingPlayground.EventBus.Scripts
             UnityEvent thisUnityEvent;
             if (RaceEventsToUnityEventsDictionary.TryGetValue(raceEventToPublish, out thisUnityEvent))
             {
+                Debug.Log($"Running Event: {raceEventToPublish.ToString()}");
                 thisUnityEvent?.Invoke();
             }
         }

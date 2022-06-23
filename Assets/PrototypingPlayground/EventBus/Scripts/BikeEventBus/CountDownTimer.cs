@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.Scripts
+namespace PrototypingPlayground.EventBus.BikeEventBus
 {
     public class CountDownTimer : MonoBehaviour
     {
@@ -35,8 +34,8 @@ namespace PrototypingPlayground.EventBus.Scripts
 
         private void OnGUI()
         {
-            GUI.color = Color.yellow;
-            GUI.Label(new Rect(100,5, 100, 30), $"COUNTDOWN: {_currentCountDownTime}");
+            GUI.color = Color.black;
+            GUI.Label(new Rect(Screen.width/2-50,5, 100, 30), $"COUNTDOWN: {_currentCountDownTime}");
         }
     }
 }
