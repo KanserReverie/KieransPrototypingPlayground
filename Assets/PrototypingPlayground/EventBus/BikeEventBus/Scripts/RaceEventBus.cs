@@ -37,7 +37,6 @@ namespace PrototypingPlayground.EventBus.BikeEventBus
             UnityEvent thisUnityEvent;
             if (RaceEventsToUnityEventsDictionary.TryGetValue(raceEventToPublish, out thisUnityEvent))
             {
-                Debug.Log($"Running Event: {raceEventToPublish.ToString()}");
                 thisUnityEvent?.Invoke();
             }
         }
