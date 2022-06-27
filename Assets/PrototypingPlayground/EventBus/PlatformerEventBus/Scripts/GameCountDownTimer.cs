@@ -42,7 +42,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
 
             if (_platformerGameManagerEventBus != null)
             {
-                _platformerGameManagerEventBus.PublishEvent(PlatformerEvents.SPAWN_BALLS);
+                _platformerGameManagerEventBus.PublishEvent(PlatformerEvents.START);
                 countDownText.text = ("Go!");
                 yield return new WaitForSeconds(1);
                 readyPanel.SetActive(false);

@@ -18,7 +18,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             FindEventBusInScene();
             
             if(_platformerGameManagerEventBus != null)
-                _platformerGameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.SPAWN_BALLS);
+                _platformerGameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
         }
 
         #region Subscribe and Unsubscribe to Event Bus at OnEnable/OnDisable
@@ -26,12 +26,12 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         private void OnEnable()
         {
             FindEventBusInScene();
-            _platformerGameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.SPAWN_BALLS);
+            _platformerGameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.START);
         }
 
         private void OnDisable()
         {
-            _platformerGameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.SPAWN_BALLS);
+            _platformerGameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.START);
         }
         
         #endregion
