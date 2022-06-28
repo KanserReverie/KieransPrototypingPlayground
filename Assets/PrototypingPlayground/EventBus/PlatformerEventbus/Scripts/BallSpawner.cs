@@ -15,7 +15,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         {
             _areWeSpawningBalls = false;
 
-            FindEventBusInScene();
+            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
             
             if(_platformerGameManagerEventBus != null)
                 _platformerGameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
@@ -25,7 +25,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         
         private void OnEnable()
         {
-            FindEventBusInScene();
+            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
             _platformerGameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.START);
         }
 
@@ -36,15 +36,6 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         
         #endregion
 
-        private void FindEventBusInScene()
-        {
-            if(_platformerGameManagerEventBus == null)
-                _platformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
-            
-            if(_platformerGameManagerEventBus == null)
-                Debug.Log("Please add a PlatformerGameManagerEventBus to Scene!!");
-        }
-        
         private void StartSpawningBalls()
         {
             _areWeSpawningBalls = true;

@@ -10,6 +10,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         [SerializeField] private float playerGravity = 9.81f;
         [SerializeField] private float playerJumpStrength = 6;
         [SerializeField] private float playerMaxVelocity = 10;
+        [SerializeField] private Vector3 playerRespawnPoint = Vector3.zero;
         private bool _canThePlayerMove;
         private Vector3 _playerMovement = Vector3.zero;
 
@@ -20,31 +21,27 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         
         private void OnEnable()
         {
-            FindEventBusInScene();
+            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
             _platformerGameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.START);
+            _platformerGameManagerEventBus.SubscribeActionToEvent(RespawnPlayer,PlatformerEvents.DIE);
         }
 
         private void OnDisable()
         {
             _platformerGameManagerEventBus.UnsubscribeActionFromEvent(TurnOnPlayerMovement, PlatformerEvents.START);
+            _platformerGameManagerEventBus.UnsubscribeActionFromEvent(RespawnPlayer,PlatformerEvents.DIE);
         }
         
         #endregion
 
-        private void FindEventBusInScene()
-        {
-            if(_platformerGameManagerEventBus == null)
-                _platformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
-            
-            if(_platformerGameManagerEventBus == null)
-                Debug.Log("Please add a PlatformerGameManagerEventBus to Scene!!");
-        }        
-        
         private void Start()
         {
+            playerRespawnPoint = transform.position;
+            
             _canThePlayerMove = false;
             
-            FindEventBusInScene();
+            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
+
             if(_platformerGameManagerEventBus != null)
                 _platformerGameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.START);
             
@@ -87,6 +84,11 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
                 _playerMovement.y = playerMaxVelocity;
             else
                 _playerMovement.y -= playerGravity * Time.deltaTime;
+        }
+
+        private void RespawnPlayer()
+        {
+            transform.position = playerRespawnPoint;
         }
     }
 }

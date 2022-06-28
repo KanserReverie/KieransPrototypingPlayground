@@ -16,19 +16,10 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
 
         private void Start()
         {
-            FindEventBusInScene();
+            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
             
             _currentCountDownTimer = countDownTimerStart;
             StartCoroutine(StartCountDown());
-        }
-        
-        private void FindEventBusInScene()
-        {
-            if(_platformerGameManagerEventBus == null)
-                _platformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
-            
-            if(_platformerGameManagerEventBus == null)
-                Debug.Log("Please add a PlatformerGameManagerEventBus to Scene!!");
         }
         
         private IEnumerator StartCountDown()

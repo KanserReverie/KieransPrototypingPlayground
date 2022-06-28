@@ -39,5 +39,16 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
                 tempUnityEvent?.Invoke();
             }
         }
+
+        public static PlatformerGameManagerEventBus FindEventBusInScene()
+        {
+            PlatformerGameManagerEventBus ScenePlatformerGameManagerEventBus = null;
+            ScenePlatformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
+            
+            if(ScenePlatformerGameManagerEventBus == null)
+                Debug.Log("Please add a PlatformerGameManagerEventBus to Scene!!");
+            
+            return ScenePlatformerGameManagerEventBus;
+        }
     }
 }
