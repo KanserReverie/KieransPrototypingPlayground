@@ -46,7 +46,11 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             ScenePlatformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
             
             if(ScenePlatformerGameManagerEventBus == null)
-                Debug.Log("Please add a PlatformerGameManagerEventBus to Scene!!");
+            {
+                GameObject tempPlatformerEventBus;
+                tempPlatformerEventBus = new GameObject("tempPlatformerEventBus");
+                ScenePlatformerGameManagerEventBus = tempPlatformerEventBus.AddComponent<PlatformerGameManagerEventBus>();
+            }
             
             return ScenePlatformerGameManagerEventBus;
         }
