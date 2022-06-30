@@ -14,7 +14,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
         }
 
-        private void OnCollisionStay(Collider hit)
+        private void OnCollisionStay(Collision hit)
         {
             Debug.Log("hit");
             if (hit.gameObject.CompareTag($"Player"));
