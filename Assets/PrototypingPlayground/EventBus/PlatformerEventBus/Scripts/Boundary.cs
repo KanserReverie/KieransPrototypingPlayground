@@ -4,24 +4,35 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
 {
     public class Boundary : MonoBehaviour
     {
-        private Collider _boundaryCollider;
-        private PlatformerGameManagerEventBus _platformerGameManagerEventBus;
+        private GameManagerEventBus _gameManagerEventBus;
 
         private void Start()
         {
-            _boundaryCollider = GetComponent<Collider>();
-            
-            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
+            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
         }
 
-        private void OnCollisionStay(Collision hit)
+        private void OnTriggerStay(Collider other)
         {
-            Debug.Log("hit");
-            if (hit.gameObject.CompareTag($"Player"));
+            if (other.gameObject.CompareTag($"Player"))
             {
-                _platformerGameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
+                _gameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
             }
-            Destroy(hit.gameObject);
+            else
+            {
+                Destroy(other.gameObject);
+            }
+        }
+        
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.gameObject.CompareTag($"Player"))
+            {
+                _gameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
+            }
+            else
+            {
+                Destroy(other.gameObject);
+            }
         }
     }
 }

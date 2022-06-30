@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 namespace PrototypingPlayground.EventBus.PlatformerEventBus
 {
-    public class GameCountDownTimer : MonoBehaviour
+    public class CountDownTimer : MonoBehaviour
     {
         [SerializeField, Range(1,5)] private int countDownTimerStart = 3;
         [SerializeField] private TextMeshProUGUI countDownText;
@@ -12,11 +12,11 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         
         private int _currentCountDownTimer;
 
-        private PlatformerGameManagerEventBus _platformerGameManagerEventBus;
+        private GameManagerEventBus _gameManagerEventBus;
 
         private void Start()
         {
-            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
+            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
             
             _currentCountDownTimer = countDownTimerStart;
             StartCoroutine(StartCountDown());
@@ -31,9 +31,9 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
                 yield return new WaitForSeconds(1);
             } while (_currentCountDownTimer > 0);
 
-            if (_platformerGameManagerEventBus != null)
+            if (_gameManagerEventBus != null)
             {
-                _platformerGameManagerEventBus.PublishEvent(PlatformerEvents.START);
+                _gameManagerEventBus.PublishEvent(PlatformerEvents.START);
                 countDownText.text = ("Go!");
                 yield return new WaitForSeconds(1);
                 readyPanel.SetActive(false);

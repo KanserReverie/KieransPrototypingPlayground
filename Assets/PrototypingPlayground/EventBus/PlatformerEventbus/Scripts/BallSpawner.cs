@@ -9,29 +9,29 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         [SerializeField, Range(0.1f,10f)] private float timeBetweenSpawns = 4f;
         private bool _areWeSpawningBalls;
 
-        private PlatformerGameManagerEventBus _platformerGameManagerEventBus;
+        private GameManagerEventBus _gameManagerEventBus;
 
         private void Start()
         {
             _areWeSpawningBalls = false;
 
-            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
+            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
             
-            if(_platformerGameManagerEventBus != null)
-                _platformerGameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
+            if(_gameManagerEventBus != null)
+                _gameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
         }
 
         #region Subscribe and Unsubscribe to Event Bus at OnEnable/OnDisable
         
         private void OnEnable()
         {
-            _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
-            _platformerGameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.START);
+            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            _gameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.START);
         }
 
         private void OnDisable()
         {
-            _platformerGameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.START);
+            _gameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.START);
         }
         
         #endregion

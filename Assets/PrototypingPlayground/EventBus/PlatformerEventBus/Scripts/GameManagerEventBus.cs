@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 namespace PrototypingPlayground.EventBus.PlatformerEventBus
 {
-    public class PlatformerGameManagerEventBus : MonoBehaviour
+    public class GameManagerEventBus : MonoBehaviour
     {
         private readonly IDictionary<PlatformerEvents, UnityEvent> _platformerEventsToUnityEvents = new Dictionary<PlatformerEvents, UnityEvent>();
 
@@ -40,19 +40,19 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             }
         }
 
-        public static PlatformerGameManagerEventBus FindEventBusInScene()
+        public static GameManagerEventBus FindEventBusInScene()
         {
-            PlatformerGameManagerEventBus ScenePlatformerGameManagerEventBus = null;
-            ScenePlatformerGameManagerEventBus = FindObjectOfType<PlatformerGameManagerEventBus>();
+            GameManagerEventBus sceneGameManagerEventBus = null;
+            sceneGameManagerEventBus = FindObjectOfType<GameManagerEventBus>();
             
-            if(ScenePlatformerGameManagerEventBus == null)
+            if(sceneGameManagerEventBus == null)
             {
                 GameObject tempPlatformerEventBus;
                 tempPlatformerEventBus = new GameObject("tempPlatformerEventBus");
-                ScenePlatformerGameManagerEventBus = tempPlatformerEventBus.AddComponent<PlatformerGameManagerEventBus>();
+                sceneGameManagerEventBus = tempPlatformerEventBus.AddComponent<GameManagerEventBus>();
             }
             
-            return ScenePlatformerGameManagerEventBus;
+            return sceneGameManagerEventBus;
         }
     }
 }
