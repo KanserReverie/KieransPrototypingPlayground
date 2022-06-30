@@ -14,13 +14,14 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             _platformerGameManagerEventBus = PlatformerGameManagerEventBus.FindEventBusInScene();
         }
 
-        private void OnControllerColliderHit(ControllerColliderHit hit)
+        private void OnCollisionStay(Collider hit)
         {
             Debug.Log("hit");
             if (hit.gameObject.CompareTag($"Player"));
             {
                 _platformerGameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
             }
+            Destroy(hit.gameObject);
         }
     }
 }
