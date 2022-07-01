@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 namespace PrototypingPlayground.Singleton.GameManagerComponents
 {
-	public class TimeManager : GameManagerComponent
+	public class TimeManager : GameManagerComponentBehaviour
 	{
 		private DateTime _sessionStartTime;
 		private DateTime _sessionEndTime;

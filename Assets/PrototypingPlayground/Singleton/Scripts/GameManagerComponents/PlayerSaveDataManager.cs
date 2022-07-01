@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PrototypingPlayground.Singleton.GameManagerComponents
 {
-    public class PlayerSaveDataManager : GameManagerComponent
+    public class PlayerSaveDataManager : GameManagerComponentBehaviour
     {
         [SerializeField] private PlayerSaveData _playerSaveData = new PlayerSaveData();
         private string _saveFileLocation;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace PrototypingPlayground.Singleton
 {
-	public class Singleton<T> : MonoBehaviour where T : Component
+	public class SingletonBehaviour<T> : MonoBehaviour where T : Component
 	{
 		private static T _instance;
 

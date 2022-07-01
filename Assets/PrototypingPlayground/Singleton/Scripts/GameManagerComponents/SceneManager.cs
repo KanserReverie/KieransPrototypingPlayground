@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace PrototypingPlayground.Singleton.GameManagerComponents
 {
-	public class SceneManager : GameManagerComponent
+	public class SceneManager : GameManagerComponentBehaviour
 	{
 		private enum ActiveSingletonScene { Lobby,Gameplay, NoSingletonScene }
 		private ActiveSingletonScene _activeSingletonScene;

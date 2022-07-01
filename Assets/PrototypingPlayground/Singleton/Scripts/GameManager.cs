@@ -7,20 +7,20 @@ using UnityEngine.Serialization;
 
 namespace PrototypingPlayground.Singleton
 {
-	public class GameManager : Singleton<GameManager>
+	public class GameManager : SingletonBehaviour<GameManager>
 	{
 		[SerializeField] private bool resetListOnValidate = false;
 		// ReSharper disable once CollectionNeverQueried.Local
-		[SerializeField] private List<GameManagerComponent> gameManagerComponents;
+		[SerializeField] private List<GameManagerComponentBehaviour> gameManagerComponents;
 
-		public void AddGameManagerComponent(GameManagerComponent gameManagerComponent)
+		public void AddGameManagerComponent(GameManagerComponentBehaviour gameManagerComponentBehaviour)
 		{
-			gameManagerComponents.Add(gameManagerComponent);
+			gameManagerComponents.Add(gameManagerComponentBehaviour);
 		}
 		
-		public void RemoveGameManagerComponent(GameManagerComponent gameManagerComponent)
+		public void RemoveGameManagerComponent(GameManagerComponentBehaviour gameManagerComponentBehaviour)
 		{
-			gameManagerComponents.Remove(gameManagerComponent);
+			gameManagerComponents.Remove(gameManagerComponentBehaviour);
 		}
 
 		private void OnValidate()
@@ -28,9 +28,9 @@ namespace PrototypingPlayground.Singleton
 			if (!resetListOnValidate)
 				return;
 			gameManagerComponents.Clear();
-			GameManagerComponent[] gameManagerComponentsInScene;
-			gameManagerComponentsInScene = GameObject.FindObjectsOfType<GameManagerComponent>();
-			foreach (GameManagerComponent component in gameManagerComponentsInScene)
+			GameManagerComponentBehaviour[] gameManagerComponentsInScene;
+			gameManagerComponentsInScene = GameObject.FindObjectsOfType<GameManagerComponentBehaviour>();
+			foreach (GameManagerComponentBehaviour component in gameManagerComponentsInScene)
 			{
 				gameManagerComponents.Add(component);
 			}

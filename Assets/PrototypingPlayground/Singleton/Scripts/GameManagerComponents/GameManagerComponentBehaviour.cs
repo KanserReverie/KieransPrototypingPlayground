@@ -5,7 +5,7 @@ using UnityEngine;
 namespace PrototypingPlayground.Singleton.GameManagerComponents
 {
 	[Serializable]
-	public class GameManagerComponent : MonoBehaviour
+	public class GameManagerComponentBehaviour : MonoBehaviour
 	{
 		private void OnEnable()
 		{
