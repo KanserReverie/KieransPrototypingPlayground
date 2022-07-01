@@ -16,9 +16,7 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
             _areWeSpawningBalls = false;
 
             _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
-            
-            if(_gameManagerEventBus != null)
-                _gameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
+            _gameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
         }
 
         #region Subscribe and Unsubscribe to Event Bus at OnEnable/OnDisable
@@ -55,8 +53,9 @@ namespace PrototypingPlayground.EventBus.PlatformerEventBus
         {
             if (ballToSpawn == null)
                 return;
-            var thisTransform = transform;
-            Instantiate(ballToSpawn, thisTransform.position, thisTransform.rotation);
+            Transform thisTransform = transform;
+            GameObject ballMade = Instantiate(ballToSpawn, thisTransform.position, thisTransform.rotation);
+            ballMade.gameObject.AddComponent(typeof(BallObstacle));
         }
     }
 }
