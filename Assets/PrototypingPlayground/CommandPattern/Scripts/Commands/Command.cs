@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.CommandPattern
+namespace PrototypingPlayground.CommandPattern.Commands
 {
     public abstract class Command
     {
