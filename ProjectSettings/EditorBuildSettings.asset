@@ -11,4 +11,5 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/PrototypingPlayground/Singleton/Scenes/Singleton_Gameplay.unity
     guid: a362029249e1d4746bd761b8174ee5af
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: 506ccbb9de217e34cad85d286b7fafa1, type: 2}

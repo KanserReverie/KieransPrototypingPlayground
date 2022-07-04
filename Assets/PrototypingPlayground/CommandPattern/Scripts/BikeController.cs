@@ -1,17 +1,44 @@
+using System;
 using UnityEngine;
 namespace PrototypingPlayground.CommandPattern
 {
     public class BikeController : MonoBehaviour
     {
-        public enum TurnDirection { Left = -1, Right = 1 }
-        
+        public enum TurnDirection
+        {
+            Left = -1,
+            Right = 1
+        }
+
+        private bool _isTurboOn;
+        private float _distance = 1.0f;
+        [SerializeField] private float turboSpeed = 1.0f;
+
+        public void TurnOffTurbo() => _isTurboOn = false;
+
         public void ToggleTurbo()
         {
-            throw new System.NotImplementedException();
+            _isTurboOn = !_isTurboOn;
+            Debug.Log("Turbo Active: " + _isTurboOn.ToString());
         }
-        public void Turn(TurnDirection directionToTurn)
+        public void FixedUpdate()
         {
-            throw new System.NotImplementedException();
+            if(_isTurboOn)
+                transform.Translate(Vector3.forward * turboSpeed * Time.fixedDeltaTime);
+        }
+
+        public void Turn(TurnDirection direction)
+        {
+            if (direction == TurnDirection.Left) 
+                transform.Translate(Vector3.left * _distance);
+        
+            if (direction == TurnDirection.Right)
+                transform.Translate(Vector3.right * _distance);
+        }
+
+        public void ResetPosition()
+        {
+            transform.position = new Vector3(0.0f, 0.0f, 0.0f);
         }
     }
 }
