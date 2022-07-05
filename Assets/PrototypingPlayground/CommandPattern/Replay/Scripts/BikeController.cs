@@ -1,6 +1,5 @@
-using System;
 using UnityEngine;
-namespace PrototypingPlayground.CommandPattern
+namespace PrototypingPlayground.CommandPattern.Replay
 {
     public class BikeController : MonoBehaviour
     {
