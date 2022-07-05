@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.CommandPattern.Replay.Commands
+namespace PrototypingPlayground.CommandPattern.ReplaySystem.Commands
 {
     public abstract class Command
     {
