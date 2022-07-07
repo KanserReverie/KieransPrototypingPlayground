@@ -2,17 +2,21 @@ namespace PrototypingPlayground.CommandPattern.RewindSystem.Scripts
 {
     public class ChangeColour : Command
     {
-        private PlayerMovementController _playerMovementController;
+        private readonly PlayerMovementController playerMovementController;
 
-        public ChangeColour(PlayerMovementController playerMovementController)
+        public ChangeColour(PlayerMovementController _playerMovementController) : base(_playerMovementController)
         {
-            _playerMovementController = playerMovementController;
+            playerMovementController = _playerMovementController;
         }
-
-
+        
         public override void Execute()
         {
-            throw new System.NotImplementedException();
+            playerMovementController.NextColour();
+        }
+        
+        public override void Undo()
+        {
+            playerMovementController.PreviousColour();
         }
     }
 }
