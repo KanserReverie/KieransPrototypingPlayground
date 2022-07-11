@@ -33,7 +33,7 @@ namespace PrototypingPlayground.AbstractClasses
         }
         private void DeleteCube()
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

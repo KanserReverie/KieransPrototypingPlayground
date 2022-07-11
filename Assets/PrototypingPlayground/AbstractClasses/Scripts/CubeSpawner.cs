@@ -11,11 +11,9 @@ namespace PrototypingPlayground.AbstractClasses
         {
             float scale = GetScale();
             float lifeSpan = GetLifeSpan();
-            GameObject SpawnableCube = new GameObject("Spawnable Cube");
-            GameObject cube =  Instantiate(
-                GameObject.CreatePrimitive(PrimitiveType.Cube), 
-                this.transform.position, 
-                Random.rotation);
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.transform.position = this.transform.position;
+            cube.transform.rotation = Random.rotation;
             cube.AddComponent<SpawnableCube>().Setup(scale, lifeSpan);
         }
         private float GetLifeSpan()
@@ -23,7 +21,7 @@ namespace PrototypingPlayground.AbstractClasses
             float lifeSpan = 1;
             if ((lifeSpanInputField.text == "") || string.IsNullOrEmpty(lifeSpanInputField.text))
             {
-                Debug.Log("Please input a LifeSpan, using '1' for now");
+                return lifeSpan;
             }
             else
             {
@@ -31,12 +29,10 @@ namespace PrototypingPlayground.AbstractClasses
                 Debug.Log(lifeSpanInputField.text.Length);
                 if (float.TryParse(lifeSpanInputField.text.Replace(".",","), out float _lifeSpan))
                 {
-                    Debug.Log("parse OK");
                     lifeSpan = _lifeSpan;
                 }
                 else
                 {
-                    Debug.Log("parse KO");
                     lifeSpan = 0;
                 }
             }
@@ -47,7 +43,7 @@ namespace PrototypingPlayground.AbstractClasses
             float scale = 1;
             if ((scaleInputField.text == "") || string.IsNullOrEmpty(scaleInputField.text))
             {
-                Debug.Log("Please input a Scale, using '1' for now");
+                return scale;
             }
             else
             {
@@ -55,12 +51,10 @@ namespace PrototypingPlayground.AbstractClasses
                 Debug.Log(scaleInputField.text.Length);
                 if (float.TryParse(scaleInputField.text.Replace(".",","), out float _scale))
                 {
-                    Debug.Log("parse OK");
                     scale = _scale;
                 }
                 else
                 {
-                    Debug.Log("parse KO");
                     scale = 0;
                 }
             }
