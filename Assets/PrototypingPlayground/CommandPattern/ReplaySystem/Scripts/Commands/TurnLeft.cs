@@ -10,7 +10,7 @@ namespace PrototypingPlayground.CommandPattern.ReplaySystem.Commands
         }
         
         public override void Execute()
-        {
+        { 
             _bikeController.Turn(BikeController.TurnDirection.Left);
         }
     }
