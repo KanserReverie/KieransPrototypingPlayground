@@ -1,6 +1,7 @@
 // Creator: 
 // Creation Time: 2022/06/11 10:28
 using System;
+using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 namespace PrototypingPlayground.Singleton.GameManagerComponents
@@ -43,11 +44,7 @@ namespace PrototypingPlayground.Singleton.GameManagerComponents
 			}
 			if(GUILayout.Button("End Session"))
 			{
-#if UNITY_EDITOR
-				UnityEditor.EditorApplication.isPlaying = false;
-#else
-				Application.Quit();
-#endif
+				CommonlyUsedStaticMethods.QuitGame();
 			}
 		}
 	}
