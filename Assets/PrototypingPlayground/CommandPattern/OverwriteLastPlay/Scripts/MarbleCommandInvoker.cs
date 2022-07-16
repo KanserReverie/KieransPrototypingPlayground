@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands;
 using UnityEngine;
@@ -54,6 +53,7 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         public void OnMove(InputAction.CallbackContext context)
         {
             horizontalMovementInput = context.ReadValue<Vector2>();
+            Debug.Log($"horizontalMovementInput = {horizontalMovementInput}");
         }
 
         #region Plumbing
@@ -95,8 +95,6 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         {
             if (!jumpInput) return;
 
-            if (gameHasStarted) return;
-
             if (weAreRecording)
             {
                 recordedCommands.Add(playTime, jump);
@@ -109,8 +107,6 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private void ExecuteHorizontalMovementCommand()
         {
             if (horizontalMovementInput.magnitude == 0) return;
-
-            if (gameHasStarted) return;
 
             if (weAreRecording)
             {

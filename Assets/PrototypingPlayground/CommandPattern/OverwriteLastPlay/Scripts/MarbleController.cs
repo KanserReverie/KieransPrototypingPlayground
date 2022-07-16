@@ -19,7 +19,10 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         public void HorizontalMovement(Vector2 _movementInput)
         {
             _movementInput.Normalize();
-            playerRigidbody.AddForce(new Vector3(_movementInput.x,0,_movementInput.y));
+            Vector3 movementForce = Vector3.forward;
+            movementForce.x += _movementInput.x;
+            movementForce.z += _movementInput.y;
+            playerRigidbody.AddForce(new Vector3(_movementInput.x,0,_movementInput.y)*movementSpeed);
         }
     }
 }

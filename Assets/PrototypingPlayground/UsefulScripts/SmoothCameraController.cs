@@ -5,6 +5,8 @@ namespace PrototypingPlayground.UsefulScripts
     {
         public enum CameraModes { Follow, Isometric, Free }
 
+        [SerializeField] private bool usePlayerInput = true;
+
         private Transform cameraTransform;
         private Transform dummyTarget;
 
@@ -75,7 +77,8 @@ namespace PrototypingPlayground.UsefulScripts
         // Update is called once per frame
         void LateUpdate()
         {
-            GetPlayerInput();
+            if(usePlayerInput) 
+                GetPlayerInput();
 
 
             // Check if we still have a valid target
@@ -114,7 +117,6 @@ namespace PrototypingPlayground.UsefulScripts
                 }
 
             }
-
         }
 
 
