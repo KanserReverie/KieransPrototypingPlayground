@@ -7,10 +7,14 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private Rigidbody playerRigidbody;
         [SerializeField] private float jumpForce = 300f;
         [SerializeField] private float movementSpeed = 4f;
+        private Vector3 spawnPoint;
+        private Quaternion spawnRotation;
 
         public void Start()
         {
             playerRigidbody = GetComponent<Rigidbody>();
+            spawnPoint = transform.position;
+            spawnRotation = transform.rotation;
         }
         public void Jump()
         {
@@ -23,6 +27,14 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
             movementForce.x += _movementInput.x;
             movementForce.z += _movementInput.y;
             playerRigidbody.AddForce(new Vector3(_movementInput.x,0,_movementInput.y)*movementSpeed);
+        }
+
+        public void SpawnMarble()
+        {
+            transform.position = spawnPoint;
+            transform.rotation = spawnRotation;
+            playerRigidbody.velocity = new Vector3(0,0,0);
+            playerRigidbody.angularVelocity = new Vector3(0f,0f,0f);
         }
     }
 }

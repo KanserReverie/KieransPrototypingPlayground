@@ -1,8 +1,8 @@
 namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands
 {
-    public class JumpMarbleCommand : AbstractMarbleCommand
+    public class Jump : AbstractMarbleCommand
     {
-        public JumpMarbleCommand (MarbleController _marbleController) : base(_marbleController) { }
+        public Jump (MarbleController _marbleController) : base(_marbleController) { }
         
         public override void ExecuteCommand()
         {

@@ -11,6 +11,5 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands
         }
         
         public virtual void ExecuteCommand() { }
-        public virtual void ExecuteCommand(Vector2 _vector2) { }
     }
 }
