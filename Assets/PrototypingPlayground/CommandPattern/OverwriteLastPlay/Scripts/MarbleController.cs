@@ -9,7 +9,12 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         [SerializeField] private float movementSpeed = 4f;
         private Vector3 spawnPoint;
         private Quaternion spawnRotation;
-
+        
+        public void Init(float _jumpForce, float _movementSpeed)
+        {
+            jumpForce = _jumpForce;
+            movementSpeed = _movementSpeed;
+        }
         public void Start()
         {
             playerRigidbody = GetComponent<Rigidbody>();
