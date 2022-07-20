@@ -20,7 +20,7 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private TMP_Text timerTMPText;
         private float startingGameTimer = 10f;
         
-        private readonly SortedList<float, AbstractMarbleCommand> recordedCommands = new SortedList<float, AbstractMarbleCommand>();
+        private SortedList<float, AbstractMarbleCommand> recordedCommands = new SortedList<float, AbstractMarbleCommand>();
         private float playTime;
         private bool jumpInput;
         private Vector2 horizontalMovementInput;
