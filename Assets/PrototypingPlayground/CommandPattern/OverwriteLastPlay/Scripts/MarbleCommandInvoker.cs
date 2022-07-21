@@ -15,9 +15,12 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private bool gameHasStarted;
         private float currentGameTimer;
 
+        private int commandCount;
+
         private PlayerInput playerInput;
         private MarbleController marbleController;
         private TMP_Text timerTMPText;
+        private TMP_Text statusTMPText;
         private float startingGameTimer = 10f;
         
         private SortedList<float, AbstractMarbleCommand> recordedCommands = new SortedList<float, AbstractMarbleCommand>();
@@ -25,11 +28,12 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private bool jumpInput;
         private Vector2 horizontalMovementInput;
 
-        public void Init(PlayerInput _playerInput, MarbleController _marbleController, TMP_Text _timerTMPText, float _startingGameTimer)
+        public void Init(PlayerInput _playerInput, MarbleController _marbleController, TMP_Text _timerTMPText, TMP_Text _statusTMPText, float _startingGameTimer)
         {
             playerInput = _playerInput;
             marbleController = _marbleController;
             timerTMPText = _timerTMPText;
+            statusTMPText = _statusTMPText;
             startingGameTimer = _startingGameTimer;
         }
 
@@ -39,19 +43,12 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
             
             if (weAreReplaying)
             {
-                if (currentGameTimer > 0)
+                if (currentGameTimer > 0 && recordedCommands.Any())
                 {
-                    Debug.Log($"recordedCommands.Keys[0] = {recordedCommands[0]}");
-                    if ((playTime + (0.5 * Time.fixedDeltaTime)) < recordedCommands.Keys[0])
+                    if ((playTime + (0.5 * Time.fixedDeltaTime)) > recordedCommands.Keys[commandCount])
                     {
-                        recordedCommands.Values[0].ExecuteCommand();
-                        recordedCommands.RemoveAt(0);
-                        
-                        if ((playTime + (0.5 * Time.fixedDeltaTime)) < recordedCommands.Keys[0])
-                        {
-                            recordedCommands.Values[0].ExecuteCommand();
-                            recordedCommands.RemoveAt(0);
-                        }
+                        recordedCommands.Values[commandCount].ExecuteCommand();
+                        commandCount++;
                     }
                 }
             }
@@ -62,23 +59,19 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         {
             currentGameTimer = startingGameTimer;
             timerTMPText.text = ($"{currentGameTimer}");
-            playerInput.actions.Disable();
+            statusTMPText.text = ($"Replaying");
             new Respawn(marbleController).ExecuteCommand();
             playTime = 0f;
             weAreRecording = false;
             weAreReplaying = true;
             recordedCommands.Reverse();
-            
-            for (int i = 0; i < recordedCommands.Count; i++)
-            {
-                Debug.Log($"recordedCommands[i] = {recordedCommands[i]}");
-            }
         }
         
         public void PauseGameBeforeRecording()
         {
             currentGameTimer = startingGameTimer;
             timerTMPText.text = ($"{currentGameTimer}");
+            statusTMPText.text = ($"");
             
             playerInput.actions.Disable();
             weAreRecording = false;
@@ -91,6 +84,7 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         public void StartSimulation()
         {
             Time.timeScale = 1;
+            statusTMPText.text = ($"Recording");
             playerInput.actions.Enable();
             gameHasStarted = true;
             weAreRecording = true;
@@ -110,7 +104,7 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
             if (currentGameTimer <= 0)
             {
                 currentGameTimer = 0;
-                if (weAreReplaying)
+                if (!weAreRecording && !weAreReplaying)
                 {
                     CommonlyUsedStaticMethods.QuitGame();
                 }
@@ -128,8 +122,15 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
                     // This is just encase there is already an input at this frame. 
                     recordedCommands.Add(playTime + (Time.fixedDeltaTime / 4), _marbleCommandToRun);
                 }
-                
-                recordedCommands.Add(playTime, _marbleCommandToRun);
+                else
+                {
+                    recordedCommands.Add(playTime, _marbleCommandToRun);
+                }
+            }
+            if (weAreReplaying)
+            {
+                weAreReplaying = false;
+                statusTMPText.text = ($"");
             }
         }
     }

@@ -7,19 +7,29 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
         private Rigidbody playerRigidbody;
         [SerializeField] private float jumpForce = 300f;
         [SerializeField] private float movementSpeed = 4f;
+        [SerializeField] private float playerGravity = 9.81f;
         private Vector3 spawnPoint;
         private Quaternion spawnRotation;
         
-        public void Init(float _jumpForce, float _movementSpeed)
+        public void Init(float _jumpForce, float _movementSpeed, float _playerGravity)
         {
             jumpForce = _jumpForce;
             movementSpeed = _movementSpeed;
+            playerGravity = _playerGravity;
         }
         public void Start()
         {
             playerRigidbody = GetComponent<Rigidbody>();
             spawnPoint = transform.position;
             spawnRotation = transform.rotation;
+        }
+
+        public void FixedUpdate()
+        {
+            // Add extra gravity.
+            Vector3 gravityForce = new(0, -playerGravity, 0);
+            gravityForce -= Physics.gravity;
+            playerRigidbody.AddForce(gravityForce);
         }
         public void Jump()
         {

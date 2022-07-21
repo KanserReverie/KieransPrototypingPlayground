@@ -2,17 +2,21 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands;
+using PrototypingPlayground.UsefulScripts;
 using TMPro;
 
 namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
 {
     public class MarbleInputHandler : MonoBehaviour
     {
+        [Header("Canvas Text")]
         [SerializeField] private TMP_Text timerTMPText;
         [SerializeField] private float startingGameTimer = 10f;
+        [SerializeField] private TMP_Text statusTMPText;
         [Header("Initialise Marble Controller")]
         [SerializeField] private float jumpForce = 300f;
         [SerializeField] private float movementSpeed = 100f;
+        [SerializeField] private float playerGravity = 9.81f;
 
         private MarbleCommandInvoker marbleCommandInvoker;
         private PlayerInput playerInput;
@@ -29,8 +33,8 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
             marbleController = gameObject.AddComponent<MarbleController>();
             playerInput = GetComponent<PlayerInput>();
             
-            marbleCommandInvoker.Init(playerInput, marbleController, timerTMPText, startingGameTimer);
-            marbleController.Init(jumpForce, movementSpeed);
+            marbleCommandInvoker.Init(playerInput, marbleController, timerTMPText, statusTMPText,startingGameTimer);
+            marbleController.Init(jumpForce, movementSpeed,playerGravity);
 
             gameHasStarted = false;
             marbleCommandInvoker.PauseGameBeforeRecording();
@@ -58,21 +62,25 @@ namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
             if (horizontalMovementInput.magnitude != 0)
             {
                 marbleCommandInvoker.ExecuteCommand(new HorizontalMovement(marbleController, horizontalMovementInput));
-                horizontalMovementInput = Vector2.zero;
             }
         }
 
-        public void OnJump(InputAction.CallbackContext context)
+        public void OnJump(InputAction.CallbackContext _context)
         {
-            if (context.started)
+            if (_context.started)
             {
                 jumpInput = true;
             }
         }
         
-        public void OnMove(InputAction.CallbackContext context)
+        public void OnMove(InputAction.CallbackContext _context)
         {
-            horizontalMovementInput = context.ReadValue<Vector2>();
+            horizontalMovementInput = _context.ReadValue<Vector2>();
+        }
+
+        public void OnQuit(InputAction.CallbackContext _context)
+        {
+            CommonlyUsedStaticMethods.QuitGame();
         }
     }
 }
