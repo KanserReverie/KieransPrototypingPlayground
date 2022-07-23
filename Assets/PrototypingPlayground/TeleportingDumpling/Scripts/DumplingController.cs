@@ -8,7 +8,6 @@ namespace PrototypingPlayground.TeleportingDumpling
     {
         [SerializeField] private float horizontalMovementSpeed;
         [SerializeField] private GameObject activateText;
-        [SerializeField] private float extraGravity = 9.81f;
         private Rigidbody dumplingRigidbody;
         private Vector2 horizontalMoveInput;
         private UnityAction activateAction;
@@ -24,7 +23,6 @@ namespace PrototypingPlayground.TeleportingDumpling
         private void FixedUpdate()
         {
             dumplingRigidbody.AddForce(new Vector3(horizontalMoveInput.x, 0, horizontalMoveInput.y) * horizontalMovementSpeed);
-            dumplingRigidbody.velocity += new Vector3(0, -extraGravity, 0);
         }
 
         public void OnMove(InputAction.CallbackContext _moveInput)
