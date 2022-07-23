@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.ThrowingDumpling
+namespace PrototypingPlayground.ThrowingDumpling.ActivateCommands
 {
     public abstract class AbstractActivateCommands
     {

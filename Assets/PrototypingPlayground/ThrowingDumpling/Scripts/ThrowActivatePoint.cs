@@ -1,7 +1,8 @@
+using PrototypingPlayground.ThrowingDumpling.ActivateCommands;
 using UnityEngine;
 namespace PrototypingPlayground.ThrowingDumpling
 {
-    public class ThrowAbstractActivatePoint : AbstractActivatePoint
+    public class ThrowActivatePoint : AbstractActivatePoint
     {
         [SerializeField] private Vector3 throwForce;
 

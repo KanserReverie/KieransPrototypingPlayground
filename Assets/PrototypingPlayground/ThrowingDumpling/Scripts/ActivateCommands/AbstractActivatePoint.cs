@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.ThrowingDumpling
+namespace PrototypingPlayground.ThrowingDumpling.ActivateCommands
 {
     public abstract class AbstractActivatePoint :  MonoBehaviour
     {
