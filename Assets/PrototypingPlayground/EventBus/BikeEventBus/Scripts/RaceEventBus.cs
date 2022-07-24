@@ -1,9 +1,8 @@
 using System.Collections.Generic;
-using UnityEngine;
 using UnityEngine.Events;
 namespace PrototypingPlayground.EventBus.BikeEventBus
 {
-    public class RaceEventBus
+    public static class RaceEventBus
     {
         private static readonly IDictionary<RaceEventType, UnityEvent> RaceEventsToUnityEventsDictionary 
             = new Dictionary<RaceEventType, UnityEvent>();
