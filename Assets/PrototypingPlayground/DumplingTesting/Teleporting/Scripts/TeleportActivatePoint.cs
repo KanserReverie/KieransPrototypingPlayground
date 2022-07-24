@@ -1,6 +1,6 @@
-using PrototypingPlayground.TeleportingDumpling.ActivateCommands;
+using PrototypingPlayground.DumplingTesting.Teleporting.ActivateCommands;
 using UnityEngine;
-namespace PrototypingPlayground.TeleportingDumpling
+namespace PrototypingPlayground.DumplingTesting.Teleporting
 {
     public class TeleportActivatePoint : AbstractActivatePoint
     {

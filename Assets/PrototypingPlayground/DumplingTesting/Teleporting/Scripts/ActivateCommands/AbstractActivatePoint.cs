@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.TeleportingDumpling.ActivateCommands
+namespace PrototypingPlayground.DumplingTesting.Teleporting.ActivateCommands
 {
     public abstract class AbstractActivatePoint :  MonoBehaviour
     {

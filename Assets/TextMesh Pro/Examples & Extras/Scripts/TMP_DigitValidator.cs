@@ -1,8 +1,6 @@
-﻿using UnityEngine;
-using System;
-
-
-namespace TMPro
+﻿using System;
+using TMPro;
+namespace TextMesh_Pro.Examples___Extras.Scripts
 {
     /// <summary>
     /// EXample of a Custom Character Input Validator to only allow digits from 0 to 9.

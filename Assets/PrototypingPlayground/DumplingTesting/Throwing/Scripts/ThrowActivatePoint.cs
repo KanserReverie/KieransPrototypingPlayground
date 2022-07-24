@@ -1,6 +1,6 @@
-using PrototypingPlayground.ThrowingDumpling.ActivateCommands;
+using PrototypingPlayground.DumplingTesting.Throwing.ActivateCommands;
 using UnityEngine;
-namespace PrototypingPlayground.ThrowingDumpling
+namespace PrototypingPlayground.DumplingTesting.Throwing
 {
     public class ThrowActivatePoint : AbstractActivatePoint
     {

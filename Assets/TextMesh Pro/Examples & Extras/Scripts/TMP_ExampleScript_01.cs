@@ -1,10 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
-using System.Collections;
-using TMPro;
-
-
-namespace TMPro.Examples
+﻿using TMPro;
+using UnityEngine;
+namespace TextMesh_Pro.Examples___Extras.Scripts
 {
 
     public class TMP_ExampleScript_01 : MonoBehaviour

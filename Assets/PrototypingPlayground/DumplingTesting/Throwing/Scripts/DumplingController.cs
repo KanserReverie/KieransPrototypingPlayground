@@ -1,17 +1,17 @@
+using PrototypingPlayground.DumplingTesting.Throwing.ActivateCommands;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using PrototypingPlayground.TeleportingDumpling.ActivateCommands;
-namespace PrototypingPlayground.TeleportingDumpling
+namespace PrototypingPlayground.DumplingTesting.Throwing
 {
     public class DumplingController : MonoBehaviour
     {
-        [SerializeField] private float horizontalMovementSpeed;
-        [SerializeField] private GameObject activateText;
         private Rigidbody dumplingRigidbody;
         private Vector2 horizontalMoveInput;
         private UnityAction activateAction;
-        
+        [SerializeField] private float horizontalMovementSpeed = 5f;
+        [SerializeField] private GameObject activateText;
+
         // Start is called before the first frame update
         void Start()
         {
@@ -29,7 +29,7 @@ namespace PrototypingPlayground.TeleportingDumpling
         {
             horizontalMoveInput = _moveInput.ReadValue<Vector2>().normalized;
         }
-        
+
         public void OnActivate(InputAction.CallbackContext _Activate)
         {
             if (_Activate.started)
