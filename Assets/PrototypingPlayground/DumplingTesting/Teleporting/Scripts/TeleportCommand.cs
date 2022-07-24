@@ -15,7 +15,11 @@ namespace PrototypingPlayground.DumplingTesting.Teleporting
         
         public override void ExecuteCommand()
         {
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.angularVelocity = Vector3.zero;
             playerRigidbody.MovePosition(teleportLocation);
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.angularVelocity = Vector3.zero;
         }
     }
 }

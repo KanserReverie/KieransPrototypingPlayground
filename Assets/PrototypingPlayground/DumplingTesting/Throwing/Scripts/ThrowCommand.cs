@@ -15,6 +15,8 @@ namespace PrototypingPlayground.DumplingTesting.Throwing
         
         public override void ExecuteCommand()
         {
+            playerRigidbody.velocity = Vector3.zero;
+            playerRigidbody.angularVelocity = Vector3.zero;
             playerRigidbody.AddForce(playerForce);
         }
     }
