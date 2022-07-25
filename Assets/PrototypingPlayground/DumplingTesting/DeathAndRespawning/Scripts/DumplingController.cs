@@ -8,6 +8,7 @@ namespace PrototypingPlayground.DumplingTesting.DeathAndRespawning
         private Rigidbody dumplingRigidBody;
         private Vector2 horizontalMoveInput;
         [SerializeField] private float horizontalMovementInput = 800f;
+        [SerializeField] private float extraGravity;
         
         // Start is called before the first frame update
         void Start()
@@ -20,6 +21,11 @@ namespace PrototypingPlayground.DumplingTesting.DeathAndRespawning
         private void FixedUpdate()
         {
             dumplingRigidBody.AddForce(new Vector3(horizontalMoveInput.x, 0, horizontalMoveInput.y) * horizontalMovementInput * Time.fixedDeltaTime);
+            
+            if(dumplingRigidBody.velocity.y < 0)
+            {
+                dumplingRigidBody.velocity += Vector3.up * (-extraGravity * Time.deltaTime);
+            }
         }
 
         public void OnMove(InputAction.CallbackContext _moveInput)
@@ -40,7 +46,7 @@ namespace PrototypingPlayground.DumplingTesting.DeathAndRespawning
                 CommonlyUsedStaticMethods.QuitGame();
             }
         }
-        
+
         private void Respawn()
         {
             dumplingRigidBody.velocity = Vector3.zero;

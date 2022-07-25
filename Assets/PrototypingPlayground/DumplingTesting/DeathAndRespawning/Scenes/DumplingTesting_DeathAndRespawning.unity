@@ -429,6 +429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontalMovementInput: 800
+  extraGravity: 40
 --- !u!4 &162855896
 Transform:
   m_ObjectHideFlags: 0
@@ -891,6 +892,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865a716dbfee95b42a8dc14e53a7f224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  communalLives: 0
+  startingLivesAmount: 10
 --- !u!4 &1957796763
 Transform:
   m_ObjectHideFlags: 0
