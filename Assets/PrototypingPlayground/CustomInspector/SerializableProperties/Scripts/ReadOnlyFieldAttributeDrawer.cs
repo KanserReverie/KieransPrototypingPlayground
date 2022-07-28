@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using UnityEditor;
 using UnityEngine;
-namespace PrototypingPlayground.SerializableProperties
+namespace PrototypingPlayground.CustomInspector.SerializableProperties
 {
     [UsedImplicitly, CustomPropertyDrawer(typeof(ReadOnlyFieldAttribute))]
     public class ReadOnlyFieldAttributeDrawer : PropertyDrawer

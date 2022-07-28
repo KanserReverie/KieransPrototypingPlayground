@@ -1,6 +1,5 @@
 using UnityEngine;
-
-namespace PrototypingPlayground.SerializableProperties
+namespace PrototypingPlayground.CustomInspector.SerializableProperties
 {
     public class PlayerScript : MonoBehaviour
     {
