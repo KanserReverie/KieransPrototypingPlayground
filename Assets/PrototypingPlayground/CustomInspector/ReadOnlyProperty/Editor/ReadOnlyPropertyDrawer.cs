@@ -6,8 +6,8 @@ namespace PrototypingPlayground.CustomInspector.ReadOnlyProperty
     /// <summary>
     /// This class contain custom drawer for ReadOnly attribute.
     /// </summary>
-    [CustomPropertyDrawer(typeof(ReadOnlyAttribute))]
-    public class ReadOnlyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(ReadOnlyPropertyAttribute))]
+    public class ReadOnlyPropertyDrawer : PropertyDrawer
     {
         /// <summary>
         /// Unity method for drawing GUI in Editor

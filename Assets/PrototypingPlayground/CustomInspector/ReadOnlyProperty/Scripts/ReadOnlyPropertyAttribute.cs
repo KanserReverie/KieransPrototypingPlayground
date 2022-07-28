@@ -5,5 +5,5 @@ namespace PrototypingPlayground.CustomInspector.ReadOnlyProperty
     /// Read Only attribute.
     /// Attribute is use only to mark ReadOnly properties.
     /// </summary>
-    public class ReadOnlyAttribute : PropertyAttribute { }
+    public class ReadOnlyPropertyAttribute : PropertyAttribute { }
 }
