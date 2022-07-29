@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PrototypingPlayground/Singleton/Scenes/Singleton_Lobby.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/PrototypingPlayground/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/VRandSplitScreenLocalGame_PCOnlyGameplay_Lobby.unity
+    guid: 680709845479d7e4d82f8efd154fee92
   - enabled: 1
-    path: Assets/PrototypingPlayground/Singleton/Scenes/Singleton_Gameplay.unity
-    guid: a362029249e1d4746bd761b8174ee5af
+    path: Assets/PrototypingPlayground/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/VRandSplitScreenLocalGame_PCOnlyGameplay_GamePlay.unity
+    guid: e2fa5deaa2bc7a745b1c4cda0a9408cd
   m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d49575052a0439840a34c57d35be62c6, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 506ccbb9de217e34cad85d286b7fafa1, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 81cace0fc0840074baadc47213938cc6, type: 2}
