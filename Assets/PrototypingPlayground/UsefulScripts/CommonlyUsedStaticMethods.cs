@@ -1,3 +1,4 @@
+using UnityEngine;
 namespace PrototypingPlayground.UsefulScripts
 {
     public static class CommonlyUsedStaticMethods
@@ -8,6 +9,7 @@ namespace PrototypingPlayground.UsefulScripts
         /// </summary>
         public static void QuitGame()
         {
+            Debug.Log($"Quitting Game");
             #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
