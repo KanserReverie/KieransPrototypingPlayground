@@ -1,6 +1,5 @@
 using UnityEngine;
-
-namespace PrototypingPlayground.Singleton
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton
 {
     public class PlayerMovement : MonoBehaviour
     {

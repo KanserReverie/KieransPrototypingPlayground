@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
     public class GameManagerEventBus : MonoBehaviour
     {

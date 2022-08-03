@@ -1,6 +1,5 @@
-using System;
 using UnityEngine;
-namespace PrototypingPlayground.AbstractClasses
+namespace PrototypingPlayground.BasicConcepts.AbstractClasses
 {
     public abstract class CubeBehaviour : MonoBehaviour
     {

@@ -1,6 +1,5 @@
-using System;
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
     public class Boundary : MonoBehaviour
     {

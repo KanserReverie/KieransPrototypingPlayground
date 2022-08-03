@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.BikeEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.BikeEventBus
 {
     public class HUDController : MonoBehaviour
     {

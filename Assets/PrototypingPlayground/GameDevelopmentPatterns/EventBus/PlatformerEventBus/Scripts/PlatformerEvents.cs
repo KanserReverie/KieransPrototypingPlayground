@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
     public enum PlatformerEvents
     {

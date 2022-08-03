@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
-namespace PrototypingPlayground.StateMachine.Obstacle
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.Obstacle
 {
     public class ObstacleActions : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.EventBus.BikeEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.BikeEventBus
 {
     public enum RaceEventType
     {

@@ -1,6 +1,4 @@
-using PrototypingPlayground.StateMachine.BikeStateMachine;
-using UnityEngine;
-namespace PrototypingPlayground.StateMachine.BikeStateMachine
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.BikeStateMachine
 {
     public interface IBikeState
     {

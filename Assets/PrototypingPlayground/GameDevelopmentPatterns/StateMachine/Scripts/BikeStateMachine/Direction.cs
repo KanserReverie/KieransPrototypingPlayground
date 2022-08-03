@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.StateMachine.BikeStateMachine
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.BikeStateMachine
 {
     public enum Direction
     {

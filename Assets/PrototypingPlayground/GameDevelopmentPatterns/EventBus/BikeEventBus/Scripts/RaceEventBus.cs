@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine.Events;
-namespace PrototypingPlayground.EventBus.BikeEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.BikeEventBus
 {
     public static class RaceEventBus
     {

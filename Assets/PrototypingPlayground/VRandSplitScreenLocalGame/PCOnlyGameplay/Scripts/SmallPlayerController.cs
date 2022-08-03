@@ -1,9 +1,7 @@
-using System;
-using System.Collections;
 using PrototypingPlayground.CustomInspector.ReadOnlyProperty;
 using UnityEngine;
 using UnityEngine.InputSystem;
-namespace PrototypingPlayground.VRandSplitScreenLocalGame
+namespace PrototypingPlayground.VRandSplitScreenLocalGame.PCOnlyGameplay
 {
     [RequireComponent(typeof(Rigidbody))]
     public class SmallPlayerController : MonoBehaviour

@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
-namespace PrototypingPlayground.UnityEvents.Scripts
+namespace PrototypingPlayground.BasicConcepts.UnityEvents
 {
     public class BouncingSpheresManager : MonoBehaviour
     {

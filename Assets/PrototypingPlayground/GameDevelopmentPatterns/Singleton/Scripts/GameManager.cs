@@ -1,11 +1,9 @@
 // Creator: Kieran
 // Creation Time: 2022/06/11 9:16
 using System.Collections.Generic;
-using PrototypingPlayground.Singleton.GameManagerComponents;
+using PrototypingPlayground.GameDevelopmentPatterns.Singleton.GameManagerComponents;
 using UnityEngine;
-using UnityEngine.Serialization;
-
-namespace PrototypingPlayground.Singleton
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton
 {
 	public class GameManager : SingletonBehaviour<GameManager>
 	{

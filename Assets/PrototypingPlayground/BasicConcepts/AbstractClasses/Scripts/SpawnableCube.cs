@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.AbstractClasses
+namespace PrototypingPlayground.BasicConcepts.AbstractClasses
 {
     public class SpawnableCube : CubeBehaviour
     {

@@ -1,8 +1,6 @@
-using System;
 using System.IO;
 using UnityEngine;
-
-namespace PrototypingPlayground.Singleton.GameManagerComponents
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton.GameManagerComponents
 {
     public class PlayerSaveDataManager : GameManagerComponentBehaviour
     {

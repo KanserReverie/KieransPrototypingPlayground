@@ -1,7 +1,6 @@
-using System;
 using TMPro;
 using UnityEngine;
-namespace PrototypingPlayground.UnityEvents.Scripts
+namespace PrototypingPlayground.BasicConcepts.UnityEvents
 {
     public class BoxCollisionCounter : MonoBehaviour
     {

@@ -1,7 +1,6 @@
-using System;
 using System.Collections;
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
     public class BallSpawner : MonoBehaviour
     {

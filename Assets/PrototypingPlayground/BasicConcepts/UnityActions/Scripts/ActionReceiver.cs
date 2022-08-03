@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.UnityActions.Scripts
+namespace PrototypingPlayground.BasicConcepts.UnityActions
 {
     public class ActionReceiver : MonoBehaviour
     {

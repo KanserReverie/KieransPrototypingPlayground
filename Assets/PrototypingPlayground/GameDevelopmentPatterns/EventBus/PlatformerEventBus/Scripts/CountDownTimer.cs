@@ -1,8 +1,7 @@
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
     public class CountDownTimer : MonoBehaviour
     {

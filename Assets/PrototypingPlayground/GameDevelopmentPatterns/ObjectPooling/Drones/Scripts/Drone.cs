@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Pool;
-namespace PrototypingPlayground.ObjectPooling.Drones
+namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Drones
 {
     public class Drone : MonoBehaviour
     {

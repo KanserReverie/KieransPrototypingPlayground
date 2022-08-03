@@ -1,7 +1,7 @@
 using UnityEngine;
-namespace PrototypingPlayground.EventBus.PlatformerEventBus
+namespace PrototypingPlayground.GameDevelopmentPatterns.EventBus.PlatformerEventBus
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerCharacterController : MonoBehaviour
     {
         private UnityEngine.CharacterController _characterController;
         [Header("Physics Settings")]

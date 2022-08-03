@@ -2,7 +2,7 @@
 // Creation Time: 2022/06/11 10:25
 using System;
 using UnityEngine;
-namespace PrototypingPlayground.Singleton.GameManagerComponents
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton.GameManagerComponents
 {
 	public class TimeManager : GameManagerComponentBehaviour
 	{

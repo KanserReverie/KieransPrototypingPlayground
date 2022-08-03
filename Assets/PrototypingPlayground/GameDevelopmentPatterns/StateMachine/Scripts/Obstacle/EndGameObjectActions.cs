@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.StateMachine.Obstacle
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.Obstacle
 {
     public class EndGameObjectActions : MonoBehaviour
     {

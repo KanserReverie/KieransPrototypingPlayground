@@ -1,8 +1,6 @@
-using System;
-using PrototypingPlayground.StateMachine.BikeStateMachine;
-using UnityEditor.Animations;
+using PrototypingPlayground.GameDevelopmentPatterns.StateMachine.BikeStateMachine;
 using UnityEngine;
-namespace PrototypingPlayground.StateMachine.Obstacle
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.Obstacle
 {
     public class ObstacleDropper : MonoBehaviour
     {

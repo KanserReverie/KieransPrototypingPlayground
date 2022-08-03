@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.StateMachine.BikeStateMachine
+namespace PrototypingPlayground.GameDevelopmentPatterns.StateMachine.BikeStateMachine
 {
     public class BikeController : MonoBehaviour
     {

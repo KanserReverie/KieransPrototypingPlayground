@@ -1,9 +1,7 @@
 // Creator: 
 // Creation Time: 2022/06/10 9:55
-using System;
 using UnityEngine;
-
-namespace PrototypingPlayground.Singleton
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton
 {
 	public class SingletonBehaviour<T> : MonoBehaviour where T : Component
 	{

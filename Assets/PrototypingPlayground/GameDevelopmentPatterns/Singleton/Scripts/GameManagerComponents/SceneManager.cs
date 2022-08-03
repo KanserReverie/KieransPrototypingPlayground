@@ -3,7 +3,7 @@
 using System;
 using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
-namespace PrototypingPlayground.Singleton.GameManagerComponents
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton.GameManagerComponents
 {
 	public class SceneManager : GameManagerComponentBehaviour
 	{

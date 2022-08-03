@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.ConstReadonlyStaticReadonly.Scripts
+namespace PrototypingPlayground.BasicConcepts.ConstReadonlyStaticReadonly
 {
     public class ReadonlyManager : MonoBehaviour
     {

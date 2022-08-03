@@ -1,9 +1,7 @@
-using System;
 using System.Collections;
 using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
-
-namespace PrototypingPlayground.Properties
+namespace PrototypingPlayground.BasicConcepts.Properties
 {
     public class PropertiesExample : MonoBehaviour
     {

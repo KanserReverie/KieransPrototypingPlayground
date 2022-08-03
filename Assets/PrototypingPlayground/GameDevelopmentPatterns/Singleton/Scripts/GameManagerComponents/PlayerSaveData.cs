@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.Singleton.GameManagerComponents
+namespace PrototypingPlayground.GameDevelopmentPatterns.Singleton.GameManagerComponents
 {
     // ReSharper disable once ClassNeverInstantiated.Global
     public class PlayerSaveData

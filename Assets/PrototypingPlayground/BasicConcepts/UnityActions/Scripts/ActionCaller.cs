@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
-namespace PrototypingPlayground.UnityActions.Scripts
+namespace PrototypingPlayground.BasicConcepts.UnityActions
 {
     public class ActionCaller : MonoBehaviour
     {

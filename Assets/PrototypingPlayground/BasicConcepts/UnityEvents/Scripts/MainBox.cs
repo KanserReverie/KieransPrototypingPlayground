@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
-namespace PrototypingPlayground.UnityEvents.Scripts
+namespace PrototypingPlayground.BasicConcepts.UnityEvents
 {
     [RequireComponent(typeof(Rigidbody))]
     public class MainBox : MonoBehaviour
