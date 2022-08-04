@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Pool;
 namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Drones
 {
     public class Drone : MonoBehaviour
     {
-        public IObjectPool<Drone> Done { get; set; }
+        public IObjectPool<Drone> Pool { get; set; }
 
         private float currentHealth;
         public float CurrentHealth
@@ -24,12 +25,10 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Drones
 
         [SerializeField] private float maxHealth = 100.0f;
         [SerializeField] private float timeToSelfDestruct = 3.0f;
-        [SerializeField]
 
         public void Start()
         {
-            CurrentHealth = maxHealth + 10;
-            Debug.Log(CurrentHealth);
+            CurrentHealth = maxHealth;
         }
 
         private void OnEnable()
@@ -46,18 +45,34 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Drones
         private IEnumerator SelfDestruct()
         {
             yield return new WaitForSeconds(timeToSelfDestruct);
-            CurrentHealth -= maxHealth;
+            TakeDamage(maxHealth);
+        }
+        public void TakeDamage(float _amount)
+        {
+            CurrentHealth -= _amount;
+
+            if (CurrentHealth <= 0)
+            {
+                ReturnToPool();
+            }
+        }
+        private void ReturnToPool()
+        {
+            Pool.Release(this);
         }
         private void AttackPlayer()
         {
-            throw new NotImplementedException();
+            Debug.Log("Attacking Player");
         }
-        
         
         private void ResetDrone()
         {
-            throw new NotImplementedException();
+            CurrentHealth = maxHealth;
         }
 
+        private void OnDrawGizmosSelected()
+        {
+            Handles.Label(transform.position, $"{gameObject.name}");
+        }
     }
 }
