@@ -1,11 +1,9 @@
-using System;
-using UnityEngine;
-using UnityEngine.InputSystem;
-using PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands;
+using PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.OverwriteLastPlay.Commands;
 using PrototypingPlayground.UsefulScripts;
 using TMPro;
-
-namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
+using UnityEngine;
+using UnityEngine.InputSystem;
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.OverwriteLastPlay
 {
     public class MarbleInputHandler : MonoBehaviour
     {

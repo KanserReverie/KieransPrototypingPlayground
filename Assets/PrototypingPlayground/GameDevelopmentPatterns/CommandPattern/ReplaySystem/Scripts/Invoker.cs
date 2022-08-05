@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
+using PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.ReplaySystem.Commands;
 using UnityEngine;
-using PrototypingPlayground.CommandPattern.ReplaySystem.Commands;
-
-namespace PrototypingPlayground.CommandPattern.ReplaySystem
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.ReplaySystem
 {
     public class Invoker : MonoBehaviour
     {

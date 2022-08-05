@@ -1,5 +1,4 @@
-using UnityEngine;
-namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.OverwriteLastPlay.Commands
 {
     public abstract class AbstractMarbleCommand
     {

@@ -20,6 +20,8 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Ceventbus_005Cbikeeventbus_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Ceventbus_005Cplatformereventbus_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Ceventbus_005Cscripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Ccommandpattern_005Coverwritelastplay_005Cscripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Ccommandpattern_005Creplaysystem_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Ceventbus_005Cbikeeventbus_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Ceventbus_005Cplatformereventbus_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cobjectpooling_005Cdrones_005Cscripts/@EntryIndexedValue">True</s:Boolean>

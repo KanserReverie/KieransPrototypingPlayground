@@ -1,4 +1,4 @@
-namespace PrototypingPlayground.CommandPattern.ReplaySystem.Commands
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.ReplaySystem.Commands
 {
     public class TurnRight : Command
     {

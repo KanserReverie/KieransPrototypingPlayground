@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
+using PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.OverwriteLastPlay.Commands;
+using PrototypingPlayground.UsefulScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PrototypingPlayground.CommandPattern.OverwriteLastPlay.Commands;
-using PrototypingPlayground.UsefulScripts;
-
-namespace PrototypingPlayground.CommandPattern.OverwriteLastPlay
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.OverwriteLastPlay
 {
     public class MarbleCommandInvoker : MonoBehaviour
     {

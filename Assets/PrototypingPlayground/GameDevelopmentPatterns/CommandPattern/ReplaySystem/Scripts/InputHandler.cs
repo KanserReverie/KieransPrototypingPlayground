@@ -1,8 +1,7 @@
+using PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.ReplaySystem.Commands;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using PrototypingPlayground.CommandPattern.ReplaySystem.Commands;
-
-namespace PrototypingPlayground.CommandPattern.ReplaySystem
+namespace PrototypingPlayground.GameDevelopmentPatterns.CommandPattern.ReplaySystem
 {
     public class InputHandler : MonoBehaviour
     {
