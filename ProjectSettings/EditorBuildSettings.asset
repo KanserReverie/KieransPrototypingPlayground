@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/PrototypingPlayground/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/VRandSplitScreenLocalGame_PCOnlyGameplay_Lobby.unity
+    path: Assets/PrototypingPlayground/ProjectPrototypes/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/ProjectPrototypes_VRandSplitScreenLocalGame_LobbyToGameplay_Lobby.unity
     guid: 680709845479d7e4d82f8efd154fee92
   - enabled: 1
-    path: Assets/PrototypingPlayground/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/VRandSplitScreenLocalGame_PCOnlyGameplay_GamePlay.unity
+    path: Assets/PrototypingPlayground/ProjectPrototypes/VRandSplitScreenLocalGame/LobbyToGameplay/Scenes/ProjectPrototypes_VRandSplitScreenLocalGame_LobbyToGameplay_GamePlay.unity
     guid: e2fa5deaa2bc7a745b1c4cda0a9408cd
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d49575052a0439840a34c57d35be62c6, type: 2}
