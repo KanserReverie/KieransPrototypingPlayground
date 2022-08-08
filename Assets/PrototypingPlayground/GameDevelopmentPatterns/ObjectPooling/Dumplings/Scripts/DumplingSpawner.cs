@@ -17,7 +17,7 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
         void Start()
         {
             spawnPerimeter = new SpawnPerimeter(dumplingSpawnPerimeter, this.transform);
-            Dumpling newDumpling = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetEndDestinationRotation());
+            Dumpling newDumpling = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
             newDumpling.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
         }
         private void OnDrawGizmos()
@@ -26,7 +26,6 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
             
             // Get Center.
             Vector3 startLocation = new Vector3(transform.position.x + dumplingSpawnPerimeter.x,transform.position.y, transform.position.z + dumplingSpawnPerimeter.y);
-            Gizmos.DrawSphere(startLocation, 0.3f);
             
             // Get all Corners
             Vector3[] allCorners = new Vector3[4];

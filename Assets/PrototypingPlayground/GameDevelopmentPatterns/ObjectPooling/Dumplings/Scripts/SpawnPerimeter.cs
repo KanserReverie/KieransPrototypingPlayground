@@ -7,12 +7,10 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
             private Vector3 spawnPointPosition;
             private Quaternion spawnPointRotation;
             private Vector3 endDestinationPosition;
-            private Quaternion endDestinationRotation;
             
             public Vector3 GetSpawnPointPosition() => spawnPointPosition;
             public Quaternion GetSpawnPointRotation() => spawnPointRotation;
             public Vector3 GetEndDestinationPosition() => endDestinationPosition;
-            public Quaternion GetEndDestinationRotation() => endDestinationRotation;
             
             public SpawnPerimeter(Rect _perimeterRect, Transform _spawnTransform)
             {
@@ -52,7 +50,6 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
                         break;
                 }
                 spawnPointRotation = Quaternion.FromToRotation(spawnPointPosition, endDestinationPosition);
-                endDestinationRotation = spawnPointRotation;
             }
 
             private Vector3 GenerateRandomPoint(Vector3 _point1, Vector3 _point2)
