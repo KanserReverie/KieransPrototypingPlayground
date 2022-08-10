@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Assertions;
-namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
+namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings.WithoutObjectPooling
 {
     public class DumplingSpawner : MonoBehaviour
     {
@@ -11,15 +11,25 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
         
         private void Awake()
         {
-            Assert.IsNotNull(dumplingPrefab.GetComponent<Dumpling>());
+            Assert.IsNotNull(dumplingPrefab.GetComponent<Dumpling_WithoutObjectPool>());
         }
         
         void Start()
         {
             spawnPerimeter = new SpawnPerimeter(dumplingSpawnPerimeter, this.transform);
-            Dumpling newDumpling = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
-            newDumpling.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
+            Dumpling_WithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
+            newDumplingWithoutObjectPool.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
         }
+        private void OnGUI()
+        {
+            if (GUILayout.Button("Spawn Dumpling"))
+            {
+                spawnPerimeter.GenerateRandomSpawnPointAndDestination();
+                Dumpling_WithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
+                newDumplingWithoutObjectPool.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
+            }
+        }
+        
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
@@ -44,12 +54,12 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
             Handles.DrawBezier(allCorners[2],allCorners[3],allCorners[2],allCorners[3], Color.yellow,null,thickness);
             Handles.DrawBezier(allCorners[3],allCorners[0],allCorners[3],allCorners[0], Color.yellow,null,thickness);
         }
-        private Dumpling SpawnDumpling(Vector3 _spawnLocation, Quaternion _spawnRotation)
+        private Dumpling_WithoutObjectPool SpawnDumpling(Vector3 _spawnLocation, Quaternion _spawnRotation)
         {
                 GameObject newDumpling = Instantiate(dumplingPrefab, _spawnLocation, _spawnRotation);
-                Dumpling dumpling = newDumpling.GetComponent<Dumpling>();
-                dumpling.NavMeshAgent.Warp(_spawnLocation);
-                return dumpling;
+                Dumpling_WithoutObjectPool dumplingWithoutObjectPool = newDumpling.GetComponent<Dumpling_WithoutObjectPool>();
+                dumplingWithoutObjectPool.NavMeshAgent.Warp(_spawnLocation);
+                return dumplingWithoutObjectPool;
         }
     }
 }

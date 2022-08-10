@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
+namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings.WithoutObjectPooling
 {
     public class SpawnPerimeter
     {

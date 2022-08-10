@@ -326,9 +326,9 @@ GameObject:
   - component: {fileID: 7573184028131883433}
   - component: {fileID: 7573184028131883348}
   - component: {fileID: 2571801202851997174}
-  - component: {fileID: 1129487960593986532}
+  - component: {fileID: 2045381255665534059}
   m_Layer: 6
-  m_Name: Dumpling
+  m_Name: Dumpling_UsingObjectPool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +385,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1129487960593986532
+--- !u!114 &2045381255665534059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

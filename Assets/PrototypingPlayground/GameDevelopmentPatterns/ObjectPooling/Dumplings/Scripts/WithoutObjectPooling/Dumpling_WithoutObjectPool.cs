@@ -1,14 +1,11 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Pool;
-namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
+namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings.WithoutObjectPooling
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class Dumpling : MonoBehaviour
+    public class Dumpling_WithoutObjectPool : MonoBehaviour
     {
-        public IObjectPool<Dumpling> DumplingPool { get; set; }
-        
         private NavMeshAgent dumplingNavMeshAgent;
         private Vector3 finalDestination;
         public NavMeshAgent NavMeshAgent => dumplingNavMeshAgent;
@@ -26,29 +23,18 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.Dumplings
             transform.rotation = _startingRotation; 
         }
 
-        public void OnDisable()
-        {
-            ResetDumpling();
-        }
-
         private void FixedUpdate()
         {
-            if (Vector3.Distance(finalDestination, transform.position) < 1.0f)
+            if (Vector3.Distance(finalDestination, transform.position) < 0.2f)
             {
                 TurnOffDumpling();
             }
         }
         private void TurnOffDumpling()
         {
-            DumplingPool.Release(this);
+            Destroy(this.gameObject);
         }
         
-        private void ResetDumpling()
-        {
-            dumplingNavMeshAgent.ResetPath();
-            dumplingNavMeshAgent.destination = gameObject.transform.position;
-        }
-
         private void SetDestination(Vector3 _newDestination)
         {
             dumplingNavMeshAgent.destination = _newDestination;

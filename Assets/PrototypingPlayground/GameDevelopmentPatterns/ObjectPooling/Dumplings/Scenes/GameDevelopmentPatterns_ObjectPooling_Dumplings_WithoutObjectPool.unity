@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 262b9d0e264ec884e9043c626ff71e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dumplingPrefab: {fileID: 7573184028131883350, guid: dc2d71975430b504cbfbc90afc758dd1, type: 3}
+  dumplingPrefab: {fileID: 7573184028131883350, guid: d4d70d66f7f4dca48b6f4a605211549d, type: 3}
   dumplingSpawnPerimeter:
     serializedVersion: 2
     x: 0
