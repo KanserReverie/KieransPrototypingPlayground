@@ -348,8 +348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17f007d78f5a9574fbf4d4e8c8a9d240, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPoolSize: 20
-  defaultPoolCapacity: 20
+  maxPoolSize: 50
+  defaultPoolCapacity: 40
   fallingSphere: {fileID: 543419041198211606, guid: 41e5f4891f1f50048ac4290ca9bb0843, type: 3}
 --- !u!4 &163372299
 Transform:
