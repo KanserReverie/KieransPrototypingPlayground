@@ -1,3 +1,4 @@
+using System;
 using PrototypingPlayground.UsefulScripts;
 using TMPro;
 using UnityEngine;
@@ -59,12 +60,12 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.FallingObj
             
             if (IsGrounded()) currentExtraJumps = extraJumps;
 
-            if (transform.position.y < -deathHeight)
+            if (transform.position.y < deathHeight)
             {
                 Die();
             }
         }
-        public void Die()
+        private void Die()
         {
             currentLives--;
             if (currentLives > 0)
@@ -105,5 +106,18 @@ namespace PrototypingPlayground.GameDevelopmentPatterns.ObjectPooling.FallingObj
         }
         private bool IsGrounded() => Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down),1.2f);
 
+        private void OnCollisionEnter(Collision other)
+        {
+            if (other.gameObject.CompareTag("Obstacle"))
+            {
+                Die();
+            }
+            if (other.gameObject.CompareTag("Finish"))
+            {
+                Debug.ClearDeveloperConsole();
+                Debug.Log("Congratulations, You Win!!");
+                CommonlyUsedStaticMethods.QuitGame();
+            }
+        }
     }
 }
