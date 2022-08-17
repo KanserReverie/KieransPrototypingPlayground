@@ -9,13 +9,10 @@ namespace PrototypingPlayground.QuickPrototypes.RigidbodyAddForceController
         private Rigidbody playerRigidbody;
         private Vector2 horizontalMovementInput;
         private bool jumpInput;
-        private InputAction playerController;
         
         void Start()
         {
             playerRigidbody = GetComponentInChildren<Rigidbody>();
-            playerController = new RigidbodyAddForcePlayerController();
-            playerController.Player.Jump += OnJump();
         }
 
         // Update is called once per frame
