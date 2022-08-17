@@ -1,6 +1,7 @@
-﻿using TMPro;
-using UnityEngine;
-namespace TextMesh_Pro.Examples___Extras.Scripts
+﻿using UnityEngine;
+
+
+namespace TMPro.Examples
 {
     public class TMP_TextEventCheck : MonoBehaviour
     {

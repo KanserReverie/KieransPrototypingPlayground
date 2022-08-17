@@ -28,6 +28,7 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cobjectpooling_005Cdrones_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cobjectpooling_005Cdumplings_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cobjectpooling_005Cfallingobjects_005Cscripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cobserverpattern_005Cmotorbikesubject_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Csingleton_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cgamedevelopmentpatterns_005Cstatemachine_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005Cobjectpooling_005Cdrones_005Cscripts/@EntryIndexedValue">True</s:Boolean>

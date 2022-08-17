@@ -1,7 +1,8 @@
-﻿using System;
-using TMPro;
-using UnityEngine;
-namespace TextMesh_Pro.Examples___Extras.Scripts
+﻿using UnityEngine;
+using System.Collections;
+using System;
+
+namespace TMPro
 {
     /// <summary>
     /// Example of a Custom Character Input Validator to only allow phone number in the (800) 555-1212 format.
