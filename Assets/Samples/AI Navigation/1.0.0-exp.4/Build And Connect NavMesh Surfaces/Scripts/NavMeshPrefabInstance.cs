@@ -1,8 +1,7 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.AI;
-
-namespace Unity.AI.Navigation.Samples
+namespace Samples.AI_Navigation._1._0._0_exp._4.Build_And_Connect_NavMesh_Surfaces.Scripts
 {
     /// <summary>
     /// Associate existing NavMesh data to a prefab

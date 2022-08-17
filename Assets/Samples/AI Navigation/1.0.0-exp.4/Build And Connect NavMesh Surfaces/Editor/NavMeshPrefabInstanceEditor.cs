@@ -1,9 +1,9 @@
 using System.Collections.Generic;
+using Samples.AI_Navigation._1._0._0_exp._4.Build_And_Connect_NavMesh_Surfaces.Scripts;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
-
-namespace Unity.AI.Navigation.Samples.Editor
+namespace Samples.AI_Navigation._1._0._0_exp._4.Build_And_Connect_NavMesh_Surfaces.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(NavMeshPrefabInstance))]

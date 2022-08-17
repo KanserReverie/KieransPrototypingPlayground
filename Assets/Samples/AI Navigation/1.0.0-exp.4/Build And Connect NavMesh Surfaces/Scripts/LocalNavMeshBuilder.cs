@@ -1,10 +1,10 @@
-using UnityEngine;
-using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.AI;
 using NavMeshBuilder = UnityEngine.AI.NavMeshBuilder;
 
-namespace Unity.AI.Navigation.Samples
+namespace Samples.AI_Navigation._1._0._0_exp._4.Build_And_Connect_NavMesh_Surfaces.Scripts
 {
     /// <summary>
     /// Build and update a localized navmesh from the sources marked by NavMeshSourceTag 
