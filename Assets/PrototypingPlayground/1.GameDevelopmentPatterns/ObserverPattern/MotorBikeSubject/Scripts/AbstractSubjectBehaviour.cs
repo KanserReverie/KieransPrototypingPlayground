@@ -2,23 +2,23 @@ using System.Collections;
 using UnityEngine;
 namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.MotorBikeSubject.Scripts
 {
-    public class AbstractSubject : MonoBehaviour
+    public class AbstractSubjectBehaviour : MonoBehaviour
     {
         private readonly ArrayList observers = new ArrayList();
 
-        public void AttachObserver(AbstractObserver _observer)
+        public void AttachObserver(AbstractObserverBehaviour _observerBehaviour)
         {
-            observers.Add(_observer);
+            observers.Add(_observerBehaviour);
         }
 
-        public void DetachObserver(AbstractObserver _observer)
+        public void DetachObserver(AbstractObserverBehaviour _observerBehaviour)
         {
-            observers.Remove(_observer);
+            observers.Remove(_observerBehaviour);
         }
 
         public void NotifyObservers()
         {
-            foreach (AbstractObserver observer in observers)
+            foreach (AbstractObserverBehaviour observer in observers)
             {
                 observer.Notify(this);
             }
