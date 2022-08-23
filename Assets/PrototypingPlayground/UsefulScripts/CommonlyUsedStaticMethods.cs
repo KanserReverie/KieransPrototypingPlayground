@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 namespace PrototypingPlayground.UsefulScripts
 {
     public static class CommonlyUsedStaticMethods
@@ -15,6 +16,14 @@ namespace PrototypingPlayground.UsefulScripts
 #else
 				Application.Quit();
 #endif
+        }
+        
+        /// <summary>
+        /// This will reset the current scene.
+        /// </summary>
+        public static void ResetCurrentScene()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
