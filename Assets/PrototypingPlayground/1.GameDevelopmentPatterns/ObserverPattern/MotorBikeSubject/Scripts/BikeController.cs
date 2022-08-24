@@ -1,4 +1,5 @@
 using System;
+using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
 namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.MotorBikeSubject.Scripts
 {
@@ -6,22 +7,25 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Motor
     {
         public bool IsTurboOn { get; private set; }
 
-        [SerializeField] private float health = 100.0f;
-        public float Health { get; private set; }
+        [SerializeField] private float maxHealth = 100.0f;
+        public float CurrentHealth { get; private set; }
         private bool isEngineOn;
         private BikeHUDController bikeHUDController;
         private BikeCameraController bikeCameraController;
+        private HealthParticleSystem bikeHealthParticleSystem;
 
         private void Awake()
         {
-            bikeHUDController = gameObject.AddComponent<BikeHUDController>();
-
+            bikeHUDController = FindObjectOfType<BikeHUDController>();
             bikeCameraController = FindObjectOfType<BikeCameraController>();
+            bikeHealthParticleSystem = FindObjectOfType<HealthParticleSystem>();
         }
 
         private void Start()
         {
             StartEngine();
+            CurrentHealth = maxHealth;
+            NotifyObservers();
         }
 
         private void OnEnable()
@@ -30,6 +34,9 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Motor
                 AttachObserver(bikeHUDController);
             if (bikeCameraController) 
                 AttachObserver(bikeCameraController);
+            if (bikeHealthParticleSystem) 
+                AttachObserver(bikeHealthParticleSystem);
+            NotifyObservers();
         }
 
         private void OnDisable()
@@ -38,6 +45,9 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Motor
                 DetachObserver(bikeHUDController);
             if (bikeCameraController) 
                 DetachObserver(bikeCameraController);
+            if (bikeHealthParticleSystem) 
+                DetachObserver(bikeHealthParticleSystem);
+            CommonlyUsedStaticMethods.QuitGame();
         }
 
         public void StartEngine()
@@ -51,20 +61,20 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Motor
 
         public void ToggleTurbo()
         {
-            if (isEngineOn && !IsTurboOn)
+            if (isEngineOn)
             {
-                IsTurboOn = true;
+                IsTurboOn = !IsTurboOn;
                 NotifyObservers();
             }
         }
 
         public void TakeDamage(float _ammount)
         {
-            Health -= _ammount;
+            CurrentHealth -= _ammount;
             if (IsTurboOn)
                 IsTurboOn = false;
             NotifyObservers();
-            if (Health <= 0)
+            if (CurrentHealth <= 0)
             {
                 Destroy(gameObject);
             }
