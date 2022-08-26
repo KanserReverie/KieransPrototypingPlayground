@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace PrototypingPlayground.UsefulScripts
@@ -6,23 +7,38 @@ namespace PrototypingPlayground.UsefulScripts
     {
         [SerializeField] private Transform transformToFollow;
         [SerializeField] private bool followRotation = false;
-        [SerializeField] private Vector3 offset;
+        [SerializeField] private Vector3 offsetPosition;
+        [SerializeField] private Vector3 offsetRotation;
         
-        // Update is called once per frame
         void Update()
         {
-            this.transform.position = transformToFollow.position + offset;
-            if (followRotation)
-                this.transform.rotation = transformToFollow.rotation;
+            MoveToObject();
         }
+        
+        private void OnDrawGizmos()
+        {
+            MoveToObject();
+        }
+        
         void OnValidate()
+        {
+            MoveToObject();
+        }
+
+        private void MoveToObject()
         {
             if (transformToFollow == null)
                 return;
-            transform.position = transformToFollow.position + offset;
+            
+            this.transform.position = transformToFollow.position + offsetPosition;
+            
             if (followRotation)
             {
-                transform.rotation = transformToFollow.rotation;
+                this.transform.rotation = transformToFollow.rotation * Quaternion.Euler(offsetRotation);
+            }
+            else
+            {
+                this.transform.rotation = Quaternion.Euler(offsetRotation);
             }
         }
     }
