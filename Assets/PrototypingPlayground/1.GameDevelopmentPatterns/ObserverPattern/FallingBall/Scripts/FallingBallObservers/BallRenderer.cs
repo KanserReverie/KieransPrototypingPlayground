@@ -34,7 +34,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
         {
             haveWeCollidedWithAnythingYet = fallingBall.haveWeCollidedWithAnythingYet;
 
-            if (fallingBall.lastCollision.haveWeCollidedWithNewGameObject)
+            if (!fallingBall.lastCollision.haveWeCollidedWithTheSameGameObject)
             {
                 ballRenderer.material = fallingBall.lastCollision.material;
             }

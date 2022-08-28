@@ -547,14 +547,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832275371}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 4.86, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1663553920}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &832275375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,6 +716,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9e5c2e6d971344ba215c8b45bebd18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1232736924
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232736925}
+  - component: {fileID: 1232736926}
+  m_Layer: 0
+  m_Name: Collision UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232736925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232736924}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1663553920}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1232736926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232736924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7cc94349b134458b0ff88a8e4e12086, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1389122534
 GameObject:
   m_ObjectHideFlags: 0
@@ -780,6 +824,7 @@ Transform:
   m_Children:
   - {fileID: 832275374}
   - {fileID: 581792982}
+  - {fileID: 1232736925}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -934,6 +979,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2060469765}
+  - component: {fileID: 2060469769}
   - component: {fileID: 2060469768}
   - component: {fileID: 2060469767}
   - component: {fileID: 2060469766}
@@ -1022,6 +1068,22 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060469764}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2060469769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060469764}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fed33cf9aba49478482d4c4602bfc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToTransition:
+    m_SceneAsset: {fileID: 102900000, guid: 35e60fe3f240e6e408ccf7182bd9db0d, type: 3}
+    m_IsDirty: 0
+    m_ScenePath: Assets/PrototypingPlayground/1.GameDevelopmentPatterns/ObserverPattern/FallingBall/Scenes/GameDevelopmentPatterns_ObserverParrern_FallingBall_UnderGround.unity
 --- !u!1 &2099969411
 GameObject:
   m_ObjectHideFlags: 0

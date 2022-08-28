@@ -1,6 +1,6 @@
 using PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.AbstractClasses;
+using PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.FallingBall.AbstractClasses;
 using UnityEngine;
-using UnityEngine.Events;
 namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.FallingBall
 {
     [RequireComponent(typeof(Rigidbody))]
@@ -9,13 +9,10 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
         public bool haveWeCollidedWithAnythingYet;
         public CollisionDetails lastCollision;
         
-        public UnityEvent lastTransitionObjectActionToRun;
-        
         private void Start()
         {
             lastCollision = null;
             haveWeCollidedWithAnythingYet = false;
-            lastTransitionObjectActionToRun = null;
         }
 
         private void OnCollisionEnter(Collision _collision)
@@ -27,7 +24,9 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
             SaveLastCollision(_collision);
             NotifyObservers();
         }
-        
+        private void Update()
+        {
+        }
         private void SaveLastCollision(Collision _collision)
         {
             if (lastCollision == null)
@@ -36,7 +35,17 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
             }
             else
             {
-                lastCollision = new CollisionDetails(lastCollision, _collision);
+                CollisionDetails newCollision = new CollisionDetails(lastCollision, _collision);
+                lastCollision = newCollision;
+            }
+        }
+
+        private void OnTriggerEnter(Collider _collider)
+        {
+            AbstractTransitionObjectBehaviour transitionObject = _collider.gameObject.GetComponent<AbstractTransitionObjectBehaviour>();
+            if (transitionObject != null)
+            {
+                transitionObject.TransitionMethod();
             }
         }
     }

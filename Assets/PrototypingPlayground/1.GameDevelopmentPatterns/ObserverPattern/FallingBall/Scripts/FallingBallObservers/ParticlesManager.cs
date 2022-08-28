@@ -10,6 +10,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
         
         private Vector3 particleLocation;
         private Quaternion paticleRotation;
+        
         private void Start()
         {
             AttachToFallingBallInScene();
@@ -19,6 +20,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns.ObserverPattern.Falli
         {
             particleLocation = fallingBall.lastCollision.location;
             paticleRotation = fallingBall.lastCollision.rotation;
+            paticleRotation *= Quaternion.Euler(0,0,90);
 
             GameObject collisionParticles = Instantiate(particlesToPlayOnImpact, particleLocation, paticleRotation, this.transform);
             ParticleSystem particles = collisionParticles.GetComponent<ParticleSystem>();
