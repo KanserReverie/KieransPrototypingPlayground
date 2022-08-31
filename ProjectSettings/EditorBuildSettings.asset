@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/PrototypingPlayground/1.GameDevelopmentPatterns/ObserverPattern/FallingBall/Scenes/GameDevelopmentPatterns_ObserverParrern_FallingBall_UnderGround.unity
+    path: Assets/PrototypingPlayground/1.GameDevelopmentPatterns/6.ObserverPattern/FallingBall/Scenes/GameDevelopmentPatterns_ObserverPattern_FallingBall_UnderGround.unity
     guid: 35e60fe3f240e6e408ccf7182bd9db0d
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: d49575052a0439840a34c57d35be62c6, type: 2}
