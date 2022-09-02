@@ -3,7 +3,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.Mot
     public interface IVisitor
     {
         void Visit(BikeShield _bikeShield);
-        void Visit(BikeEngine _bikeEngine);
         void Visit(BikeWeapon _bikeWeapon);
+        void Visit(BikeEngine _bikeEngine);
     }
 }

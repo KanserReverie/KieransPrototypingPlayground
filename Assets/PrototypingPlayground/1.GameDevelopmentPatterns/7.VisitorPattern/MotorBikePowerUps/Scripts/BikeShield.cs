@@ -3,6 +3,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.Mot
 {
     public class BikeShield : MonoBehaviour
     {
-        
+        public float health;
+
     }
 }

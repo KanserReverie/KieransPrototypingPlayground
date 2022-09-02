@@ -3,6 +3,8 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.Mot
 {
     public class BikeEngine : MonoBehaviour
     {
-        
+        public float turboBoost;
+        public float maxTurboBoost;
+
     }
 }
