@@ -1,5 +1,6 @@
 using PrototypingPlayground._1.GameDevelopmentPatterns._2.StateMachine.BikeStateMachine;
 using UnityEngine;
+using BikeController = PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.MotorBikePowerUps.BikeController;
 namespace PrototypingPlayground._1.GameDevelopmentPatterns._2.StateMachine.Obstacle
 {
     public class ObstacleDropper : MonoBehaviour
