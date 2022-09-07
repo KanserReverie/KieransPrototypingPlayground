@@ -1,15 +1,37 @@
+using System;
 using UnityEngine;
 namespace PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.MotorBikePowerUps
 {
     public class BikeWeapon : MonoBehaviour, IBikeElement
     {
-        public int range;
-        public int maxRange;
-        public float strength;
-        public float maxStrength;
+        [Header("Range")]
+        public int range = 5;
+        public int maxRange = 25;
+        [Header("Strength")]
+        public float strength = 25.0f;
+        public float maxStrength = 50.0f;
+
+        public void Fire()
+        {
+            Debug.Log("Weapon Fired!!");
+        }
+        
         public void Accept(IVisitor _visitor)
         {
-            throw new System.NotImplementedException();
+            _visitor.Visit(this);
+        }
+
+        private void OnGUI()
+        {
+            GUI.color = Color.cyan;
+            
+            GUI.Label(
+                new Rect(125, 40, 200,20),
+                $"Weapon Range: {range}");
+            
+            GUI.Label(
+                new Rect(125,60,200,20),
+                $"Weapon Strength: {strength}");
         }
     }
 }
