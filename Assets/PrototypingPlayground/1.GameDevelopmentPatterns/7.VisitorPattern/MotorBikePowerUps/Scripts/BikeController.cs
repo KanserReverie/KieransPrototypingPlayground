@@ -5,7 +5,7 @@ namespace PrototypingPlayground._1.GameDevelopmentPatterns._7.VisitorPattern.Mot
 {
     public class BikeController : MonoBehaviour, IBikeElement
     {
-        private List<IBikeElement> bikeElements;
+        private readonly List<IBikeElement> bikeElements = new List<IBikeElement>();
 
         private void Start()
         {
