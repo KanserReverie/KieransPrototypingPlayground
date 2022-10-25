@@ -49,7 +49,7 @@ namespace PrototypingPlayground.UsefulScripts
 
         void OnGUI()
         {
-            GUILayout.Label("Press the BackQuote (`/~) button to toggle console");
+            GUILayout.Label("Press \"~\" to toggle console");
             if (!doShow)
             {
                 return;

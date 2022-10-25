@@ -1,18 +1,18 @@
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.SchoolVisitorsExample
 {
-    public class Doctor : IVisitor
+    public class HairDresser : IVisitor
     {
-        public string Name { get; set; }
-        public Doctor(string _name)
-        {
-            Name = _name;
-        }
+        public string name { get; set; }
         
+        public HairDresser(string _name)
+        {
+            name = _name;
+        }
         public void Visit(IElement _element)
         {
             Kid kid = (Kid)_element;
-            Debug.Log($"Doctor {this.Name} did the health checkup of the child: {kid.KidName}");
+            Debug.Log($"{this.name} gave a haircut to {kid.KidName}.");
         }
     }
 }
