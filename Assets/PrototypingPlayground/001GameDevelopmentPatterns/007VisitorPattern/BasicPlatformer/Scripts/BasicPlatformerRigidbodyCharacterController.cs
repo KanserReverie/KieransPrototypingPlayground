@@ -7,6 +7,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
         [Header("Rigidbody")]
         [SerializeField] private bool freezeRotation;
         [SerializeField] private bool freezeZAxis;
+        [SerializeField]
         private Vector3 movementInput = Vector3.zero;
         private new Rigidbody rigidbody;
         
@@ -44,9 +45,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
 
         public void UseAbility(InputAction.CallbackContext _useAbilityInput)
         {
-            if (_useAbilityInput.performed)
+            if (_useAbilityInput.ReadValue<float>() > 0.1f)
             {
-                Debug.Log("Use Ability");
+                Debug.Log("Using Ability");
             }
         }
     }
