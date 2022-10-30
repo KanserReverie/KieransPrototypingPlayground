@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.BasicPlatformer
@@ -8,9 +9,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
         [SerializeField] private bool freezeRotation;
         [SerializeField] private bool freezeZAxis;
         [SerializeField]
-        private Vector3 movementInput = Vector3.zero;
         private new Rigidbody rigidbody;
-        
+        private bool usingAbility;
+        private bool jumping;
+        private Vector3 movementInput = Vector3.zero;
+
         private void Start()
         {
             SetUpRigidBody();
@@ -31,10 +34,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
 
         public void Jump(InputAction.CallbackContext _jumpInput)
         {
-            if (_jumpInput.performed)
-            {
-                Debug.Log("Jump Performed");
-            }
+            jumping = _jumpInput.performed;
         }
 
         public void Move(InputAction.CallbackContext _moveInput)
@@ -45,10 +45,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
 
         public void UseAbility(InputAction.CallbackContext _useAbilityInput)
         {
-            if (_useAbilityInput.ReadValue<float>() > 0.1f)
-            {
-                Debug.Log("Using Ability");
-            }
+            usingAbility = _useAbilityInput.ReadValue<float>() > 0.1f;
         }
     }
 }
