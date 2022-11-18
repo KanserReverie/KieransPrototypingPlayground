@@ -4,11 +4,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 {
     public class BoppingManeuver : MonoBehaviour, IDroneStrategy
     {
-        public void ImplementStrategy(Drone drone) 
+        public void ImplementStrategy(Drone drone)
         {
             StartCoroutine(Bopple(drone));
         }
-        
+
         IEnumerator Bopple(Drone drone)
         {
             float time;
@@ -18,14 +18,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             Vector3 endPosition = startPosition;
             endPosition.y = drone.maxHeight;
 
-            while (true) {
+            while (true)
+            {
                 time = 0;
                 Vector3 start = drone.transform.position;
-                Vector3 end = 
+                Vector3 end =
                     (isReverse) ? startPosition : endPosition;
 
-                while (time < speed) {
-                    drone.transform.position = 
+                while (time < speed)
+                {
+                    drone.transform.position =
                         Vector3.Lerp(start, end, time / speed);
                     time += Time.deltaTime;
                     yield return null;

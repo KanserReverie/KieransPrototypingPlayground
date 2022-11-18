@@ -2,9 +2,9 @@ using System.Collections;
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.FighterDrones.DroneStrategies
 {
-    public class FallBackManeuver : MonoBehaviour, IDroneStrategy
+    public class FallbackManeuver : MonoBehaviour, IDroneStrategy
     {
-        public void ImplementStrategy(Drone drone) 
+        public void ImplementStrategy(Drone drone)
         {
             StartCoroutine(Fallback(drone));
         }
@@ -19,7 +19,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 
             while (time < speed)
             {
-                drone.transform.position = 
+                drone.transform.position =
                     Vector3.Lerp(
                         startPosition, endPosition, time / speed);
 

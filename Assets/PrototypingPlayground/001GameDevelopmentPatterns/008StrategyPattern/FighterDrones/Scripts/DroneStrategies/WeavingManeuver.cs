@@ -4,12 +4,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 {
     public class WeavingManeuver : MonoBehaviour, IDroneStrategy
     {
-        public void ImplementStrategy(Drone drone) 
+        public void ImplementStrategy(Drone drone)
         {
             StartCoroutine(Weave(drone));
         }
 
-        IEnumerator Weave(Drone drone) {
+        IEnumerator Weave(Drone drone)
+        {
             float time;
             bool isReverse = false;
             float speed = drone.speed;
@@ -17,18 +18,20 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             Vector3 endPosition = startPosition;
             endPosition.x = drone.weavingDistance;
 
-            while (true) {
+            while (true)
+            {
                 time = 0;
                 Vector3 start = drone.transform.position;
-                Vector3 end = 
+                Vector3 end =
                     (isReverse) ? startPosition : endPosition;
 
-                while (time < speed) {
-                    drone.transform.position = 
+                while (time < speed)
+                {
+                    drone.transform.position =
                         Vector3.Lerp(start, end, time / speed);
-                    
+
                     time += Time.deltaTime;
-                    
+
                     yield return null;
                 }
 

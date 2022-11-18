@@ -14,6 +14,8 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
         public float maxHeight = 5.0f;
         public float weavingDistance = 1.5f;
         public float fallbackDistance = 20.0f;
+        public float diagonalDistance = 10.0f;
+        
 
         void Start() 
         {
