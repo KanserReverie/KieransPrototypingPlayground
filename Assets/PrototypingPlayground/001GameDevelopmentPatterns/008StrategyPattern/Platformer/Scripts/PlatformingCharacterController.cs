@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.Platformer.Scripts
+namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.Platformer
 {
     public class PlatformingCharacterController : MonoBehaviour
     {
