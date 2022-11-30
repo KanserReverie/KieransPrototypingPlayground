@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.Platformer.Obstacles
 {
-    public class NormalMovement : MonoBehaviour, IObstacleMovement
+    public class FastMovement : MonoBehaviour, IObstacleMovement
     {
         public void Maneuver(Obstacle _obstacleToMove)
         {
@@ -18,13 +18,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             
             while (!obstacleHasHitTheEnd)
             {
-                _obstacle.transform.position = Vector3.Lerp(originalStartPoint, endStartPoint, time / _obstacle.secondsUntilDespawnNormal);
+                _obstacle.transform.position = Vector3.Lerp(originalStartPoint, endStartPoint, time / _obstacle.secondsUntilDespawnFast);
 
                 if (Vector3.Distance(_obstacle.transform.position, endStartPoint) <= 0.01f)
                 {
                     obstacleHasHitTheEnd = true;
                 }
                 time += Time.deltaTime;
+                
                 yield return null;
             }
             Destroy(this.gameObject);
