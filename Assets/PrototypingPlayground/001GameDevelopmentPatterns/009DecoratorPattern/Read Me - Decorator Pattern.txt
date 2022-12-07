@@ -1,0 +1,21 @@
+Decorator Pattern
+
+This is used when you need a system that will "Decorate" specific properties of classes.
+
+ ------------
+| Decorator  |
+|   -----    |
+|  |Class|   |
+|   -----    |
+|            |
+ ------------
+
+
+Think:
+- Attachments for weapons - if you take them off the weapon will go back to its normal stats.
+- Basic armour – If it increases stats like defence, speed etc.
+- Equipment system card game – Will not change base stats but will modify them.
+- Dragging a rock – This could modify your speed but only while you are dragging it.
+
+Use When:
+- You need to dynamically modify properties without the base changing.
