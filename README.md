@@ -1,6 +1,6 @@
 # Kieran's Prototyping Playground
 
-This is a self-learning project for when I am learning new concepts and for quick prototyping.
+This is a self-learning project for learning new concepts and quick prototyping.
 
 ## Asset Folders
 
