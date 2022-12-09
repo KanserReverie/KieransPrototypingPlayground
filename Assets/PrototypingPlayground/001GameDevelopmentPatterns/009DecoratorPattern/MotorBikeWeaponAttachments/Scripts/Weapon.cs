@@ -1,4 +1,4 @@
-namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern.MotorBikeWeaponAttachments.Scripts
+namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern.MotorBikeWeaponAttachments
 {
     // Unlike BikeWeapon... This is just the configurable properties of a weapon.
     public class Weapon : IWeapon

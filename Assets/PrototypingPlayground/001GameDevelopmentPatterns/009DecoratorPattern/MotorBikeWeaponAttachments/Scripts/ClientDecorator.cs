@@ -1,5 +1,5 @@
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern.MotorBikeWeaponAttachments.Scripts
+namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern.MotorBikeWeaponAttachments
 {
     public class ClientDecorator : MonoBehaviour
     {
