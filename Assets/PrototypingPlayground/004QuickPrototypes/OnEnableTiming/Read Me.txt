@@ -1,0 +1,3 @@
+This is to test if the On enable function is only run:
+- If the script is enabled
+- If the game object the script is on is enabled
