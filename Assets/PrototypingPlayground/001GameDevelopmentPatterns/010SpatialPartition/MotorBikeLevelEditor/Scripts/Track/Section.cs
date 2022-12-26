@@ -3,7 +3,7 @@ using UnityEngine.Assertions;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition.MotorBikeLevelEditor.Track
 {
     /// <summary>
-    /// A section is made from rows.
+    /// A section is made from rows of blocks.
     /// </summary>
     public class Section : MonoBehaviour
     {
@@ -15,6 +15,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         public void AssertRowsAreNotNull()
         {
             Assert.IsTrue(row.Length > 0);
+            
             foreach (Row rowOfBlocks in row)
             {
                 Assert.IsNotNull(rowOfBlocks);
@@ -24,7 +25,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         private void Start()
         {
-            float firstRowZSpawnPosition = (-row.Length + 1) * (ZDistanceBetweenRows / 2);
+            InstantiateRowsInSection();
+        }
+        
+        private void InstantiateRowsInSection()
+        {
+            float firstRowZSpawnPosition = transform.position.z + ZDistanceBetweenRows/2;
             
             for (int i = 0; i < row.Length; i++)
             {

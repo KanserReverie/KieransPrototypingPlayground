@@ -13,7 +13,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         public void AssertBlocksAreNotNull()
         {
+            // If this is not true, consider looking at if anything needs to be changed in the code, as this was built for a 3 lane game.
             Assert.IsTrue(blocksTopToBottom.Length == 3);
+            
             foreach (GameObject placeableBlock in blocksTopToBottom)
             {
                 Assert.IsNotNull(placeableBlock);
@@ -22,20 +24,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         private void Start()
         {
-            ParentTransformToTrack();
-            SpawnRowOfBlocks();
-        }
-        private void ParentTransformToTrack()
-        {
-            Track trackParent = FindObjectOfType<Track>();
-            
-            if (trackParent != null)
-            {
-                this.gameObject.transform.parent = trackParent.gameObject.transform;
-            }
+            InstantiateBlocksInRow();
         }
 
-        private void SpawnRowOfBlocks()
+        private void InstantiateBlocksInRow()
         {
             float firstBlockXSpawnPosition = (-blocksTopToBottom.Length + 1) * (X_DISTANCE_BETWEEN_BLOCKS / 2);
 
