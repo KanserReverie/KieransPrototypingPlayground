@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf7ad677ee0746fea2891ddb431fd2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberOfBlocksBehindPlayer: 6
+  numberOfBlocksInFrontOfPlayer: 100
   preTrackSection: {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}
   sections:
   - {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}
+  endTrackSection: {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}

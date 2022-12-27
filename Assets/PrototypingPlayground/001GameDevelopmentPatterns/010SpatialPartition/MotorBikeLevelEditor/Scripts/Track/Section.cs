@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition.MotorBikeLevelEditor.Track
@@ -10,7 +11,19 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         [SerializeField] private Row[] row;
         private const float Z_DISTANCE_BETWEEN_ROWS = 1.0f;
         public static float ZDistanceBetweenRows => Z_DISTANCE_BETWEEN_ROWS;
-        public int NumberOfRows => row.Length;
+        public int RowsInSection => row.Length;
+        private Stack<GameObject> rowsToLoad;
+        private Queue<GameObject> rowsToDespawn;
+
+        public bool AnyMoreSectionsToSpawn()
+        {
+            return rowsToLoad.Count > 0;
+        }
+
+        public bool AnyMoreSectionsToDespawn()
+        {
+            return rowsToDespawn.Count > 0;
+        }
 
         public void AssertRowsAreNotNull()
         {
@@ -23,20 +36,49 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             }
         }
 
-        private void Start()
+        public void InitSection()
         {
-            InstantiateRowsInSection();
+            Debug.Log("Track Initialised");
+            AddAllRowsToRowsToLoadStack();
         }
         
-        private void InstantiateRowsInSection()
+        private void AddAllRowsToRowsToLoadStack()
         {
-            float firstRowZSpawnPosition = transform.position.z + ZDistanceBetweenRows/2;
-            
             for (int i = 0; i < row.Length; i++)
             {
-                Vector3 spawnPosition = new Vector3(transform.position.x, transform.position.y, firstRowZSpawnPosition + (i * ZDistanceBetweenRows));
-                Instantiate(row[i], spawnPosition, transform.rotation, this.gameObject.transform);
+                Debug.Log($"row.Length = {row.Length} || i = {i}");
+                rowsToLoad.Push(row[i].gameObject);
             }
+        }
+
+        /// <summary>
+        /// This will:
+        ///     1. Pop the next row and spawn it.
+        ///     2. Add the spawned row to the despawn Queue. 
+        /// </summary>
+        public void SpawnNextRow()
+        {
+            if (AnyMoreSectionsToSpawn())
+            {
+                GameObject spawnedRow = InstantiateRow(rowsToLoad.Pop());
+                rowsToDespawn.Enqueue(spawnedRow);
+            }
+            else
+            {
+                Debug.LogWarning("Sorry, no more rows to spawn.");
+            }
+        }
+        
+        private GameObject InstantiateRow(GameObject _row)
+        {
+            float rowZSpawnPosition = transform.position.z + (ZDistanceBetweenRows * rowsToDespawn.Count);
+            Vector3 rowSpawnPosition = new Vector3(transform.position.x, transform.position.y, rowZSpawnPosition);
+            return Instantiate(_row, rowSpawnPosition, transform.rotation, this.gameObject.transform);
+        }
+
+        public void DespawnLastRow()
+        {
+            
         }
     }
 }
