@@ -34,7 +34,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             for (int i = 0; i < blocksTopToBottom.Length; i++)
             {
                 Vector3 spawnPosition = new Vector3(firstBlockXSpawnPosition + (i * X_DISTANCE_BETWEEN_BLOCKS), transform.position.y, transform.position.z);
-                Instantiate(blocksTopToBottom[i], spawnPosition, transform.rotation, this.gameObject.transform);
+                Instantiate(blocksTopToBottom[i], spawnPosition, transform.rotation, transform);
             }
         }
     }

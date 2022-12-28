@@ -11,11 +11,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         [SerializeField] private int numberOfBlocksBehindPlayer = 6;
         [SerializeField] private int numberOfBlocksInFrontOfPlayer = 100;
         [Header("Individual Track")]
-        [SerializeField] private Section preTrackSection; // This will be spawned behind the player so the camera doesn't see nothingness behind the player.
         [SerializeField] private Section [] sections;
-        [SerializeField] private Section endTrackSection; // Once the player touches this the Track Ends.
-        private Section currentTrackToSpawn;
-        private Section currentTrackToDespawn;
+        private int currentSectionToSpawnIndex;
+        private int currentSectionToDespawnIndex;
         private Vector3 sectionSpawnPosition;
 
         private void Awake()
@@ -24,29 +22,61 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         }
         private void AssetWholeTrackIsNotNull()
         {
-            AssertSectionIsNotNull(preTrackSection);
-            
             foreach (Section sectionOfTrack in sections)
             {
-                AssertSectionIsNotNull(sectionOfTrack);
+                Assert.IsNotNull(sectionOfTrack);
+                sectionOfTrack.AssertRowsAreNotNull();
             }
-            
-            AssertSectionIsNotNull(endTrackSection);
-        }
-        private void AssertSectionIsNotNull(Section _section)
-        {
-            Assert.IsNotNull(_section);
-            _section.AssertRowsAreNotNull();
         }
 
         public void Start()
         {
             int numberOfBlocksToSpawn = numberOfBlocksBehindPlayer + numberOfBlocksInFrontOfPlayer;
+            
             sectionSpawnPosition = GetFirstSpawnPosition();
-            InstantiateNextSection(preTrackSection);
+            
+            currentSectionToSpawnIndex = 0;
+            
+            InstantiateTrackSection(sections[currentSectionToSpawnIndex]);
+            
+            AttemptToSpawnNextRow();
+            AttemptToSpawnNextRow();
+            
             // todo: Spawn each section of track
         }
+        private void AttemptToSpawnNextRow()
+        {
+            bool canSpawnRow = true;
+            
+            do
+            {
+                if (sections[currentSectionToSpawnIndex].AreThereRowsToSpawn())
+                {
+                    sections[currentSectionToSpawnIndex].AttemptToSpawnNextRow();
+                    return;
+                }
+                
+                if (AreThereAnyMoreSectionsToSpawn())
+                {
+                    GetNextSection();
+                } 
+                else
+                {
+                    canSpawnRow = false;
+                }
+                
+            } while (canSpawnRow);
+            
+            Debug.LogWarning("Sorry, no more rows to spawn.");
+        }
         
+        private bool AreThereAnyMoreSectionsToSpawn() => currentSectionToSpawnIndex < sections.Length;
+        
+        private void GetNextSection()
+        {
+            currentSectionToSpawnIndex++;
+        }
+
         private Vector3 GetFirstSpawnPosition()
         {
             Vector3 spawnPosition = transform.position;
@@ -54,16 +84,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             return spawnPosition;
         }
         
-        private void InstantiateNextSection(Section _section)
+        private void InstantiateTrackSection(Section _section)
         {
-            InstantiateSection(_section);
-            _section.InitSection();
+            GameObject spawnedSectionGameObject = InstantiateSection(_section);
+            _section.InitSection(spawnedSectionGameObject);
             GetNextSpawnPosition(_section);
         }
         
-        private void InstantiateSection(Section _section)
+        private GameObject InstantiateSection(Section _section)
         {
-            Instantiate(_section, sectionSpawnPosition, transform.rotation, this.gameObject.transform);
+            return Instantiate(_section.gameObject, sectionSpawnPosition, transform.rotation, this.gameObject.transform);
         }
         
         private void GetNextSpawnPosition(Section _section)
