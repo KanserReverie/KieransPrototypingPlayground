@@ -30,7 +30,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         private void InstantiateBlocksInRow()
         {
             float firstBlockXSpawnPosition = (-blocksTopToBottom.Length + 1) * (X_DISTANCE_BETWEEN_BLOCKS / 2);
-
+            
             for (int i = 0; i < blocksTopToBottom.Length; i++)
             {
                 Vector3 spawnPosition = new Vector3(firstBlockXSpawnPosition + (i * X_DISTANCE_BETWEEN_BLOCKS), transform.position.y, transform.position.z);

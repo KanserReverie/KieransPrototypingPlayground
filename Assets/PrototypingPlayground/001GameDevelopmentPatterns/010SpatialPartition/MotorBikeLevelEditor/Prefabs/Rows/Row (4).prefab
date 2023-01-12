@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6151590539073275831
+--- !u!1 &1708374982302131747
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5958553805173250291}
-  - component: {fileID: 1667035172892648068}
+  - component: {fileID: 1807539528516528049}
+  - component: {fileID: 7445448216865308675}
   m_Layer: 0
-  m_Name: Clear Track
+  m_Name: Row (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5958553805173250291
+--- !u!4 &1807539528516528049
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6151590539073275831}
+  m_GameObject: {fileID: 1708374982302131747}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,21 +32,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1667035172892648068
+--- !u!114 &7445448216865308675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6151590539073275831}
+  m_GameObject: {fileID: 1708374982302131747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf7ad677ee0746fea2891ddb431fd2c5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e0663fb19c4ff58ab575ea403c5608, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfBlocksBehindPlayer: 6
-  numberOfBlocksInFrontOfPlayer: 100
-  preTrackSection: {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}
-  sections:
-  - {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}
-  endTrackSection: {fileID: 1475586064805194614, guid: 6561ace5f95eae94e9f2be5d11e6f172, type: 3}
+  blocksTopToBottom:
+  - {fileID: 6104162675091523944, guid: b1aba5b7c74615945b583940bde989a4, type: 3}
+  - {fileID: 6104162675091523944, guid: b1aba5b7c74615945b583940bde989a4, type: 3}
+  - {fileID: 6104162675091523944, guid: b1aba5b7c74615945b583940bde989a4, type: 3}
