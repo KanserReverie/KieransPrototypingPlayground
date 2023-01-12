@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition.MotorBikeLevelEditor.Track
@@ -15,14 +14,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         public int RowsInSection => row.Length;
         private GameObject thisSectionGameObject;
         private Queue<GameObject> rowsToLoad;
-        private Stack<GameObject> rowsToDespawn;
+        private Queue<GameObject> rowsToDespawn;
 
         public bool AreThereRowsToSpawn()
         {
             return rowsToLoad.Count > 0;
         }
-
-        public bool AnyMoreSectionsToDespawn()
+        
+        public bool AreThereRowsToDespawn()
         {
             return rowsToDespawn.Count > 0;
         }
@@ -41,13 +40,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         public void InitSection(GameObject _thisGameObject)
         {
             thisSectionGameObject = _thisGameObject;
-            InitializeRowsStack();
-            AddAllRowsToStack();
-            InitializeRowsQueue();
+            InitializeLoadRows();
+            AddAllRowsToLoad();
+            InitializeDespawnRows();
         }
 
-        private void InitializeRowsStack() => rowsToLoad = new Queue<GameObject>();
-        private void AddAllRowsToStack()
+        private void InitializeLoadRows() => rowsToLoad = new Queue<GameObject>();
+        private void AddAllRowsToLoad()
         {
             for (int i = 0; i < row.Length; i++)
             {
@@ -56,14 +55,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
                 rowsToLoad.Enqueue(newRowToSpawnGameObject);
             }
         }
-        private void InitializeRowsQueue() => rowsToDespawn = new Stack<GameObject>();
+        private void InitializeDespawnRows() => rowsToDespawn = new Queue<GameObject>();
 
         public void AttemptToSpawnNextRow()
         {
             if (AreThereRowsToSpawn())
             {
                 GameObject spawnedRow = InstantiateRow(rowsToLoad.Dequeue());
-                rowsToDespawn.Push(spawnedRow);
+                rowsToDespawn.Enqueue(spawnedRow);
             }
             else
             {
@@ -79,9 +78,17 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             return Instantiate(_row, rowSpawnPosition, thisSectionGameObject.transform.rotation, thisSectionGameObject.transform);
         }
 
-        public void DespawnLastRow()
+        public void AttemptToDespawnLastRow()
         {
-            
+            if (AreThereRowsToDespawn())
+            {
+                GameObject rowToDespawn = rowsToDespawn.Dequeue();
+                Destroy(rowToDespawn);
+            }
+            else
+            {
+                Debug.LogWarning("Sorry, no more rows to despawn in this section.");
+            }
         }
     }
 }

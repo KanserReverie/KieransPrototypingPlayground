@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 16
+  controlID: 95
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 17
+  controlID: 96
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 18
+  controlID: 97
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -242,8 +242,8 @@ MonoBehaviour:
     y: 0
     width: 628
     height: 454.4
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -427,7 +427,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: b2f3ffff24f7ffff70f7ffff7cf7ffff2afbffff2cfbffff
+      m_ExpandedIDs: aef9feff90fafeff2602ffffb413ffffee9effffc4a2ffffd2a2ffffd8a2ffffdea2fffffaa2ffffd6a4ffffacb1ffffbed2ffffc2d2fffffcd2ffff02d3ffff3ad3ffff3ed3ffff78d3ffff7ed3ffffb6d3ffffbad3fffff4d3fffffad3ffff32d4ffff36d4ffff6eecffff96eefffff4f8fffff2f9ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -492,22 +492,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/PrototypingPlayground/001GameDevelopmentPatterns/010SpatialPartition/MotorBikeLevelEditor/Prefabs/Tracks
+    - Assets/PrototypingPlayground/001GameDevelopmentPatterns/010SpatialPartition/MotorBikeLevelEditor/Scripts/Track
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/PrototypingPlayground/001GameDevelopmentPatterns/010SpatialPartition/MotorBikeLevelEditor/Prefabs/Tracks
+  - Assets/PrototypingPlayground/001GameDevelopmentPatterns/010SpatialPartition/MotorBikeLevelEditor/Scripts/Track
   m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Kieran\Desktop\Games Unity\Learning\KieransPrototypingPlayground
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 240}
-    m_SelectedIDs: ac630000
-    m_LastClickedID: 25516
-    m_ExpandedIDs: 00000000e6620000e8620000ea620000ec620000ee620000f0620000f2620000f4620000f6620000f8620000fa620000fc620000fe62000000630000026300000463000006630000086300000a6300000c6300000e63000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 224}
+    m_SelectedIDs: 16660000
+    m_LastClickedID: 26134
+    m_ExpandedIDs: 00000000f0620000f2620000f4620000f6620000f8620000fa620000fc620000fe62000000630000026300000463000006630000086300000a6300000c6300000e6300001063000012630000146300001863000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -535,7 +535,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 5.8000183}
     m_SelectedIDs: aa620000
     m_LastClickedID: 25258
-    m_ExpandedIDs: 00000000e6620000e8620000ea620000ec620000ee620000f0620000f2620000f4620000f6620000f8620000fa620000fc620000fe62000000630000026300000463000006630000086300000a6300000c6300000e630000
+    m_ExpandedIDs: 00000000f0620000f2620000f4620000f6620000f8620000fa620000fc620000fe62000000630000026300000463000006630000086300000a6300000c6300000e6300001063000012630000146300001663000018630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -560,9 +560,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_SelectedInstanceIDs: aef9feff
+    m_LastClickedInstanceID: -67154
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -668,7 +668,7 @@ MonoBehaviour:
       floating: 0
       collapsed: 0
       displayed: 1
-      snapOffset: {x: 0, y: 0}
+      snapOffset: {x: 0, y: 24.8}
       snapOffsetDelta: {x: 0, y: 0}
       snapCorner: 0
       id: unity-transform-toolbar
@@ -816,9 +816,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.1413078, y: 1.3531508, z: -5.0545044}
+    m_Target: {x: 3.1022177, y: 9.028862, z: 14.748073}
     speed: 2
-    m_Value: {x: 1.1413078, y: 1.3531508, z: -5.0545044}
+    m_Value: {x: 3.1022177, y: 9.028862, z: 14.748073}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -865,17 +865,17 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.33535087, y: -0.32245284, z: 0.12336311, w: 0.8765543}
+    m_Target: {x: 0.35723692, y: -0.4028229, z: 0.17455094, w: 0.8244129}
     speed: 2
-    m_Value: {x: 0.33535054, y: -0.32245255, z: 0.12336299, w: 0.8765535}
+    m_Value: {x: 0.3572353, y: -0.4028211, z: 0.17455015, w: 0.8244091}
   m_Size:
-    m_Target: 5.408687
+    m_Target: 8.464088
     speed: 2
-    m_Value: 5.408687
+    m_Value: 8.464088
   m_Ortho:
-    m_Target: 1
+    m_Target: 0
     speed: 2
-    m_Value: 1
+    m_Value: 0
   m_CameraSettings:
     m_Speed: 1
     m_SpeedNormalized: 0.5
@@ -959,7 +959,7 @@ MonoBehaviour:
     m_ControlHash: -371814159
     m_PrefName: Preview_InspectorPreview
   m_LastInspectedObjectInstanceID: -1
-  m_LastVerticalScrollValue: 0
+  m_LastVerticalScrollValue: 92.79999
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:

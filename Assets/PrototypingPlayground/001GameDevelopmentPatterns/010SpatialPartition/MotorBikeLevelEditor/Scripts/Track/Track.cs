@@ -9,19 +9,22 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
     public class Track : MonoBehaviour
     {
         [Header("Track Settings")]
-        [SerializeField] private int numberOfBlocksBehindPlayer = 3;
-        [SerializeField] private int numberOfBlocksInFrontOfPlayer = 10;
+        [SerializeField] private int numberOfRowsBehindPlayer = 3;
+        [SerializeField] private int numberOfRowsInFrontOfPlayer = 10;
         [Header("Individual Track")]
         [SerializeField] private Section [] sections;
 
         private Queue<Section> sectionsToLoad;
         private Section currentSectionLoadingRows;
         
-        private Stack<Section> sectionsToDespawn;
-        private Section currentSectionToDespawn;
+        private Queue<Section> sectionsToDespawn;
+        private Section currentSectionDespawningRows;
         private Vector3 sectionSpawnPosition;
         private GameObject thisTrack;
-        private bool fullTrackSpawned;
+        private bool trackCompletelySpawned;
+        public bool TrackCompletelySpawned => trackCompletelySpawned;
+        private bool trackCompletelyDespawned;
+        public bool TrackCompletelyDespawned => trackCompletelyDespawned;
 
         private void Awake()
         {
@@ -39,22 +42,66 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         public void Start()
         {
             InitTrack();
-            int numberOfBlocksToSpawn = numberOfBlocksBehindPlayer + numberOfBlocksInFrontOfPlayer;
 
-            for (int i = 0; i < numberOfBlocksToSpawn; i++)
+            InitialTrackInstantiation();
+        }
+        private void InitialTrackInstantiation()
+        {
+            int numberOfRowsToSpawn = CheckHowManyRowsToSpawn();
+            for (int i = 0; i < numberOfRowsToSpawn; i++)
             {
                 AttemptToSpawnNextRow();
             }
         }
+        private int CheckHowManyRowsToSpawn()
+        {
+            return numberOfRowsBehindPlayer + numberOfRowsInFrontOfPlayer;
+        }
+        
+        public void AttemptToDespawnLastRow()
+        {
+            if (trackCompletelyDespawned) return;
+            bool anyRowsToDespawn = true;
 
+            do
+            {
+                if (currentSectionDespawningRows.AreThereRowsToDespawn())
+                {
+                    currentSectionDespawningRows.AttemptToDespawnLastRow();
+                    return;
+                }
+                else
+                {
+                    if (AreThereAnyMoreSectionsToDespawn())
+                    {
+                        GetNextDespawnSection();
+                    }
+                    else
+                    {
+                        anyRowsToDespawn = false;
+                    }
+                }
+            } while (anyRowsToDespawn);
+
+            if (trackCompletelySpawned)
+            {
+                Debug.Log("Despawned the full track."); 
+                trackCompletelyDespawned = true;
+            }
+            else
+            {
+                Debug.Log("Currently no more sections to despawn.");
+            }
+        }
+        
         private void InitTrack()
         {
-            fullTrackSpawned = false;
+            trackCompletelySpawned = false;
             thisTrack = new GameObject("Track");
             sectionSpawnPosition = GetFirstSpawnPosition();
-            InitializeSectionsStack();
-            AddAllSectionsToStack();
-            InitializeSectionsQueue();
+            InitializeSpawnSections();
+            AddAllSectionsToSpawn();
+            InitializeDespawnSections();
             GetNextLoadSection();
             GetNextDespawnSection();
         }
@@ -62,13 +109,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         private Vector3 GetFirstSpawnPosition()
         {
             Vector3 spawnPosition = thisTrack.transform.position;
-            spawnPosition.z -= (numberOfBlocksBehindPlayer) * Section.ZDistanceBetweenRows;
+            spawnPosition.z -= (numberOfRowsBehindPlayer) * Section.ZDistanceBetweenRows;
             return spawnPosition;
         }
         
-        private void InitializeSectionsStack() => sectionsToLoad = new Queue<Section>();
+        private void InitializeSpawnSections() => sectionsToLoad = new Queue<Section>();
         
-        private void AddAllSectionsToStack()
+        private void AddAllSectionsToSpawn()
         {
             for (int i = 0; i < sections.Length; i++)
             {
@@ -78,22 +125,26 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             }
         }
         
-        private void InitializeSectionsQueue() => sectionsToDespawn = new Stack<Section>();
-        
+        private void InitializeDespawnSections()
+        {
+            trackCompletelyDespawned = false;
+            sectionsToDespawn = new Queue<Section>();
+        }
+
         private void GetNextLoadSection()
         {
             currentSectionLoadingRows = sectionsToLoad.Dequeue().GetComponentInChildren<Section>();
-            sectionsToDespawn.Push(currentSectionLoadingRows);
+            sectionsToDespawn.Enqueue(currentSectionLoadingRows);
         }
 
         private void GetNextDespawnSection()
         {
-            currentSectionToDespawn = sectionsToDespawn.Pop();
+            currentSectionDespawningRows = sectionsToDespawn.Dequeue();
         }
-
-        private void AttemptToSpawnNextRow()
+        
+        public void AttemptToSpawnNextRow()
         {
-            if (fullTrackSpawned) return;
+            if (trackCompletelySpawned) return;
             
             bool canSpawnRow = true;
             do
@@ -117,11 +168,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
             } while (canSpawnRow);
 
-            Debug.LogWarning("Spawned the full track.");
-            fullTrackSpawned = true;
+            Debug.Log("Spawned the full track.");
+            trackCompletelySpawned = true;
         }
 
         private bool AreThereAnyMoreSectionsToSpawn() => sectionsToLoad.Count > 0;
+        
+        private bool AreThereAnyMoreSectionsToDespawn() => sectionsToDespawn.Count > 0;
 
         private Section SpawnTrackSection(Section _section)
         {
