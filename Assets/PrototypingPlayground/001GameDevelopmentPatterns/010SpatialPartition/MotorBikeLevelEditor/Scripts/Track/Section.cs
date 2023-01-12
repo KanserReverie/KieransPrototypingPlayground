@@ -40,12 +40,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         public void InitSection(GameObject _thisGameObject)
         {
             thisSectionGameObject = _thisGameObject;
-            InitializeStack();
+            InitializeRowsStack();
             AddAllRowsToStack();
-            InitializeQueue();
+            InitializeRowsQueue();
         }
         
-        private void InitializeStack() => rowsToLoad = new Stack<GameObject>();
+        private void InitializeRowsStack() => rowsToLoad = new Stack<GameObject>();
         private void AddAllRowsToStack()
         {
             for (int i = 0; i < row.Length; i++)
@@ -55,7 +55,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
                 rowsToLoad.Push(newRowToSpawnGameObject);
             }
         }
-        private void InitializeQueue() => rowsToDespawn = new Queue<GameObject>();
+        private void InitializeRowsQueue() => rowsToDespawn = new Queue<GameObject>();
 
         public void AttemptToSpawnNextRow()
         {

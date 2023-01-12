@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition.MotorBikeLevelEditor.Track
@@ -12,9 +13,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         [SerializeField] private int numberOfBlocksInFrontOfPlayer = 100;
         [Header("Individual Track")]
         [SerializeField] private Section [] sections;
-        private int currentSectionToSpawnIndex;
-        private int currentSectionToDespawnIndex;
+        private Stack<Section> sectionsToLoad;
+        private Section currentSectionLoadingRows;
+        private Queue<Section> sectionsToDespawn;
+        private Section currentSectionToDespawn;
         private Vector3 sectionSpawnPosition;
+        private GameObject thisTrack;
 
         private void Awake()
         {
@@ -31,69 +35,103 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         public void Start()
         {
+            InitTrack();
             int numberOfBlocksToSpawn = numberOfBlocksBehindPlayer + numberOfBlocksInFrontOfPlayer;
             
+            AttemptToSpawnNextRow();
+            AttemptToSpawnNextRow();
+            AttemptToSpawnNextRow();
+            AttemptToSpawnNextRow();
+            
+            AttemptToSpawnNextRow();
+        }
+
+        private void InitTrack()
+        {
+            thisTrack = new GameObject("Track");
             sectionSpawnPosition = GetFirstSpawnPosition();
-            
-            currentSectionToSpawnIndex = 0;
-            
-            InstantiateTrackSection(sections[currentSectionToSpawnIndex]);
-            
-            AttemptToSpawnNextRow();
-            AttemptToSpawnNextRow();
-            
-            // todo: Spawn each section of track
-        }
-        private void AttemptToSpawnNextRow()
-        {
-            bool canSpawnRow = true;
-            
-            do
-            {
-                if (sections[currentSectionToSpawnIndex].AreThereRowsToSpawn())
-                {
-                    sections[currentSectionToSpawnIndex].AttemptToSpawnNextRow();
-                    return;
-                }
-                
-                if (AreThereAnyMoreSectionsToSpawn())
-                {
-                    GetNextSection();
-                } 
-                else
-                {
-                    canSpawnRow = false;
-                }
-                
-            } while (canSpawnRow);
-            
-            Debug.LogWarning("Sorry, no more rows to spawn.");
-        }
-        
-        private bool AreThereAnyMoreSectionsToSpawn() => currentSectionToSpawnIndex < sections.Length;
-        
-        private void GetNextSection()
-        {
-            currentSectionToSpawnIndex++;
+            InitializeSectionsStack();
+            AddAllSectionsToStack();
+            InitializeSectionsQueue();
+            PopNextLoadSection();
+            DequeueNextDespawnSection();
         }
 
         private Vector3 GetFirstSpawnPosition()
         {
-            Vector3 spawnPosition = transform.position;
-            spawnPosition.z -= numberOfBlocksBehindPlayer * Section.ZDistanceBetweenRows;
+            Vector3 spawnPosition = thisTrack.transform.position;
+            spawnPosition.z -= (numberOfBlocksBehindPlayer + 1) * Section.ZDistanceBetweenRows; // + 1 as we will spawn blocks in front of this point.
             return spawnPosition;
         }
         
-        private void InstantiateTrackSection(Section _section)
+        private void InitializeSectionsStack() => sectionsToLoad = new Stack<Section>();
+        
+        private void AddAllSectionsToStack()
         {
-            GameObject spawnedSectionGameObject = InstantiateSection(_section);
-            _section.InitSection(spawnedSectionGameObject);
-            GetNextSpawnPosition(_section);
+            for (int i = 0; i < sections.Length; i++)
+            {
+                Section newInstantiatedSection = SpawnTrackSection(sections[i]).GetComponentInChildren<Section>();
+                newInstantiatedSection.InitSection(newInstantiatedSection.gameObject);
+                sectionsToLoad.Push(newInstantiatedSection);
+            }
         }
         
-        private GameObject InstantiateSection(Section _section)
+        private void InitializeSectionsQueue() => sectionsToDespawn = new Queue<Section>();
+        
+        private void PopNextLoadSection()
         {
-            return Instantiate(_section.gameObject, sectionSpawnPosition, transform.rotation, this.gameObject.transform);
+            currentSectionLoadingRows = sectionsToLoad.Pop().GetComponentInChildren<Section>();
+            sectionsToDespawn.Enqueue(currentSectionLoadingRows);
+        }
+
+        private void DequeueNextDespawnSection()
+        {
+            currentSectionToDespawn = sectionsToDespawn.Dequeue();
+        }
+
+
+        private void AttemptToSpawnNextRow()
+          {
+            bool canSpawnRow = true;
+
+            do
+            {
+                if (currentSectionLoadingRows.AreThereRowsToSpawn())
+                {
+                    currentSectionLoadingRows.AttemptToSpawnNextRow();
+                    return;
+                }
+                else
+                {
+                    if (AreThereAnyMoreSectionsToSpawn())
+                    {
+                        PopNextLoadSection();
+                    }
+                    else
+                    {
+                        canSpawnRow = false;
+                    }
+                }
+
+            } while (canSpawnRow);
+
+            Debug.LogWarning("Sorry, no more rows to spawn.");
+        }
+
+        private bool AreThereAnyMoreSectionsToSpawn() => sectionsToLoad.Count > 0;
+
+        private Section SpawnTrackSection(Section _section)
+        {
+            Section spawnedSectionGameObject = InstantiateSection(_section);
+            _section.InitSection(spawnedSectionGameObject.gameObject);
+            GetNextSpawnPosition(_section);
+            return spawnedSectionGameObject;
+        }
+        
+        private Section InstantiateSection(Section _section)
+        {
+            GameObject newSpawnedTrack = Instantiate(_section.gameObject, sectionSpawnPosition, thisTrack.transform.rotation, thisTrack.transform);
+            return newSpawnedTrack.GetComponentInChildren<Section>();
         }
         
         private void GetNextSpawnPosition(Section _section)
