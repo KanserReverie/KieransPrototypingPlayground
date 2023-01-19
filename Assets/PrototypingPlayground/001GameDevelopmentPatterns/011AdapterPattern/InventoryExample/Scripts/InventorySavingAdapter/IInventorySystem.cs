@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAsset;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAssetAdapter
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventorySavingAdapter
 {
     /// <summary>
     /// A client who uses this interface won't realise it's actually interacting with an adapted system.

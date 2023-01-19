@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAsset;
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAssetAdapter
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventorySavingAdapter
 {
     /// <summary>
     /// This would be the adapter to make our inventory asset save to local disk.

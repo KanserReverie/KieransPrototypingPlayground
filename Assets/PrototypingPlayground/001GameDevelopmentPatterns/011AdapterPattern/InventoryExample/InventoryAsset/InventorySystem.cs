@@ -15,7 +15,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
 
         public void RemoveItem(InventoryItem _item)
         {
-            Debug.Log("Removing item from the cloud");
+            Debug.Log("Removing item from the cloud.");
         }
 
         public List<InventoryItem> GetInventory()
