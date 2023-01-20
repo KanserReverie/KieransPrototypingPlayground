@@ -105,7 +105,7 @@ namespace PrototypingPlayground._004QuickPrototypes.MenuItems.Scripts
         private static bool NewMenuOptionValidation()
         {
             // This returns true when the selected object is a Texture2D (the menu item will be disabled otherwise).
-            return Selection.activeObject.GetType() == typeof(Texture2D);
+            return Selection.activeObject is not null && Selection.activeObject is Texture2D;
         }
         
         // ------------ Note ------------
