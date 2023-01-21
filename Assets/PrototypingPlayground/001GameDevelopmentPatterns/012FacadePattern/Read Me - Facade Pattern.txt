@@ -1,0 +1,22 @@
+Facade Pattern
+
+This is used when you have a complex system and want a simple client face for others to interact with.
+This hides the complexity of a system. When written clearly other programmers will be able to easily interact with your code.
+This is used in complex assets where they have complex inner workings, but you only want to interact with easy-to-use methods.
+The Asset - Kinematic Character Controller uses facades like this.
+
+Example 1
+Say you are driving a motorbike. You want to turn on the car so you would interact with the engine and then the engine would interact with other complex systems
+-> Driver (user)
+-> -> Engine (facade)
+-> -> -> || Cooling System ||  Fuel Pump ||  Turbo Charger || (under hood components user does not interact with directly and all interacted with the engine)
+
+Example 2
+Say you make a character controller asset for people to add to their projects.
+Using a facade, you could hide the inner workings.
+If a user called a move character command to your facade you could hide all the other systems that get called making it easier for the user to do what they want.
+-> Client
+-> -> Your Character Controller (move character)
+-> -> -> || Nav Mesh System (update move point) || Energy System (decreases energy) || Ai System (updates player location) ||
+
+This makes it easier to add extra classes without increasing complexity of the system.
