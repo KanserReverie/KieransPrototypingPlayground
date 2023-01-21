@@ -1,8 +1,7 @@
-using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAsset;
-using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventorySavingAdapter;
+using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.ExternalInventoryAsset;
+using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.InventorySavingAdapter;
 using UnityEngine;
-
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset
 {
     public class ClientSavingAdapter : MonoBehaviour
     {

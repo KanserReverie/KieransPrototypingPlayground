@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAsset;
+using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.ExternalInventoryAsset;
 using UnityEngine;
-
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryTradingAdapter
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.InventoryTradingAdapter
 {
     /// <summary>
     /// In this example we are going to hold a trade inventory and enable trading.

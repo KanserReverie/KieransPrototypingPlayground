@@ -1,6 +1,5 @@
 using UnityEngine;
-
-namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.Platformer
+namespace PrototypingPlayground.UsefulScripts
 {
     [RequireComponent(typeof(Rigidbody))]
     public class SimpleVelocityDebug : MonoBehaviour

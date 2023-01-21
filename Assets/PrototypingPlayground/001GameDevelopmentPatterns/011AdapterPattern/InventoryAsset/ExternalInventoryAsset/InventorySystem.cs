@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
-
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryExample.InventoryAsset
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.ExternalInventoryAsset
 {
     /// <summary>
     /// Imagine this is an asset for an inventory system.
