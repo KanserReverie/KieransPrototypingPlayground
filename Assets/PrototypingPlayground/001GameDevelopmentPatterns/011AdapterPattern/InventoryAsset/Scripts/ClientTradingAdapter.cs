@@ -1,6 +1,7 @@
 using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.ExternalInventoryAsset;
 using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.InventoryTradingAdapter;
 using UnityEngine;
+
 namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset
 {
     public class ClientTradingAdapter : MonoBehaviour

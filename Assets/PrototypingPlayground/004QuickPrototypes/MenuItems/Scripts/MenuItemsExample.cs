@@ -4,6 +4,8 @@ using UnityEngine;
 namespace PrototypingPlayground._004QuickPrototypes.MenuItems.Scripts
 {
     /// <summary>
+    ///
+    /// These are all the things you can do with menu items.
     /// 
     /// Using this tutorial! :)
     /// 
