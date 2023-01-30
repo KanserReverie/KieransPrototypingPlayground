@@ -1,0 +1,7 @@
+In this example, we will be using a façade 2 allow us too easily control a character without needing to know the inner workings of it
+What the client will see:
+A Character Controller Façade that has simple commands that they can call on
+What the client can’t see:
+The movement system to enable moving left and right and jumping
+A health system to enable player damage and deaths
+A respawn system
