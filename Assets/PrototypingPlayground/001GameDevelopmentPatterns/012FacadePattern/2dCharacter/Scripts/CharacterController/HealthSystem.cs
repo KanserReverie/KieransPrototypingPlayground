@@ -6,7 +6,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2
         private float currentHealth;
         private float aliveStatus;
 
-        public void SpawnPlayer(float startingHealth)
+        public void SpawnPlayer(float _startingHealth)
         {
             
         }

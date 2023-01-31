@@ -4,6 +4,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2
 {
     public class RespawnSystem : MonoBehaviour
     {
-        
+        public static Vector3 GetSpawnLocation()
+        {
+            SpawnPoint spawnPoint = FindObjectOfType<SpawnPoint>();
+            
+            if (spawnPoint != null)
+            {
+                return spawnPoint.SpawnLocation;
+            }
+            else
+            {
+                return Vector3.zero;
+            }
+        }
     }
 }

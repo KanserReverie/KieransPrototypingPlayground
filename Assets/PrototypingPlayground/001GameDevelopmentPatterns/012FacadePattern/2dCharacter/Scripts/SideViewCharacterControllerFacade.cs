@@ -32,9 +32,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2
             playerRespawn = gameObject.AddComponent<RespawnSystem>();
         }
 
-        public void Spawn()
+        public void SpawnPlayer()
         {
             currentHealth = startingHealth;
+            Vector3 spawnLocation = RespawnSystem.GetSpawnLocation();
+            playerMovement.MovePlayerToSpawn(spawnLocation);
         }
 
     }
