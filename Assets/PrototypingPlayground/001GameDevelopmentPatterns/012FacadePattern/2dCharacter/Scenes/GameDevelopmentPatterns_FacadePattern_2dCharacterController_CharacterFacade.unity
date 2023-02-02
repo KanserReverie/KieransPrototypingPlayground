@@ -264,9 +264,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e726031f9c82460aad0500ec7bc08496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  usePlayerInput: 1
+  usePlayerInput: 0
   CameraTarget: {fileID: 1351849632}
-  FollowDistance: 8
+  FollowDistance: 9
   MaxFollowDistance: 20
   MinFollowDistance: 2
   ElevationAngle: 30
@@ -275,7 +275,7 @@ MonoBehaviour:
   OrbitalAngle: 0
   CameraMode: 0
   MovementSmoothing: 1
-  RotationSmoothing: 0
+  RotationSmoothing: 1
   MovementSmoothingValue: 25
   RotationSmoothingValue: 5
   MoveSensitivity: 2
@@ -467,6 +467,7 @@ GameObject:
   - component: {fileID: 1351849632}
   - component: {fileID: 1351849631}
   - component: {fileID: 1351849633}
+  - component: {fileID: 1351849634}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -488,7 +489,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 114
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!4 &1351849632
 Transform:
@@ -520,7 +521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 6521ea798b95d744c8863097f2b4b137, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -531,12 +532,115 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1351849634}
+        m_TargetAssemblyTypeName: PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2dCharacter.ClientCharacterController,
+          Assembly-CSharp
+        m_MethodName: OnMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6eb29788-7438-437d-b839-b5fcedf19ece
+    m_ActionName: Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1351849634}
+        m_TargetAssemblyTypeName: PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2dCharacter.ClientCharacterController,
+          Assembly-CSharp
+        m_MethodName: OnJump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e2af375a-a218-4daf-b300-cc3bdbc2340c
+    m_ActionName: Player/Jump[/Keyboard/space]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9d932f89-29bc-481b-bf8e-311d162f0844
+    m_ActionName: UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dc083273-83ef-497e-851d-9d9177bdb2b8
+    m_ActionName: UI/Submit[/Keyboard/enter]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd8bc6bb-ae63-443f-b5e5-2d83a0573c97
+    m_ActionName: UI/Cancel[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: dd3c3d10-9dde-467c-8872-c844776ee698
+    m_ActionName: UI/Point[/Mouse/position]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fddcdaaa-7e0c-4e5b-af49-94530aee5f94
+    m_ActionName: UI/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3290816f-7b97-4318-8fe1-e0624804b8a4
+    m_ActionName: UI/ScrollWheel[/Mouse/scroll]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 82ce0f67-33a0-4fb1-90e3-2780b1ceeb8a
+    m_ActionName: UI/MiddleClick[/Mouse/middleButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0b3ff6e2-09a4-4d01-9ee1-255e870405ab
+    m_ActionName: UI/RightClick[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6c22740c-6002-4a8c-8f2c-facdacd88d61
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4f54e9f2-723b-48fe-8199-c03d13d363b9
+    m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1351849634}
+        m_TargetAssemblyTypeName: PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2dCharacter.ClientCharacterController,
+          Assembly-CSharp
+        m_MethodName: OnRespawn
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b8de697c-4817-431a-a15f-5f8ae398989b
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1351849634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1351849630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe95b373c8024f3fa43f1ecb809ae4f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1541024643
 GameObject:
   m_ObjectHideFlags: 0
