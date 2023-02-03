@@ -1,0 +1,12 @@
+Service Locator Pattern
+
+This can sort of be seen as a Yellow Pages of your classes and dependencies.
+
+It makes dependency management easier but can become a dependency hazard if used incorrectly, making your code more convoluted.
+
+	“If overly used and with the wrong intentions, the Service Locator 	pattern can become a global dependency in itself that's arduous to 	manage. Your code will become excessively dependent on it, and 	eventually, it won't be easy to decouple it from the rest of your 	core components.” 
+
+	~David Baron
+	(Game Development Patterns with Unity 2021 Second Edition)
+
+
