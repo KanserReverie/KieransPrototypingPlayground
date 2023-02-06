@@ -1,0 +1,10 @@
+||Service Locator Pattern|| - Unity Services Example
+https://docs.unity3d.com/Manual/UnityServices.html
+
+This example is using a ||Service Locator Pattern|| to integrate Unity Services.
+
+These services are to be used and referenced anywhere in our project and dont change.
+
+(Also by using interfaces we can swap out testing versions for live ones) - Say we wanted to not use the real advertisement service while developing.
+
+This Pattern allows us to reference and use these services anywhere! 

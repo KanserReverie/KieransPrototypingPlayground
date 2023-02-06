@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPattern.AnalyticsLogAds.Scripts
+namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPattern.UnityServices
 {
     /// <summary>
     /// This is going to be our "White Pages" for this project.
