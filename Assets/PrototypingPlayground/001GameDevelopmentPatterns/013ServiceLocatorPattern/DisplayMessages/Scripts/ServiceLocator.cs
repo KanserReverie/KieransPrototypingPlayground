@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPattern.SavingLoading
+namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPattern.DisplayMessages
 {
     /// <summary>
     /// This is our global white pages.

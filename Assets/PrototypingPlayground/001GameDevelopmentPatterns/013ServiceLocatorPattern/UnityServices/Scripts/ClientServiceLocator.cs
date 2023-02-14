@@ -27,8 +27,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 
             if (GUILayout.Button("Log Event"))
             {
-                ILoggerService logger =
-                    ServiceLocator.GetService<ILoggerService>();
+                ILoggerService logger = ServiceLocator.GetService<ILoggerService>();
 
                 logger.Log("Hello World!");
             }
