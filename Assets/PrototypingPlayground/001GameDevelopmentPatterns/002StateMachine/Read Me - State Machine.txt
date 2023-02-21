@@ -1,0 +1,7 @@
+State Machine Pattern
+When something can have finite states, you use a state machine.
+IMPLEMENTATION METHODS (IN UNITY)
+- Concrete Coded States - You code each state and how it moves between them. The difficulty is a visual diagram.
+- Unity Animation System - Shows the States but has issues calling things during the states unless with animation events. This does have limitations
+- 3rd Party Asset - Recommended as you get the flexibility of the coded states and a visual representation. 
+Best is - Node Canvas !! (Play Maker will also work).

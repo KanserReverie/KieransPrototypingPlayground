@@ -1,0 +1,32 @@
+Singleton Pattern
+
+This uses static to FORCE a single instance of a class in scene or in game.
+
+GOOD:
+- Can be referenced globally.
+- Limit to a single version of a resource (e.g., sound).
+- Great if you KNOW the scope will stop there.
+
+BAD:
+- Bad if the scope DOESN’T stop there.
+- The more we use it the harder future architecture becomes to create around it.
+- It doesn’t fit well with better code.
+- Lazy code, find the better way to do it if a larger project.
+
+USES:
+- Always ask if you only need one of this.
+- Game Manager to manage audio or scenes.
+- Other Managers you only want one of e.g., Input Manager, Audio Manager.
+
+CREATING A SINGLETON:
+“private static T _instance” - Make sure there is only one of itself.
+“public static T Instance” – Getter and setter to reference by other classes.
+“Awake()” - To ensure there is no other (if there is, kill itself).
+“DontDestroyOnLoad(gameObject);” - Make this Singleton stays between scenes.
+
+IMPLENTATION:
+You can use the code in this to create an out of the box Singleton with all the Awake stuff done.
+
+Examples
+“public class GameManager : Singleton<GameManager>”
+“public class InputManager : Singleton<InputManager>”
