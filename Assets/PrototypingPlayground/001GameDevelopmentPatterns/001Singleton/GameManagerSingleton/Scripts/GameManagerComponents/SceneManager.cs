@@ -1,14 +1,17 @@
 // Creator: 
 // Creation Time: 2022/06/11 10:28
+
 using System;
-using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerComponents
+
+using PrototypingPlayground.UsefulScripts;
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerSingleton.GameManagerComponents
 {
 	public class SceneManager : GameManagerComponentBehaviour
 	{
 		private enum ActiveSingletonScene { Lobby,Gameplay, NoSingletonScene }
-		private ActiveSingletonScene _activeSingletonScene;
+		private ActiveSingletonScene activeSingletonScene;
 		[SerializeField] private string lobbySceneName = "Singleton_Lobby";
 		[SerializeField] private string gameplaySceneName = "Singleton_Gameplay";
 
@@ -17,21 +20,21 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
 			Debug.Log($"Active Scene Name = {UnityEngine.SceneManagement.SceneManager.GetActiveScene().name}");
 
 			if(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == lobbySceneName) 
-				_activeSingletonScene = ActiveSingletonScene.Lobby;
+				activeSingletonScene = ActiveSingletonScene.Lobby;
 			else if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == gameplaySceneName) 
-				_activeSingletonScene = ActiveSingletonScene.Gameplay;
+				activeSingletonScene = ActiveSingletonScene.Gameplay;
 			else 
-				_activeSingletonScene = ActiveSingletonScene.NoSingletonScene;
+				activeSingletonScene = ActiveSingletonScene.NoSingletonScene;
 		}
 		private void OnGUI()
 		{
-			switch (_activeSingletonScene)
+			switch (activeSingletonScene)
 			{
 				case ActiveSingletonScene.Lobby:
 					if(GUILayout.Button("Open 'Singleton_Gameplay' Scene"))
 					{
 						UnityEngine.SceneManagement.SceneManager.LoadScene("Singleton_Gameplay");
-						_activeSingletonScene = ActiveSingletonScene.Gameplay;
+						activeSingletonScene = ActiveSingletonScene.Gameplay;
 					}
 					break;
 				case ActiveSingletonScene.Gameplay:

@@ -1,8 +1,10 @@
 // Creator: 
 // Creation Time: 2022/06/11 10:25
+
 using System;
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerComponents
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerSingleton.GameManagerComponents
 {
 	[Serializable]
 	public class GameManagerComponentBehaviour : MonoBehaviour

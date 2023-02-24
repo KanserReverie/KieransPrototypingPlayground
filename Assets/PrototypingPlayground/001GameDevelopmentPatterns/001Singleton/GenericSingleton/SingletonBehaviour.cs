@@ -1,11 +1,13 @@
 // Creator: 
 // Creation Time: 2022/06/10 9:55
+
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GenericSingleton
 {
 	public class SingletonBehaviour<T> : MonoBehaviour where T : Component
 	{
-		private static T _instance;
+		private static T instance;
 
 		// 1. Check _instance is null.
 		// 2. Check if one is already in scene.
@@ -15,30 +17,30 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton
 		{
 			get
 			{
-				if(_instance == null)
+				if(instance == null)
 				{
-					_instance = FindObjectOfType<T>();
+					instance = FindObjectOfType<T>();
 
-					if(_instance == null)
+					if(instance == null)
 					{
 						GameObject tempGameObject = new GameObject();
 						tempGameObject.name = typeof(T).Name;
-						_instance = tempGameObject.AddComponent<T>();
+						instance = tempGameObject.AddComponent<T>();
 					}
 				}
-				return _instance;
+				return instance;
 			}
 		}
  
 		// ---Awake is called when the script is being loaded. (Not just before start)---
 		// 1. Check if WE are the one in scene.
-		// 2. If we are then dont destory this.
-		// 3. If we are then destroy this. GameObject.
+		// 2. If we are then dont destroy this.
+		// 3. If we are not then destroy this. GameObject.
 		public virtual void Awake()
 		{
-			if(_instance == null)
+			if(instance == null || instance == this)
 			{
-				_instance = this as T;
+				instance = this as T;
 				DontDestroyOnLoad(gameObject);
 			} 
 			else

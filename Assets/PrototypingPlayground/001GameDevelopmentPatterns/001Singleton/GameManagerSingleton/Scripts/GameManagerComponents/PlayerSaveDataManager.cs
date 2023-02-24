@@ -1,24 +1,25 @@
 using System.IO;
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerComponents
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameManagerSingleton.GameManagerComponents
 {
     public class PlayerSaveDataManager : GameManagerComponentBehaviour
     {
-        [SerializeField] private PlayerSaveData _playerSaveData = new PlayerSaveData();
-        private string _saveFileLocation;
+        [SerializeField] private PlayerSaveData playerSaveData = new PlayerSaveData();
+        private string saveFileLocation;
         
         private void Awake()
         {
-            _saveFileLocation = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "/playerSaveData.json";
+            saveFileLocation = Application.persistentDataPath + Path.AltDirectorySeparatorChar + "/playerSaveData.json";
         }
         
         public void SavePlayerData()
         {
             GetPlayerData();
-            string savePath = _saveFileLocation;
+            string savePath = saveFileLocation;
             Debug.Log($"Saving Player Data @:{savePath}");
-            string json = JsonUtility.ToJson(_playerSaveData);
-            using StreamWriter writer = new StreamWriter(_saveFileLocation);
+            string json = JsonUtility.ToJson(playerSaveData);
+            using StreamWriter writer = new StreamWriter(saveFileLocation);
             writer.Write(json);
         }
 
@@ -49,16 +50,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
 
         public void LoadPlayerData()
         {
-            using StreamReader reader = new StreamReader(_saveFileLocation);
+            using StreamReader reader = new StreamReader(saveFileLocation);
             string json = reader.ReadToEnd();
 
-            _playerSaveData = JsonUtility.FromJson<PlayerSaveData>(json);
+            playerSaveData = JsonUtility.FromJson<PlayerSaveData>(json);
             
             GameObject playerInScene = GameObject.FindGameObjectWithTag("Player");
-            playerInScene.transform.position = _playerSaveData.location;
-            playerInScene.transform.rotation = _playerSaveData.rotation;
+            playerInScene.transform.position = playerSaveData.location;
+            playerInScene.transform.rotation = playerSaveData.rotation;
             Rigidbody playerRigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
-            playerRigidbody = _playerSaveData.rigidbody;
+            playerRigidbody = playerSaveData.rigidbody;
         }
 
         private void GetPlayerData()
@@ -68,9 +69,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
                 Debug.Log("Sorry, cant find a GameObject with a 'Player' tag");
             else
             {
-                _playerSaveData.location = playerInScene.transform.position;
-                _playerSaveData.rotation = playerInScene.transform.rotation;
-                _playerSaveData.rigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
+                playerSaveData.location = playerInScene.transform.position;
+                playerSaveData.rotation = playerInScene.transform.rotation;
+                playerSaveData.rigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
             }
         }
     }
