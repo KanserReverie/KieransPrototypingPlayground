@@ -1,32 +1,33 @@
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.BikeStateMachine
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.BikeStateMachine.BikeStateMachine
 {
     public class BikeInputs : MonoBehaviour
     {
-        private BikeController _bikeController;
+        private BikeController bikeController;
 
         private void Start()
         {
-            _bikeController = (BikeController) FindObjectOfType(typeof(BikeController));
+            bikeController = (BikeController) FindObjectOfType(typeof(BikeController));
         }
 
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.W) ||Input.GetKeyDown(KeyCode.UpArrow))
             {
-                _bikeController.StartBike();
+                bikeController.StartBike();
             }
             if (Input.GetKeyDown(KeyCode.S) ||Input.GetKeyDown(KeyCode.DownArrow))
             {
-                _bikeController.StopBike();
+                bikeController.StopBike();
             }
             if (Input.GetKeyDown(KeyCode.A) ||Input.GetKeyDown(KeyCode.LeftArrow))
             {
-                _bikeController.TurnBike(Direction.Left);
+                bikeController.TurnBike(Direction.Left);
             }
             if (Input.GetKeyDown(KeyCode.D) ||Input.GetKeyDown(KeyCode.RightArrow))
             {
-                _bikeController.TurnBike(Direction.Right);
+                bikeController.TurnBike(Direction.Right);
             }
         }
 
@@ -34,19 +35,19 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
         {
             if (GUILayout.Button("Start Bike"))
             {
-                _bikeController.StartBike();
+                bikeController.StartBike();
             }
             if (GUILayout.Button("Stop Bike"))
             {
-                _bikeController.StopBike();
+                bikeController.StopBike();
             }
             if(GUILayout.Button("Turn Left"))
             {
-                _bikeController.TurnBike(Direction.Left);
+                bikeController.TurnBike(Direction.Left);
             }
             if (GUILayout.Button("Turn Right"))
             {
-                _bikeController.TurnBike(Direction.Right);
+                bikeController.TurnBike(Direction.Right);
             }
         }
     }

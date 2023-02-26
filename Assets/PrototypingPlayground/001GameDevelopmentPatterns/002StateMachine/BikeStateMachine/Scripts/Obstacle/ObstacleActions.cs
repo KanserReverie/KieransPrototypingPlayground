@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Obstacle
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.BikeStateMachine.Obstacle
 {
     public class ObstacleActions : MonoBehaviour
     {
