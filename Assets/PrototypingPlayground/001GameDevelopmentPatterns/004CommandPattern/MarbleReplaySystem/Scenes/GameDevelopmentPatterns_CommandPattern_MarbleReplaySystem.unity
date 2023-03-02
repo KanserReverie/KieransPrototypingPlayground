@@ -756,7 +756,7 @@ Transform:
   - {fileID: 1906939364}
   - {fileID: 1821721548}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383724776
 GameObject:
@@ -1155,9 +1155,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 383724780}
-  - {fileID: 1114238367}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &459833770
 GameObject:
@@ -2371,13 +2370,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1114238366}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 2.154, z: 0}
+  m_LocalRotation: {x: 0.27228025, y: 0, z: 0, w: 0.962218}
+  m_LocalPosition: {x: 2.69, y: 5.25, z: -13.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 764664279}
-  m_Father: {fileID: 424558879}
+  m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
 --- !u!114 &1114238368
@@ -2394,6 +2393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformToFollow: {fileID: 383724780}
   followRotation: 0
+  offsetPosition: {x: 0, y: 0, z: 0}
+  offsetRotation: {x: 31.6, y: 0, z: 0}
 --- !u!1 &1227208090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2729,7 +2730,7 @@ RectTransform:
   - {fileID: 223734172}
   - {fileID: 1920026358}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

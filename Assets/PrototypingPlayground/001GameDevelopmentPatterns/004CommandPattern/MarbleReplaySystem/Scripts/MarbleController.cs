@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem
 {
     public class MarbleController : MonoBehaviour
     {

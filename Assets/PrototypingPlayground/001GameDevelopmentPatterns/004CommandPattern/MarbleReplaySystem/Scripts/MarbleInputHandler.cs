@@ -1,9 +1,10 @@
-using PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay.Commands;
+using PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem.Commands;
 using PrototypingPlayground.UsefulScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem
 {
     public class MarbleInputHandler : MonoBehaviour
     {
@@ -51,6 +52,8 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.O
         
         private void FixedUpdate()
         {
+            if (marbleCommandInvoker.WeAreReplaying) return;
+            
             if (jumpInput)
             {
                 marbleCommandInvoker.ExecuteCommand(new Jump(marbleController));

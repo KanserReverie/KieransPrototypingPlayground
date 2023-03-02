@@ -1,19 +1,20 @@
 using System.Collections.Generic;
 using System.Linq;
-using PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay.Commands;
+using PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem.Commands;
 using PrototypingPlayground.UsefulScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem
 {
     public class MarbleCommandInvoker : MonoBehaviour
     {
         private bool weAreRecording;
-        private bool weAreReplaying;
+        public bool WeAreReplaying { get; private set; }
         private bool gameHasStarted;
         private float currentGameTimer;
-
+        
         private int commandCount;
 
         private PlayerInput playerInput;
@@ -36,25 +37,34 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.O
             startingGameTimer = _startingGameTimer;
         }
 
+        private void Start()
+        {
+            recordedCommands = new SortedList<float, AbstractMarbleCommand>();
+        }
+
         private void FixedUpdate()
         {
             if (!gameHasStarted) return;
-            
-            if (weAreReplaying)
+
+            if (WeAreReplaying)
             {
                 if (currentGameTimer > 0 && recordedCommands.Any())
                 {
-                    if ((playTime + (0.5 * Time.fixedDeltaTime)) > recordedCommands.Keys[commandCount])
+                    if ((playTime + (0.5 * Time.fixedDeltaTime)) >= recordedCommands.Keys[commandCount])
                     {
                         recordedCommands.Values[commandCount].ExecuteCommand();
-                        commandCount++;
+                        if (commandCount+1 < recordedCommands.Count)
+                        {
+                            commandCount++;
+                        }
                     }
                 }
             }
+
             HandleTime();
         }
-        
-        public void ReplaySimulation()
+
+        private void ReplaySimulation()
         {
             currentGameTimer = startingGameTimer;
             timerTMPText.text = ($"{currentGameTimer}");
@@ -62,7 +72,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.O
             new Respawn(marbleController).ExecuteCommand();
             playTime = 0f;
             weAreRecording = false;
-            weAreReplaying = true;
+            WeAreReplaying = true;
             recordedCommands.Reverse();
         }
         
@@ -103,11 +113,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.O
             if (currentGameTimer <= 0)
             {
                 currentGameTimer = 0;
-                if (!weAreRecording && !weAreReplaying)
+                if (weAreRecording)
+                {
+                    ReplaySimulation();
+                }
+                else
                 {
                     CommonlyUsedStaticMethods.QuitGame();
                 }
-                ReplaySimulation();
             }
         }
 
@@ -126,9 +139,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.O
                     recordedCommands.Add(playTime, _marbleCommandToRun);
                 }
             }
-            if (weAreReplaying)
+            if (WeAreReplaying)
             {
-                weAreReplaying = false;
+                WeAreReplaying = false;
                 statusTMPText.text = ($"");
             }
         }

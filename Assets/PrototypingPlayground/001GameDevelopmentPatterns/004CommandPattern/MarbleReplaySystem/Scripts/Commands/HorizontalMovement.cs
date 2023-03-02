@@ -1,5 +1,6 @@
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.OverwriteLastPlay.Commands
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.MarbleReplaySystem.Commands
 {
     public class HorizontalMovement : AbstractMarbleCommand
     {
