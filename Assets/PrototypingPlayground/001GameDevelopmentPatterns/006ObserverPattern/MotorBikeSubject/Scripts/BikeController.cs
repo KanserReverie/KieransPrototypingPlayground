@@ -1,4 +1,4 @@
-using PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.AbstractClasses;
+using PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.GenericObserverPattern;
 using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.MotorBikeSubject

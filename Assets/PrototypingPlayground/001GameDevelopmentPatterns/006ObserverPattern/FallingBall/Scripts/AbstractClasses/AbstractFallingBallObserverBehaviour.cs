@@ -1,4 +1,4 @@
-using PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.AbstractClasses;
+using PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.GenericObserverPattern;
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.FallingBall.AbstractClasses
 {

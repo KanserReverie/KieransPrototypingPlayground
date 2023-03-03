@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.AbstractClasses
+
+namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.GenericObserverPattern
 {
     /// <summary> <para> This an abstract MonoBehaviour class that is part of the Observer Pattern.</para> 
     /// <para> It is for a "Subject" that will store all "Observers".</para> 
