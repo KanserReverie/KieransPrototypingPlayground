@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.GenericStateMachine
+namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.GenericStateMachine.ExampleStates
 {
     /// <summary>
     /// This state will be our first and default state.
