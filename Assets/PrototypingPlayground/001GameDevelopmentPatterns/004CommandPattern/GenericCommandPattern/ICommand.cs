@@ -9,5 +9,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
         /// This is the action taken when this command is executed.
         /// </summary>
         void ExecuteCommand();
+
+        /// <summary>
+        /// This will be used to undo the previous command.
+        /// </summary>
+        void Undo();
     }
 }

@@ -7,7 +7,20 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
     /// </summary>
     public class SecondExampleCommand : ICommand
     {
+        // This will be the object we will be affecting with commands.
+        private readonly CommandReceiver commandReceiver;
+
+        public SecondExampleCommand(CommandReceiver _commandReceiver)
+        {
+            commandReceiver = _commandReceiver;
+        }
+        
         public void ExecuteCommand()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void Undo()
         {
             throw new System.NotImplementedException();
         }

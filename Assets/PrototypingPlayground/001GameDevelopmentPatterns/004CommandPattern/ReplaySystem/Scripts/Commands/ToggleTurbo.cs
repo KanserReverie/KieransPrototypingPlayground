@@ -2,15 +2,15 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
 {
     public class ToggleTurbo : Command
     {
-        private readonly BikeController _bikeController;
+        private readonly BikeController bikeController;
 
-        public ToggleTurbo(BikeController bikeController)
+        public ToggleTurbo(BikeController _bikeController)
         {
-            _bikeController = bikeController;
+            bikeController = _bikeController;
         }
         public override void Execute()
         {
-            _bikeController.ToggleTurbo();
+            bikeController.ToggleTurbo();
         }
     }
 }
