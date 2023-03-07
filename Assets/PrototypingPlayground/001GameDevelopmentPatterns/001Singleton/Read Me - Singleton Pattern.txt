@@ -8,9 +8,9 @@ GOOD:
 - Great if you KNOW the scope will stop there.
 
 BAD:
-- Bad if the scope DOESN’T stop there.
+- Bad if the scope DOESNï¿½T stop there.
 - The more we use it the harder future architecture becomes to create around it.
-- It doesn’t fit well with better code.
+- It doesnï¿½t fit well with better code.
 - Lazy code, find the better way to do it if a larger project.
 
 USES:
@@ -19,14 +19,14 @@ USES:
 - Other Managers you only want one of e.g., Input Manager, Audio Manager.
 
 CREATING A SINGLETON:
-“private static T _instance” - Make sure there is only one of itself.
-“public static T Instance” – Getter and setter to reference by other classes.
-“Awake()” - To ensure there is no other (if there is, kill itself).
-“DontDestroyOnLoad(gameObject);” - Make this Singleton stays between scenes.
+1) private static T _instance - Make sure there is only one of itself.
+2) public static T Instance - Getter and setter to reference by other classes.
+3) Awake() - To ensure there is no other (if there is, kill itself).
+4) DontDestroyOnLoad(gameObject); - Make this Singleton stays between scenes.
 
-IMPLENTATION:
+IMPLEMENTATION:
 You can use the code in this to create an out of the box Singleton with all the Awake stuff done.
 
 Examples
-“public class GameManager : Singleton<GameManager>”
-“public class InputManager : Singleton<InputManager>”
+-> public class GameManager : Singleton<GameManager>
+-> public class InputManager : Singleton<InputManager>

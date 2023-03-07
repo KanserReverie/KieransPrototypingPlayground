@@ -1,17 +1,17 @@
 Command Pattern
 The Command Pattern is a way of treating each:
-- “Action” as a  “Commands”
+- Action as a Commands
 
 Uses:
-- Replay System - Saving the history of “Commands” executed.
-- Command Que – Line up “Commands” to execute on a beat.
-- Undo System – Save executed commands and undo them on a beat.
-- Time Rewind – Make time go backwards by executing commands in reverse. 
+- Replay System - Saving the history of Commands executed.
+- Command Que Line up Commands to execute on a beat.
+- Undo System Save executed commands and undo them on a beat.
+- Time Rewind Make time go backwards by executing commands in reverse. 
 
 + Removes Actions from code
 + Lets us treat actions as real things
 - Makes our code slightly more complex
 
-Check the generic folder for a generic solution on how to implement it.
-
-Also see the examples for how it can be used.
+Implementation
+-> Check the generic folder for a generic solution on how to implement it.
+-> Also see the examples for how it can be used.
