@@ -1,0 +1,14 @@
+Object Pool Pattern
+Creating and destroying Game Objects is expensive and can be avoided with an Object Pool.
+An Object Pool:
+1) Generates a bunch of an objects into a pool.
+2) When you need one take one from the pool and activate it.
+3) When you are done with it add it back to the pool.
+
++ Performance boosting
+- Unpredictable object states if implemented wrong
+- Not always necessary. (Due to computer efficiency and C# memory management)
+
+Implementation
+In this case we will be using Unitys Object Pool System IObjectPool<T0> class under the UnityEngine.Pool
+https://docs.unity3d.com/2021.1/Documentation/ScriptReference/Pool.ObjectPool_1.html
