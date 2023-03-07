@@ -17,12 +17,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
         
         public void ExecuteCommand()
         {
-            throw new System.NotImplementedException();
+            commandReceiver.ThirdCommand();
         }
 
         public void Undo()
         {
-            throw new System.NotImplementedException();
+            commandReceiver.UndoThirdCommand();
         }
     }
 }

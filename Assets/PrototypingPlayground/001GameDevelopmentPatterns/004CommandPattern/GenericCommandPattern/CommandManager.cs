@@ -18,11 +18,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
 
         public void UndoLastCommand()
         {
-            if (commandStack.Count > 0)
-            {
-                ICommand command = commandStack.Pop();
-                command.Undo();
-            }
+            if (commandStack.Count <= 0) return;
+            ICommand command = commandStack.Pop();
+            command.Undo();
         }
     }
 }
