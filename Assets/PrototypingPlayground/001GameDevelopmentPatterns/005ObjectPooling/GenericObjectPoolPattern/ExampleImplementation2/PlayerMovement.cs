@@ -4,7 +4,7 @@ using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.GenericObjectPoolPattern.ExampleImplementation2
 {
     [RequireComponent(typeof(Rigidbody))]
-    public class Player : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
         private Rigidbody playerRigidbody;
         private float horizontalInput;
