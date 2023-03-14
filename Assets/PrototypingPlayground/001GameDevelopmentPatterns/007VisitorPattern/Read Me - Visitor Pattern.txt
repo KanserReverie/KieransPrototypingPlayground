@@ -13,10 +13,18 @@ Uses:
 Temporary Power Ups
 Adding Game Mechanics - Collision Detection, AI Behaviour
 
-+ Can have Visitable holding data and Visitor that adds behaviours. 
-+ Add behaviours to a class without changing the main class.
-- Visitors need to access Public Fields, thus we might need to expose more fields then before.
-- Make things more complicated then need be.
++ Modular Design! :D
++ Can have Visitable holding data and Visitor that adds behaviours.
++ Add behaviours to a class without changing the main class
+- Visitors need to access Public Fields, thus we might need to expose more fields then before
+- Make things more complicated then need be
 
 Implementation
+
+IVisitable - The main game object that can have visitors
+Accept(IVisitor _visitor) - Adds the visitor to the object
+
+IVisitor - The visitor to the game object
+Visit(IVisitable _visitable) - Will visit this game object 
+
 -> Check the generic folder for a generic solution on how to implement it.
