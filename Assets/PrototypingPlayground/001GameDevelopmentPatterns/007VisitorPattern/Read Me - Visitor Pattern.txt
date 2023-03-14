@@ -1,0 +1,22 @@
+Visitor Pattern
+
+The Visitor Pattern is like Power Ups in games.
+THEY DON'T change the core class.
+THEY DO change variables and ADD/REMOVE functionality.
+
+Example - 
+You have a blank PERSON [Visitable] ---> 
+YOU WANT TO SEE ----> You add EYES [Visitor] for that function
+YOUR EYES [Visitor] ARE REMOVED ---> You now cannot see 
+
+Uses:
+Temporary Power Ups
+Adding Game Mechanics - Collision Detection, AI Behaviour
+
++ Can have Visitable holding data and Visitor that adds behaviours. 
++ Add behaviours to a class without changing the main class.
+- Visitors need to access Public Fields, thus we might need to expose more fields then before.
+- Make things more complicated then need be.
+
+Implementation
+-> Check the generic folder for a generic solution on how to implement it.
