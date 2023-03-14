@@ -1,0 +1,29 @@
+Observer Pattern
+
+The Observer Pattern is a event system for [1:many] relationships || [Subject: Observer1, Observer2, Observer3 ... ]
+The subject notifies when a changes are made but not exactly what the changes are.
+Instead of checking for changes every frame you only need to when there are changes in the subject.
+
+Uses:
+State Machines-> with smaller systems underneath
+Player -> Components
+Player: Camera System, Health System, Movement System 
+Bike: Engine, Damage Visuals, Turning System
+
++ Can add or remove objects dynamically
++ Event handling system - For 1 main system and multiple systems || e.g. low health bool -> other observers can interact with this change.
+- Doesn't say the changes or order to notify Observers.
+- CAN CAUSE MEMORY LEAKS IF YOU DONT REMOVE YOU OBSERVERS! -> https://en.wikipedia.org/wiki/Lapsed_listener_problem. 
+"Improperly implemented Observer pattern may cause memory leaks by retaining strong references to its observers."
+~ChatGPT
+
+Observer Pattern:
+ISubject
+AttachObserver(): This method allows you to add an observer object to the list of observers to notify.
+DetachObserver(): This method removes an observer from the list of observers.
+NotifyObservers(): This method notifies all the objects that have been added to the subject's list of observers.
+IObserver
+Notify(): What to do when a change is made in the subject.
+
+Implementation
+-> Check the generic folder for a generic solution on how to implement it.

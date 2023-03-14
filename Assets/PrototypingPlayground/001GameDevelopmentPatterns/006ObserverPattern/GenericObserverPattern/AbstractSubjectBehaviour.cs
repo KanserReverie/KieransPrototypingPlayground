@@ -10,10 +10,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
     {
         private readonly ArrayList observers = new ArrayList();
 
-        /// <summary> Add an "Observer" to the list of observers.</summary> <param name="_abstractObserverBehaviour"> Observer to add.</param> 
+        /// <summary> Add an "Observer" to the list of observers.</summary>
+        /// <param name="_abstractObserverBehaviour"> Observer to add.</param> 
         public void AttachObserver(AbstractObserverBehaviour _abstractObserverBehaviour) => observers.Add(_abstractObserverBehaviour);
 
-        /// <summary> Remove an observer from the list of observers.</summary> <param name="_abstractObserverBehaviour"> Observer to remove.</param> 
+        /// <summary> Remove an observer from the list of observers.</summary>
+        /// <param name="_abstractObserverBehaviour"> Observer to remove.</param> 
         public void DetachObserver(AbstractObserverBehaviour _abstractObserverBehaviour) => observers.Remove(_abstractObserverBehaviour);
 
         /// <summary> Will call Notify() method in each saved observer when our internal state has changed.</summary> 
