@@ -27,5 +27,5 @@ Accept(IVisitor _visitor) - Adds the visitor to the object
 IVisitor - The visitor to the game object
 Visit(IVisitable _visitable) - Will visit this game object
 
--> Check the generic folder for a generic solution you might need to modify it.
--> You might need to make your own visitor pattern to add the specific functionality you need.
+-> Check the generic folder for a generic solution you will need to copy and paste.
+-> You will need to change to your needs.

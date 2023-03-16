@@ -1,0 +1,9 @@
+Visitor Pattern Implementation
+
+In this case make sure to copy all the scripts across and modify them to your example.
+
+With the use of abstract classes you could do some interesting things.
+
+You can pass the same visitor to visit different classes in different ways.
+-> Snow could do more damage to frost people.
+-> Blinding grenades could disable UI for Human Players, and change ai direction states in NPCs.
