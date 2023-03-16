@@ -1,23 +1,23 @@
 Visitor Pattern
 
-The Visitor Pattern is like Power Ups in games.
+The Visitor Pattern is like an operating doctor.
 THEY DON'T change the core class.
-THEY DO change variables and ADD/REMOVE functionality.
+THEY DO change variables and modify functionality.
 
 Example - 
-You have a blank PERSON [Visitable] ---> 
-YOU WANT TO SEE ----> You add EYES [Visitor] for that function
-YOUR EYES [Visitor] ARE REMOVED ---> You now cannot see 
+You have a PERSON w/ Broken Arm [Visitable] ---> 
+A doctor visits you [Visitor] ---> they operate on you
+You now have a PERSON w/ No Broken Arm [Modified Visitable] 
 
 Uses:
-Temporary Power Ups
-Adding Game Mechanics - Collision Detection, AI Behaviour
+AI Behaviour - checking all NPCs in scene to see if to flee
+Going through all visitable objects in scene and modifying them
+Disabling all UI in scene 
+Managing complex object hierarchies in games
 
-+ Modular Design! :D
-+ Can have Visitable holding data and Visitor that adds behaviours.
-+ Add behaviours to a class without changing the main class
++ Can modify all things in a scene easily
++ Changing variables to a class without changing the main class
 - Visitors need to access Public Fields, thus we might need to expose more fields then before
-- Make things more complicated then need be
 
 Implementation
 
@@ -25,6 +25,7 @@ IVisitable - The main game object that can have visitors
 Accept(IVisitor _visitor) - Adds the visitor to the object
 
 IVisitor - The visitor to the game object
-Visit(IVisitable _visitable) - Will visit this game object 
+Visit(IVisitable _visitable) - Will visit this game object
 
--> Check the generic folder for a generic solution on how to implement it.
+-> Check the generic folder for a generic solution you might need to modify it.
+-> You might need to make your own visitor pattern to add the specific functionality you need.
