@@ -1,0 +1,27 @@
+Strategy Pattern
+
+You have a set of "Strategies" to achieve a goal.
+You would use Strategy Pattern to assign the Algorithm/Strategy to achieve the goal.
+The Strategy Pattern shouldn't change its own strategy and instead let the client change the strategy/algorithm.
+
+| Strategy Pattern | vs | State Pattern | :
+You have a Toy Car that can change wheels.
+|| --- Strategy Pattern ---> Would be the wheels you choose.
+|| --- State Pattern ---> Car going fast on a straight or slow up a hill.
+Basically the Strategy Pattern is long term goals while State Pattern is what happens in the moment.
+
+Uses:
+Enemy Behaviours - Melee Attack Strategy, Run Away, Stand Ground
+Camera Systems - Changing between 3rd Person vs 1st Person
+Audio Systems - Looping, fading or swapping tracks based on the Menu or Situation the Player is in
+
++ Can add different behaviours depending on the changing requirements without needing to change the base class
++ Test different behaviours independently
+- Complexity with more classes || Make sure planned for in UMLs/ equivalent
+
+Implementation:
+Client - Will implement a strategy.
+IStrategy - Interface for different strategies.
+Concrete Strategy - An Algorithm/Strategy that will change the way the Client behaves.
+
+-> Check the generic folder for a generic solution on how to implement it.

@@ -4,7 +4,7 @@ The Visitor Pattern is like an operating doctor.
 THEY DON'T change the core class.
 THEY DO change variables and modify functionality.
 
-Example - 
+Example:
 You have a PERSON w/ Broken Arm [Visitable] ---> 
 A doctor visits you [Visitor] ---> they operate on you
 You now have a PERSON w/ No Broken Arm [Modified Visitable] 
@@ -19,13 +19,13 @@ Managing complex object hierarchies in games
 + Changing variables to a class without changing the main class
 - Visitors need to access Public Fields, thus we might need to expose more fields then before
 
-Implementation
+Implementation:
 
 IVisitable - The main game object that can have visitors
-Accept(IVisitor _visitor) - Adds the visitor to the object
+Accept(IVisitor _visitor): Adds the visitor to the object
 
 IVisitor - The visitor to the game object
-Visit(IVisitable _visitable) - Will visit this game object
+Visit(IVisitable _visitable): Will visit this game object
 
 -> Check the generic folder for a generic solution you will need to copy and paste.
 -> You will need to change to your needs.
