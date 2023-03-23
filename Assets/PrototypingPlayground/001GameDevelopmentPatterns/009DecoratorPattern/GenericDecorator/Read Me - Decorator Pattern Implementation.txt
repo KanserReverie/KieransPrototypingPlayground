@@ -1,0 +1,51 @@
+How to Implement the Decorator Pattern :D
+
+For this example, you will need to copy and paste the scripts to your new project.
+
+(This implementation changes can be seen in OldPlayer -> NewPlayer)
+
+1) Look at the base values you want a Decorator to change.
+---> In this case we will look at Player : MonoBehaviour and see we want to change:
+------ speed
+------ jumpHeight
+------ damage
+
+2) Create an Interface that has all these variables
+---> IPlayerDecoratableVariables
+------ float MovementSpeed { get; }
+------ float JumpHeight { get; }
+------ float Damage { get; }
+    
+3) Create a Decorator Class that has all these values
+---> PlayerDecorator : ScriptableObject, IPlayerDecoratableVariables
+------ [SerializeField] public float movementSpeedBoost;
+------ [SerializeField] public float jumpHeightBoost;
+------ [SerializeField] public float damageBoost;
+------ public float MovementSpeed => movementSpeedBoost;
+------ public float JumpHeight => jumpHeightBoost;
+------ public float Damage => damageBoost;
+
+4) Implement the Decoratable Values In Player
+---> Player : MonoBehaviour, IPlayerDecoratableVariables
+
+5) Make a list of all the Decorator's in the player class.
+---> Player : MonoBehaviour, IPlayerDecoratableVariables
+------ public List<IPlayerDecoratableVariables> playerDecorators = new List<IPlayerDecoratableVariables>();
+
+6) Make all the Decorator values return the decorators + the base values
+---> Player : MonoBehaviour, IPlayerDecoratableVariables
+------ public float MovementSpeed { get { return movementSpeed + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.Movement);
+------ public float JumpHeight { get { return jumpHeight + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.JumpHeight);
+------ public float Damage { get { return damage + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.Damage); } }
+
+7) Everywhere in Player replace movementSpeed, jumpHeight and damage is ---> We replace them with:
+---> Player : MonoBehaviour, IPlayerDecoratableVariables
+------ movementSpeed -> MovementSpeed
+------ jumpHeight -> JumpHeight
+------ damage -> Damage
+
+8) Create a way to Add and Remove Decorators to the Player using:
+---> PlayerDecoratorController : MonoBehaviour
+------ private PlayerDecorator decorator1;
+------ player.playerDecorators.Add(decorator1);
+------ player.playerDecorators = new List<IPlayerDecoratableVariables>();
