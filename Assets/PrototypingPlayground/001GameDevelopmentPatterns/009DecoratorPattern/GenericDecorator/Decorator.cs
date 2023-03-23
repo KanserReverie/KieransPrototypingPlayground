@@ -8,11 +8,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
     [CreateAssetMenu(fileName = "NewDecorator", menuName = "DecoratorPattern/Decorator", order = 1)]
     public class Decorator : ScriptableObject, IDecoratableVariables 
     {
-        // These are not used right now but are where you would store them to use.
-        public string decoratorName;
-        public GameObject decoratorPrefab;
-        public string decoratorDescription;
-
         [Range(0, 50)] 
         [Tooltip("Modification of decoratableVariable1, if this. decorator is applied.")]
         [SerializeField] public float decoratableVariable1;

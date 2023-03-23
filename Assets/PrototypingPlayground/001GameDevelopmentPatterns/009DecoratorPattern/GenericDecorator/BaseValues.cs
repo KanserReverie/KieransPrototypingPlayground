@@ -8,10 +8,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
     [CreateAssetMenu(fileName = "NewBaseValues", menuName = "DecoratorPattern/BaseValues", order = 1)]
     public class BaseValues : ScriptableObject, IDecoratableVariables
     {
-        // These are not used right now but are where you would store them to use.
-        public string baseConfigurationName;
-        public GameObject baseConfigurationPrefab;
-        public string baseConfigurationDescription;
 
         [Range(0, 50)]
         [Tooltip("Base value of decoratableVariable1, if this. scriptable object is used.")]

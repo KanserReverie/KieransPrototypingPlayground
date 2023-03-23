@@ -9,12 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 893f5a32d05949ff944a3ff509258374, type: 3}
-  m_Name: NewDecorator
+  m_Script: {fileID: 11500000, guid: b48addca5cd3433eb0ad676612c34fbf, type: 3}
+  m_Name: BoostEverything
   m_EditorClassIdentifier: 
-  decoratorName: 
-  decoratorPrefab: {fileID: 0}
-  decoratorDescription: 
-  decoratableVariable1: 0
-  decoratableVariable2: 0
-  decoratableVariable3: 0
+  movementSpeedBoost: 1
+  jumpHeightBoost: 1
+  damageBoost: 1
