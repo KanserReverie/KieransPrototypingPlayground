@@ -1,0 +1,29 @@
+Spatial Partition for Unity Games
+Spatial partitioning is a technique used in game development to improve the efficiency of collision detection and other 
+spatial queries. In essence, it involves dividing the game world into smaller, manageable parts to reduce the amount of 
+data that needs to be processed at any given time.
+
+This repository provides a simple implementation of spatial partitioning in Unity using the Quadtree data structure. 
+The Quadtree is a type of spatial partitioning that recursively divides space into four quadrants, and is commonly used 
+in 2D games.
+
+Getting Started
+To use this spatial partitioning system in your Unity project, follow these steps:
+
+Clone or download the repository to your local machine.
+Import the SpatialPartition folder into your Unity project.
+Add the Quadtree script to any game object that needs spatial partitioning.
+Set the parameters of the Quadtree script, including the world bounds and maximum number of objects per node.
+Use the Quadtree Insert and Retrieve methods to add and retrieve game objects from the spatial partition.
+
+Example Usage
+Copy code
+// Create a new Quadtree with a world size of 1000x1000 units
+Quadtree quadtree = new Quadtree(new Rect(0, 0, 1000, 1000), 10);
+
+// Add a GameObject to the Quadtree
+GameObject myObject = GameObject.Find("MyObject");
+quadtree.Insert(myObject);
+
+// Retrieve all objects within a given area
+List<GameObject> objectsInArea = quadtree.Retrieve(new Rect(500, 500, 100, 100));
