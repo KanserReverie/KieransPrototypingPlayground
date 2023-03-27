@@ -1,11 +1,36 @@
-Spatial Partition for Unity Games
-Spatial partitioning is a technique used in game development to improve the efficiency of collision detection and other 
-spatial queries. In essence, it involves dividing the game world into smaller, manageable parts to reduce the amount of 
-data that needs to be processed at any given time.
+Spatial Partition
 
-This repository provides a simple implementation of spatial partitioning in Unity using the Quadtree data structure. 
-The Quadtree is a type of spatial partitioning that recursively divides space into four quadrants, and is commonly used 
-in 2D games.
+It is like partitioning all cities in a country by state and population caps.
+
+You could first partition your geographic points into regions like states or counties using a spatial partitioning
+method like an R-tree or a quadtree. Then, you could further partition each region by population size using another 
+partitioning method, such as a range tree or a binary search tree. 
+
+Alternatively, you could use a single partitioning method that takes into account both criteria at the same time, such 
+as a KD-tree or a multi-dimensional grid. This would create a single partitioning structure that enables you to 
+efficiently filter and retrieve cities based on their location and population size in a single query. 
+
+The choice of partitioning method and criteria will depend on the specific requirements of your application and the 
+nature of your spatial data.
+
+Types
+QUADTREE - Used normally in 2d games to divide an area into 4 equal quadrants at each level of the tree. Good for easy
+storage and retrieval of objects.
+OCTREE - Same as quadtree but now for 3d spaces and splitting into 8 regions.
+R-TREE - Like Oct tree but uses rectangles not cubes
+KD-TREE - Uses Hyperplanes to partition any dimension in half and everything below and above a value go on each side. 
+It can do this many times like the other Spatial Partition types.
+VORONOI DIAGRAM - Used to divide regions and objects by how far away they are from certain points. Good for checking
+what is close to different points.
+
+Uses
+
++
++
++
+-
+-
+
 
 Getting Started
 To use this spatial partitioning system in your Unity project, follow these steps:
