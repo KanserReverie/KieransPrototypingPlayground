@@ -15,7 +15,7 @@ Uses:
 Quick Prototypes - Quick games and prototypes of System or Games.
 Final Code - If we only need a simple system.
 Game Events - Game over, Game starts, Round over.
-In Game Events, Light switch on, Team loses a point, Engine blown, Player dies�
+In Game Events, Light switch on, Team loses a point, Engine blown, Player dies.
 
 Implementation:
 Use the code in this file to create a generic Event Bus and tailor it for your specific case.

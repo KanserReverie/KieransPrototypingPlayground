@@ -8,9 +8,9 @@ GOOD:
 - Great if you KNOW the scope will stop there.
 
 BAD:
-- Bad if the scope DOESN�T stop there.
+- Bad if the scope DOES NOT stop there.
 - The more we use it the harder future architecture becomes to create around it.
-- It doesn�t fit well with better code.
+- It does not fit well with better code.
 - Lazy code, find the better way to do it if a larger project.
 
 USES:
