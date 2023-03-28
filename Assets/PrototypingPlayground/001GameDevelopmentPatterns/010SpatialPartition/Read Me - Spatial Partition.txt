@@ -24,6 +24,10 @@ VORONOI DIAGRAM - Used to divide regions and objects by how far away they are fr
 what is close to different points.
 
 Uses
+Path Finding - Dividing into quadrants to move towards destinations
+Getting objects close to each other
+Spawning objects relative to other objects
+Loading large maps - dividing them up to load with out frame drops
 
 +
 +
