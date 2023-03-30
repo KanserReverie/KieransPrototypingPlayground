@@ -1,8 +1,12 @@
 Spatial Partition
+---------------------IDEA---------------------
+It is dividing the world into manageable and referencable parts.
+The objects themselves should update the grid they are on.
 
+---------------------EXAMPLE---------------------
 It is like partitioning all cities in a country by state and population caps.
 
-You could first partition your geographic points into regions like states or counties using a spatial partitioning
+You could first partition your geographic points into regions like states using a spatial partitioning
 method like an R-tree or a quadtree. Then, you could further partition each region by population size using another 
 partitioning method, such as a range tree or a binary search tree. 
 
@@ -13,9 +17,9 @@ efficiently filter and retrieve cities based on their location and population si
 The choice of partitioning method and criteria will depend on the specific requirements of your application and the 
 nature of your spatial data.
 
-Types
-QUADTREE - Used normally in 2d games to divide an area into 4 equal quadrants at each level of the tree. Good for easy
-storage and retrieval of objects.
+---------------------TYPES---------------------
+QUADTREE - Used normally in 2d games to divide an area into 4 equal quadrants at each level of the tree. 
+Good for easy storage and retrieval of objects.
 OCTREE - Same as quadtree but now for 3d spaces and splitting into 8 regions.
 R-TREE - Like Oct tree but uses rectangles not cubes
 KD-TREE - Uses Hyperplanes to partition any dimension in half and everything below and above a value go on each side. 
@@ -23,36 +27,21 @@ It can do this many times like the other Spatial Partition types.
 VORONOI DIAGRAM - Used to divide regions and objects by how far away they are from certain points. Good for checking
 what is close to different points.
 
-Uses
+---------------------USES---------------------
 Path Finding - Dividing into quadrants to move towards destinations
 Getting objects close to each other
 Spawning objects relative to other objects
 Loading large maps - dividing them up to load with out frame drops
 
-+
-+
-+
--
--
+---------------------PROS AND CONS---------------------
++ Find objects in regions rather than their Transform location
++ Easily reference objects by region or grid to spawn or despawn
++ Cuts down on number of objects to query
+- More complexity
+- Should not be used if it is not needed
+- With computers being so fast now days "Performance" should not be the reason for using this
 
-
-Getting Started
-To use this spatial partitioning system in your Unity project, follow these steps:
-
-Clone or download the repository to your local machine.
-Import the SpatialPartition folder into your Unity project.
-Add the Quadtree script to any game object that needs spatial partitioning.
-Set the parameters of the Quadtree script, including the world bounds and maximum number of objects per node.
-Use the Quadtree Insert and Retrieve methods to add and retrieve game objects from the spatial partition.
-
-Example Usage
-Copy code
-// Create a new Quadtree with a world size of 1000x1000 units
-Quadtree quadtree = new Quadtree(new Rect(0, 0, 1000, 1000), 10);
-
-// Add a GameObject to the Quadtree
-GameObject myObject = GameObject.Find("MyObject");
-quadtree.Insert(myObject);
-
-// Retrieve all objects within a given area
-List<GameObject> objectsInArea = quadtree.Retrieve(new Rect(500, 500, 100, 100));
+---------------------HOW TO USE---------------------
+-> Check the generic folder for a generic solution on how to implement it.
+-> This is higher level so solutions will often need to be tailored to the situation.
+-> Just remember you can divide real world objects into referencable lists. 

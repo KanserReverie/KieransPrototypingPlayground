@@ -21,3 +21,5 @@ Use When:
 - You need to dynamically modify properties without the base changing.
 
 TO NOTE: This does add complexity to your code base and thus not always an auto include.
+
+-> Check the generic folder for a generic solution on how to implement it.
