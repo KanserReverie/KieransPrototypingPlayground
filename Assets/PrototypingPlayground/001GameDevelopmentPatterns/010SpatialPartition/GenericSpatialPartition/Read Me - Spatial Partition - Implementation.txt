@@ -1,0 +1,10 @@
+Spatial Partition
+---------------------IDEA---------------------
+So I will be dividing this up into 3 layers
+
+Layer One: A single PartitionObject
+Layer Two: Row, Column (x,y,z) or Grid of the PartitionObject
+Layer Three: A number of Layer 2 Objects together in the (x,y,z) or Grid of the PartitionObject.
+
+The idea is to be able to treat each layer as a single entity buy have access to each layer lower.
+
