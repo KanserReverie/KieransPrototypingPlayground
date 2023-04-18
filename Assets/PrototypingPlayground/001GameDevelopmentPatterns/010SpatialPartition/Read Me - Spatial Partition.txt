@@ -42,6 +42,6 @@ Loading large maps - dividing them up to load with out frame drops
 - With computers being so fast now days "Performance" should not be the reason for using this
 
 ---------------------HOW TO USE---------------------
--> Check the generic folder for a generic solution on how to implement it.
--> This is higher level so solutions will often need to be tailored to the situation.
--> Just remember you can divide real world objects into referencable lists. 
+-> Download a 3rd party because this is either:
+- - - Too complex to make an understandable generic solution, or
+- - - Needs to be tailored project to project.
