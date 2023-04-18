@@ -1,6 +1,6 @@
 Adapter Pattern
 
-This is used when you need to adapt old or outside code to a new system BUT don’t want to modify the original code.
+This is used when you need to adapt old or outside code to a new system BUT do not want to modify the original code.
 
 
  -------------
@@ -13,18 +13,18 @@ This is used when you need to adapt old or outside code to a new system BUT don’
 |   DoThat()  |
  -------------
 
-Object Adapter – Creates an adapter using an interface. 
+Object Adapter â€“ Creates an adapter using an interface. 
 Client -> Adapter -> Original Class
 
-Use when we don’t have the functions we need.
+Use when we do not have the functions we need.
 
-Class Adapter – Uses Inheritence to create an adapter.
-Client -> Interface -> Adapter(Implements Interface, Inherits Original Class) -> Original Class
+Class Adapter â€“ Uses Inheritance to create an adapter.
+Client -> Interface -> Adapter (Implements Interface, Inherits Original Class) -> Original Class
 
 Use when need to Original Class to work with other classes.
 
 Use When:
-- Using 3rd party assets that don’t have a function you need.
+- Using 3rd party assets that do not have a function you need.
 - Using old code.
 
 Example
@@ -33,5 +33,5 @@ Say you have an inventory system, and it saves to cloud but not to local machine
 
 You could:
        A) Modify the asset (And get merge conflicts on update)
-       B) Wait for an update (Chances are they won’t change this feature)
+       B) Wait for an update (Chances are they will not add this feature)
        C) Add the function with an adapter and still be able to use the asset.
