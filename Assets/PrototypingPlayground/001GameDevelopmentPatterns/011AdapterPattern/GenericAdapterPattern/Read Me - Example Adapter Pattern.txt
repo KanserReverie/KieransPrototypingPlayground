@@ -1,0 +1,16 @@
+Adapter Pattern Implementation
+
+This Pattern needs to be tailor made for each case.
+ 
+Look at the 2 implementations to understand how you could adapt it to the class you want to extend.
+
+
+Example
+
+We have a 3rd party asset "EnemyThirdPartyAsset" that currently:
+- Attacks
+- Takes Damage
+
+We have 
+
+In Example 1 we want to 

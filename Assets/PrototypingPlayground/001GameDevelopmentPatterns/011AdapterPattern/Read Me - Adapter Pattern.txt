@@ -35,3 +35,5 @@ You could:
        A) Modify the asset (And get merge conflicts on update)
        B) Wait for an update (Chances are they will not add this feature)
        C) Add the function with an adapter and still be able to use the asset.
+
+Look in the "GenericAdapterPattern" folder for an example.
