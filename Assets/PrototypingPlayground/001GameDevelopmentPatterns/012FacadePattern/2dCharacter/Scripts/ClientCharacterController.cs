@@ -1,14 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+
 namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2dCharacter
 {
+    [RequireComponent(typeof(CharacterControllerFacade))]
     public class ClientCharacterController : MonoBehaviour
     {
         private CharacterControllerFacade characterControllerFacade;
         
         private void Start()
         {
-            characterControllerFacade = gameObject.AddComponent<CharacterControllerFacade>();
+            characterControllerFacade = GetComponent<CharacterControllerFacade>();
+            if (characterControllerFacade == null)
+            {
+                characterControllerFacade = gameObject.AddComponent<CharacterControllerFacade>();
+            }
             characterControllerFacade.SpawnPlayer();
         }
 
