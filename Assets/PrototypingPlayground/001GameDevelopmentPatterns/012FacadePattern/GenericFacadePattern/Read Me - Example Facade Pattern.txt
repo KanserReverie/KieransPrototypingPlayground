@@ -1,0 +1,11 @@
+Facade Pattern Implementation
+
+This Pattern needs to be tailor made for each case.
+ 
+Look at this Facade to understand how you could adapt it to your multiple complex classes.
+
+Example
+
+We have a Character Controller that has 3 systems it interacts with.
+
+When we code a player we would only need to interact with the Facade to break up our complex systems.

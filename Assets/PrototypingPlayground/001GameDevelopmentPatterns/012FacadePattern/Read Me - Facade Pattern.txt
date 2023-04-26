@@ -20,3 +20,7 @@ If a user called a move character command to your facade you could hide all the 
 -> -> -> || Nav Mesh System (update move point) || Energy System (decreases energy) || Ai System (updates player location) ||
 
 This makes it easier to add extra classes without increasing complexity of the system.
+
+Generic Example
+This Pattern needs to be tailor made for each case.
+Look in the "GenericFacadePattern" folder for an example.

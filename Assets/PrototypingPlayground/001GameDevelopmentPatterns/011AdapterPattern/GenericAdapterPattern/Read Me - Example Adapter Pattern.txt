@@ -13,4 +13,5 @@ We have a 3rd party asset "EnemyThirdPartyAsset" that currently:
 
 We have 
 
-In Example 1 we want to 
+In Example 1 we want to add CRIT CHANCE.
+In Example 2 we want to add LEVEL UP ABILITY. 
