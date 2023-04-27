@@ -45,3 +45,7 @@ Loading large maps - dividing them up to load with out frame drops
 -> Download a 3rd party because this is either:
 - - - Too complex to make an understandable generic solution, or
 - - - Needs to be tailored project to project.
+
+---------------------GENERIC SOLUTION---------------------
+You can look in the folder for a generic solution if you would like to use for spawning a grid.
+Can be modified to include Height
