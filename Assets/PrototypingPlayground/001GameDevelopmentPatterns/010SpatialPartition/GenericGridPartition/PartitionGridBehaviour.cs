@@ -20,20 +20,22 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         private void Start()
         {
-            for (int length = 0; length <= gridLengthCount; length++)
+            SpawnPartitionBehaviours();
+        }
+
+        private void SpawnPartitionBehaviours()
+        {
+            for (int length = 0; length < gridLengthCount; length++)
             {
-                Vector3 spawnLocation = transform.position + (Vector3.right * length * gridLengthDistanceApart); 
-                //Instantiate(partitionBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                for (int width = 0; width <= gridWidthCount; width++)
+                Vector3 spawnLocation = transform.position + (Vector3.right * gridLengthDistanceApart * length); 
+                for (int width = 0; width < gridWidthCount; width++)
                 {
-                    spawnLocation += (Vector3.forward * gridWidthDistanceApart * width);
-                    Instantiate(partitionBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                    //     
-                    //     for (int height = 0; height < gridHeightCount; height++)
-                    //     {
-                    //         spawnLocation += (gridHeightDistanceApart * height * Vector3.up);
-                    //         Instantiate(partitionBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                    //     }
+                    Vector3 spawnWidthLocation = spawnLocation + (Vector3.forward * gridWidthDistanceApart * width);
+                    for (int height = 0; height < gridHeightCount; height++)
+                    {
+                        Vector3 spawnHeightLocation = spawnWidthLocation + (gridHeightDistanceApart * Vector3.up * height);
+                        Instantiate(partitionBehaviour.gameObject, spawnHeightLocation, transform.rotation, transform);
+                    }
                 }
             }
         }

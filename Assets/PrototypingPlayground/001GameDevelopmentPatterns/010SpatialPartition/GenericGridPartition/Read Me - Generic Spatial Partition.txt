@@ -1,0 +1,16 @@
+This is a Generic "Spatial Partition"
+
+You can create grids of components/(prefabs) if the component is a PartitionBehaviour.
+
+Example:
+
+Make an EnemyCube class, this will be what we want to spawn a grid of.
+    public class EnemyCube : PartitionBehaviour<EnemyCube>
+
+To make a grid of an EnemyCube you would make a GridEnemyCubes and drag them on to a GameObject.
+    public class GridEnemyCubes : PartitionGridBehaviour<EnemyCube>
+    
+To make a grid of GridEnemyCube you would make a GridOfGridEnemyCubes and drag them on to a GameObject.    
+    public class GridOfGridEnemyCubes : PartitionGridOfGridBehaviour<EnemyCube>
+    
+This is a basic implementation and can be expanded on to do stuff with those partitions or store them in an array.

@@ -21,21 +21,23 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
 
         private void Start()
         {
+            SpawnPartitionGridOfGridBehaviours();
+        }
+
+        private void SpawnPartitionGridOfGridBehaviours()
+        {
             for (int length = 0; length < gridsLengthCount; length++)
             {
-                Vector3 spawnLocation = transform.position + (Vector3.right * length * gridsLengthDistanceApart); 
-                Instantiate(partitionGridBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                // for (int width = 0; width < gridsWidthCount; width++)
-                // {
-                //     spawnLocation += (Vector3.forward * gridsWidthDistanceApart * width);
-                //     Instantiate(partitionGridBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                //     
-                //     for (int height = 0; height < gridsHeightCount; height++)
-                //     {
-                //         spawnLocation += (gridsHeightDistanceApart * height * Vector3.up);
-                //         Instantiate(partitionGridBehaviour.gameObject, spawnLocation, transform.rotation, transform);
-                //     }
-                // }
+                Vector3 spawnLocation = transform.position + (Vector3.right * gridsLengthDistanceApart * length); 
+                for (int width = 0; width < gridsWidthCount; width++)
+                {
+                    Vector3 spawnWidthLocation = spawnLocation + (Vector3.forward * gridsWidthDistanceApart * width);
+                    for (int height = 0; height < gridsHeightCount; height++)
+                    {
+                        Vector3 spawnHeightLocation = spawnWidthLocation + (gridsHeightDistanceApart * Vector3.up * height);
+                        Instantiate(partitionGridBehaviour.gameObject, spawnHeightLocation, transform.rotation, transform);
+                    }
+                }
             }
         }
     }

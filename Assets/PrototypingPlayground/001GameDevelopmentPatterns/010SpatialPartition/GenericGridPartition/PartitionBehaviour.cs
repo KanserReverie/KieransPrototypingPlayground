@@ -8,10 +8,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
     /// <typeparam name="T">This is the type of item held in the partition.</typeparam>
     public class PartitionBehaviour<T> : MonoBehaviour where T : Component
     {
-        // DEBUGGING, DELETE IF NEED BE!
-        private void Start()
-        {
-            Debug.Log($"This is a partition item of type {typeof(T).ToString()}");
-        }
+        // This is original object.
+        // Store main details about them here.
     }
 }
