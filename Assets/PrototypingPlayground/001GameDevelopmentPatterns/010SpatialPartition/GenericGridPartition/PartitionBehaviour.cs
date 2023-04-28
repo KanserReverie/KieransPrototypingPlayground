@@ -8,7 +8,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
     /// <typeparam name="T">This is the type of item held in the partition.</typeparam>
     public class PartitionBehaviour<T> : MonoBehaviour where T : Component
     {
+        [Header("Partition Behaviour")]
         // This is original object.
         // Store main details about them here.
+        [SerializeField] protected PartitionBehaviour<T> partitionGrid;
+        [SerializeField] protected Vector3 partitionCoordinates;
+
+        public void SetPartitionDetails(PartitionBehaviour<T> _partitionGrid, Vector3 _partitionCoordinates)
+        {
+            partitionGrid = _partitionGrid;
+            partitionCoordinates = _partitionCoordinates;
+        }
     }
 }

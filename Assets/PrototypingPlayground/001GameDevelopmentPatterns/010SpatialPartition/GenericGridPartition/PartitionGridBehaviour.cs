@@ -1,40 +1,61 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition.GenericGridPartition
 {
     /// <summary>
     /// This will spawn and keep track of a grid of Partition Behaviours.
+    ///
+    /// You can go for inception by dragging in grid of grids into the Partition Behaviour.
+    /// See example for more details
     /// </summary>
     /// <typeparam name="T">This is the type of component that you will be spawning and tracking.</typeparam>
-    public class PartitionGridBehaviour<T> : MonoBehaviour where T : Component
+    public class PartitionGridBehaviour<T> : PartitionBehaviour<T> where T : Component
     {
-        [SerializeField] private int gridLengthCount = 3;
-        [SerializeField] private int gridWidthCount = 3;
-        [SerializeField] private int gridHeightCount = 3;
-        [SerializeField] private int gridLengthDistanceApart = 2;
-        [SerializeField] private int gridWidthDistanceApart = 2;
-        [SerializeField] private int gridHeightDistanceApart = 2;
- 
-        public PartitionBehaviour<T> partitionBehaviour;
+        [Header("Partition Grid Behaviour")]
+        [SerializeField] protected int gridLengthCount = 3;
+        [SerializeField] protected int gridWidthCount = 3;
+        [SerializeField] protected int gridHeightCount = 3;
+        [SerializeField] protected int gridLengthDistanceApart = 2;
+        [SerializeField] protected int gridWidthDistanceApart = 2;
+        [SerializeField] protected int gridHeightDistanceApart = 2;
+
+        [SerializeField] protected PartitionBehaviour<T> partitionBehaviour;
+        
+        /// <summary>
+        /// And an individual element at coords (x, y, z) would be accessed like this:
+        /// matrixOfPartitionBehaviours[x][y][z].Init();
+        /// </summary>
+        protected List<List<List<PartitionBehaviour<T>>>> matrixOfPartitionBehaviours = new List<List<List<PartitionBehaviour<T>>>>();
 
         private void Start()
         {
             SpawnPartitionBehaviours();
         }
 
+        /// <summary>
+        /// This will spawn in and save all Partition Behaviours.
+        /// </summary>
         private void SpawnPartitionBehaviours()
         {
-            for (int length = 0; length < gridLengthCount; length++)
+            for (int width = 0; width < gridWidthCount; width++)
             {
-                Vector3 spawnLocation = transform.position + (Vector3.right * gridLengthDistanceApart * length); 
-                for (int width = 0; width < gridWidthCount; width++)
+                Vector3 spawnLocation = transform.position + (Vector3.right * gridWidthDistanceApart * width);
+                matrixOfPartitionBehaviours.Add(new List<List<PartitionBehaviour<T>>>());
                 {
-                    Vector3 spawnWidthLocation = spawnLocation + (Vector3.forward * gridWidthDistanceApart * width);
                     for (int height = 0; height < gridHeightCount; height++)
                     {
-                        Vector3 spawnHeightLocation = spawnWidthLocation + (gridHeightDistanceApart * Vector3.up * height);
-                        Instantiate(partitionBehaviour.gameObject, spawnHeightLocation, transform.rotation, transform);
+                        Vector3 spawnHeightLocation = spawnLocation + (gridHeightDistanceApart * Vector3.up * height);
+                        matrixOfPartitionBehaviours[width].Add(new List<PartitionBehaviour<T>>());
+                        
+                        for (int length = 0; length < gridLengthCount; length++)
+                        {
+                            Vector3 spawnLengthLocation = spawnHeightLocation + (Vector3.forward * gridLengthDistanceApart * length);
+                            GameObject spawnedGameObject = Instantiate(partitionBehaviour.gameObject, spawnLengthLocation, transform.rotation, transform);
+                            matrixOfPartitionBehaviours[width][height].Add(spawnedGameObject.GetComponent<PartitionBehaviour<T>>());
+                            matrixOfPartitionBehaviours[width][height][length].SetPartitionDetails(this, new Vector3(width,height,length));
+                        }
                     }
                 }
             }
