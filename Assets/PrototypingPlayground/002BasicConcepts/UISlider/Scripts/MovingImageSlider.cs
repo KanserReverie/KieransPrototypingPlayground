@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PrototypingPlayground._002BasicConcepts.UISlider
 {
-    public class MovingImage : MonoBehaviour
+    public class MovingImageSlider : MonoBehaviour
     {
         private RectTransform imageLocation;
         [SerializeField] private float imageHeight = 100;
