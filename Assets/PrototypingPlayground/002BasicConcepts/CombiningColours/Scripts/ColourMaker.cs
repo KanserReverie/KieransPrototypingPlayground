@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Assertions;
 using UnityEngine.UI;
@@ -7,21 +6,22 @@ namespace PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts
 {
     public class ColourMaker : MonoBehaviour
     {
-        [SerializeField] private Image colourMade;
-        [SerializeField] private float redValue;
-        [SerializeField] private float greenValue;
-        [SerializeField] private float blueValue;
-        [SerializeField] private float alphaValue;
+        public Color finalColour;
+        [SerializeField] private Image colourMadeDisplayImage;
+        private float redValue;
+        private float greenValue;
+        private float blueValue;
+        private float alphaValue;
 
         private void Awake()
         {
-            Assert.IsNotNull(colourMade);
+            Assert.IsNotNull(colourMadeDisplayImage);
         }
 
         private void Update()
         {
-            colourMade.color = new Color(redValue, greenValue, blueValue, alphaValue);
-            Debug.Log($"New Colour = {new Color(redValue, greenValue, blueValue, alphaValue)}");
+            finalColour = new Color(redValue, greenValue, blueValue, alphaValue);
+            colourMadeDisplayImage.color = finalColour;
         }
 
         public void UpdateRed(float _newRedValue)
