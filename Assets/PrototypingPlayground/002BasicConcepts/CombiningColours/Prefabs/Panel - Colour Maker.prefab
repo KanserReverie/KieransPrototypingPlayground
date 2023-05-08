@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4315804431040622746}
   - component: {fileID: 4315804431040622741}
   m_Layer: 5
-  m_Name: Panel - Blue
+  m_Name: Panel - Green
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -159,9 +159,9 @@ RectTransform:
   m_Father: {fileID: 7636336337309463797}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 216.435, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216.435, y: -216.79752}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4315804431040622744
@@ -365,6 +365,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315804431211319807}
   - component: {fileID: 4315804431211319804}
+  - component: {fileID: 4542774607128717092}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -445,7 +446,32 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8631004624676007332}
+        m_TargetAssemblyTypeName: PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts.ColourMaker,
+          Assembly-CSharp
+        m_MethodName: UpdateGreen
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4542774607128717092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315804431211319806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55df8357014484bb5047a6aa570be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4315804431329942537
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +482,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315804431329942542}
   - component: {fileID: 4315804431329942543}
+  - component: {fileID: 662204103545674683}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -536,7 +563,32 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8631004624676007332}
+        m_TargetAssemblyTypeName: PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts.ColourMaker,
+          Assembly-CSharp
+        m_MethodName: UpdateRed
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &662204103545674683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315804431329942537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55df8357014484bb5047a6aa570be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4315804431366047505
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,6 +599,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315804431366047510}
   - component: {fileID: 4315804431366047511}
+  - component: {fileID: 126344024690954197}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -624,10 +677,35 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8631004624676007332}
+        m_TargetAssemblyTypeName: PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts.ColourMaker,
+          Assembly-CSharp
+        m_MethodName: UpdateAlpha
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &126344024690954197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315804431366047505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55df8357014484bb5047a6aa570be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4315804431371727511
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,6 +759,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dcce38c72e3e4603a46ac8893307a991, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colourMade: {fileID: 4315804431161296001}
+  redValue: 0
+  greenValue: 0
+  blueValue: 0
+  alphaValue: 0
 --- !u!222 &4315804431371727514
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -709,7 +792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1095,9 +1178,9 @@ RectTransform:
   m_Father: {fileID: 7636336337309463797}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 216.435, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216.435, y: -301.9165}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4315804431807238983
@@ -1403,7 +1486,7 @@ GameObject:
   - component: {fileID: 4315804432026102405}
   - component: {fileID: 4315804432026102404}
   m_Layer: 5
-  m_Name: Panel - Green
+  m_Name: Panel - Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1426,9 +1509,9 @@ RectTransform:
   m_Father: {fileID: 7636336337309463797}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 216.435, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216.435, y: -131.6785}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4315804432026102411
@@ -1519,6 +1602,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4315804432079828315}
   - component: {fileID: 4315804432079828312}
+  - component: {fileID: 87834156089965964}
   m_Layer: 5
   m_Name: Slider
   m_TagString: Untagged
@@ -1599,7 +1683,32 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8631004624676007332}
+        m_TargetAssemblyTypeName: PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts.ColourMaker,
+          Assembly-CSharp
+        m_MethodName: UpdateBlue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &87834156089965964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4315804432079828314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55df8357014484bb5047a6aa570be2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4315804432158297144
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,7 +1775,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Blue
+  m_text: Green
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2125,7 +2234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Green
+  m_text: Blue
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2609,9 +2718,9 @@ RectTransform:
   m_Father: {fileID: 7636336337309463797}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 216.435, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 216.435, y: -46.5595}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4315804432846859520
