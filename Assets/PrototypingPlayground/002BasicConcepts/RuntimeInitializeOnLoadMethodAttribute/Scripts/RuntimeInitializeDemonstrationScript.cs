@@ -18,28 +18,31 @@ namespace PrototypingPlayground._002BasicConcepts.RuntimeInitializeOnLoadMethodA
             
             Debug.Log("See more here\nhttps://docs.unity3d.com/ScriptReference/RuntimeInitializeLoadType.html");
             Debug.Log("---- Start() - END ----");
+            
+            Debug.Log("CODE IS COMMENTED OUT OTHERWISE IT WILL RUN ON EVERY SCENE");
+            Debug.Log("REMOVE COMMENTS TO SEE IT IN ACTION");
         }
         
-        [UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-        static void OnBeforeSceneLoadRuntimeMethod()
-        {
-            Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]\n" +
-                      "Before first Scene loaded");
-        }
-
-        [UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        static void OnAfterSceneLoadRuntimeMethod()
-        {
-            Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]\n" +
-                      "After first Scene loaded");
-        }
-
-        [UnityEngine.RuntimeInitializeOnLoadMethod]
-        static void OnRuntimeMethodLoad()
-        {
-            Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod]\n" +
-                      "RuntimeMethodLoad: After first Scene loaded");
-            Debug.Log("RuntimeMethodLoad: After first Scene loaded");
-        }
+        // [UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+        // static void OnBeforeSceneLoadRuntimeMethod()
+        // {
+        //     Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]\n" +
+        //               "Before first Scene loaded");
+        // }
+// 
+        // [UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        // static void OnAfterSceneLoadRuntimeMethod()
+        // {
+        //     Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]\n" +
+        //               "After first Scene loaded");
+        // }
+// 
+        // [UnityEngine.RuntimeInitializeOnLoadMethod]
+        // static void OnRuntimeMethodLoad()
+        // {
+        //     Debug.Log("[UnityEngine.RuntimeInitializeOnLoadMethod]\n" +
+        //               "RuntimeMethodLoad: After first Scene loaded");
+        //     Debug.Log("RuntimeMethodLoad: After first Scene loaded");
+        // }
     }
 }

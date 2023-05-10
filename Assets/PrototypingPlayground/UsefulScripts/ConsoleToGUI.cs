@@ -3,10 +3,12 @@ namespace PrototypingPlayground.UsefulScripts
 {
     public class ConsoleToGUI : MonoBehaviour
     {
+        private const string CONSOLE_TO_GUI_PREFAB_NAME = "ConsoleToGUI - Add this to a scene to display console"; 
         string myLog = "*begin log";
         string filename = "";
         bool doShow = true;
         int kChars = 700;
+
         void OnEnable()
         {
             Application.logMessageReceived += Log;
@@ -56,6 +58,24 @@ namespace PrototypingPlayground.UsefulScripts
             GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity,
                 new Vector3(Screen.width / 1200.0f, Screen.height / 800.0f, 1.0f));
             GUI.TextArea(new Rect(10, 30, 540, 370), myLog);
+        }
+
+        /// <summary>
+        /// This will Instantiate a GameObject for users to see the console log. 
+        /// </summary>
+        /// <param name="_showGUIByDefault"> If you want to show the GUI when instantiated. </param>
+        public static void InstantiateConsoleToGUIInScene(bool _showGUIByDefault)
+        {
+            GameObject instantiatedObject = Instantiate(Resources.Load(CONSOLE_TO_GUI_PREFAB_NAME) as GameObject);
+            instantiatedObject.GetComponentInChildren<ConsoleToGUI>().doShow = _showGUIByDefault;
+        }
+        
+        /// <summary>
+        /// This will Instantiate a GameObject for users to see the console log. 
+        /// </summary>
+        public static void InstantiateConsoleToGUIInScene()
+        {
+            Instantiate(Resources.Load(CONSOLE_TO_GUI_PREFAB_NAME));
         }
     }
 }
