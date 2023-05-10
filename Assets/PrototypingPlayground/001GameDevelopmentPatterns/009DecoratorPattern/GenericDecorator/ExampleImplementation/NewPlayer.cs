@@ -14,12 +14,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
         [SerializeField] private float damage = 2;
 
         // 2) We added a list of all our decorators.
-        public List<IPlayerDecoratableVariables> playerDecorators = new List<IPlayerDecoratableVariables>();
+        public List<IPlayerDecoratableVariables> PlayerDecorators = new List<IPlayerDecoratableVariables>();
         
         // 3) We make sure to get our base values + any decorators we might have.
-        public float MovementSpeed { get { return movementSpeed + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.MovementSpeed); } }
-        public float JumpHeight { get { return jumpHeight + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.JumpHeight); } }
-        public float Damage { get { return damage + playerDecorators.Sum(_playerDecoratableVariables => _playerDecoratableVariables.Damage); } }
+        public float MovementSpeed { get { return movementSpeed + PlayerDecorators.Sum(playerDecoratableVariables => playerDecoratableVariables.MovementSpeed); } }
+        public float JumpHeight { get { return jumpHeight + PlayerDecorators.Sum(playerDecoratableVariables => playerDecoratableVariables.JumpHeight); } }
+        public float Damage { get { return damage + PlayerDecorators.Sum(playerDecoratableVariables => playerDecoratableVariables.Damage); } }
 
         // 4) Everywhere our movementSpeed, jumpHeight and damage is ---> We replace them with:
         // ------- movementSpeed -> MovementSpeed

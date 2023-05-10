@@ -5,15 +5,15 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
     {
         public float health = 50.0f; // Percentage
 
-        public float Damage(float _damage)
+        public float Damage(float damage)
         {
-            health -= _damage;
+            health -= damage;
             return health;
         }
 
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
-            _visitor.Visit(this);
+            visitor.Visit(this);
         }
 
         private void OnGUI()

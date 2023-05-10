@@ -33,7 +33,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
 				case ActiveSingletonScene.Lobby:
 					if(GUILayout.Button("Open 'Singleton_Gameplay' Scene"))
 					{
-						UnityEngine.SceneManagement.SceneManager.LoadScene("Singleton_Gameplay");
+						UnityEngine.SceneManagement.SceneManager.LoadScene($"Singleton_Gameplay");
 						activeSingletonScene = ActiveSingletonScene.Gameplay;
 					}
 					break;

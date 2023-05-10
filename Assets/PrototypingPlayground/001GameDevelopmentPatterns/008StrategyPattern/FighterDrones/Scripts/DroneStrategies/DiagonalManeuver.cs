@@ -1,25 +1,27 @@
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.FighterDrones.DroneStrategies
 {
+    [SuppressMessage("ReSharper", "IteratorNeverReturns")]
     public class DiagonalManeuver : MonoBehaviour, IDroneStrategy
     {
 
-        public void ImplementStrategy(Drone _drone)
+        public void ImplementStrategy(Drone drone)
         {
-            StartCoroutine(DiagonalMove(_drone));
+            StartCoroutine(DiagonalMove(drone));
         }
-        IEnumerator DiagonalMove(Drone _drone)
+        IEnumerator DiagonalMove(Drone drone)
         {
             float time;
             bool isReverse = false;
-            float speed = _drone.speed;
+            float speed = drone.speed;
             
             MovementDirection direction = Random.value >= 0.5f ? MovementDirection.LeftBack : MovementDirection.RightBack;
             
-            Vector3 startPosition = _drone.transform.position;
+            Vector3 startPosition = drone.transform.position;
             Vector3 endPosition = startPosition;
-            float shortSideMovement = _drone.diagonalDistance / Mathf.Sqrt(2f);
+            float shortSideMovement = drone.diagonalDistance / Mathf.Sqrt(2f);
 
             if (direction == MovementDirection.RightBack)
                 endPosition.x += shortSideMovement;
@@ -31,13 +33,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             while (true)
             {
                 time = 0;
-                Vector3 start = _drone.transform.position;
+                Vector3 start = drone.transform.position;
                 Vector3 end =
                     (isReverse) ? startPosition : endPosition;
 
                 while (time < speed)
                 {
-                    _drone.transform.position = Vector3.Lerp(start, end, time / speed);
+                    drone.transform.position = Vector3.Lerp(start, end, time / speed);
                     time += Time.deltaTime;
                     yield return null;
                 }

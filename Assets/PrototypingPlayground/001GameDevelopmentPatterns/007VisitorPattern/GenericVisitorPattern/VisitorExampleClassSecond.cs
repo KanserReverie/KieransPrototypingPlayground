@@ -9,22 +9,22 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.G
     /// </summary>
     public class VisitorExampleClassSecond : IVisitor
     {
-        public void Visit(VisitableExampleClassFirst _visitableExample)
+        public void Visit(VisitableExampleClassFirst visitableExample)
         {
-            _visitableExample.health--;
-            if (_visitableExample.health <= 0)
+            visitableExample.Health--;
+            if (visitableExample.Health <= 0)
             {
-                _visitableExample.alive = false;
+                visitableExample.Alive = false;
             }
         }
 
-        public void Visit(VisitableExampleClassSecond _visitableExample)
+        public void Visit(VisitableExampleClassSecond visitableExample)
         {
             // Goblins die to any damage.
-            _visitableExample.alive = false;
+            visitableExample.Alive = false;
         }
 
-        public void Visit(VisitableExampleClassThird _visitableExample)
+        public void Visit(VisitableExampleClassThird visitableExample)
         {
             // Quest NPCs are invulnerable to everything.
             Debug.Log("This character is invulnerable.");

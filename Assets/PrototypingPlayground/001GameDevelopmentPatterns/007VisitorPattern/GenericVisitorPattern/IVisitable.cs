@@ -8,7 +8,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.G
         /// <summary>
         /// This will accept the visitor.
         /// </summary>
-        /// <param name="_visitor">The visitor that will be visiting. This will most likely be itself.</param>
-        void Accept(IVisitor _visitor);
+        /// <param name="visitor">The visitor that will be visiting. This will most likely be itself.</param>
+        void Accept(IVisitor visitor);
     }
 }

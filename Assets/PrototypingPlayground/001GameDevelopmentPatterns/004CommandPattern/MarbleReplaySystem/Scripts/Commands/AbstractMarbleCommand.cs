@@ -2,11 +2,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
 {
     public abstract class AbstractMarbleCommand
     {
-        protected readonly MarbleController marbleController;
+        protected readonly MarbleController MarbleController;
 
-        protected AbstractMarbleCommand(MarbleController _marbleController)
+        protected AbstractMarbleCommand(MarbleController marbleController)
         {
-            marbleController = _marbleController;
+            MarbleController = marbleController;
         }
         
         public virtual void ExecuteCommand() { }

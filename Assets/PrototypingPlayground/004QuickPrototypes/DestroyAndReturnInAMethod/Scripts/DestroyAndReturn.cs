@@ -1,6 +1,3 @@
-using System;
-using PrototypingPlayground.UsefulScripts;
-using TMPro;
 using UnityEngine;
 
 namespace PrototypingPlayground._004QuickPrototypes.DestroyAndReturnInAMethod.Scripts
@@ -13,9 +10,8 @@ namespace PrototypingPlayground._004QuickPrototypes.DestroyAndReturnInAMethod.Sc
             Debug.Log("DestroyAndReturn.RunDestroyAndReturn()\n [..|YOU ARE HERE|..Destroy(this.gameObject)....return this;....]");
             Destroy(this.gameObject);
             Debug.Log("DestroyAndReturn.RunDestroyAndReturn()\n [....Destroy(this.gameObject)..|YOU ARE HERE|..return this;....]");
-            return this;
-            Debug.Log("DestroyAndReturn.RunDestroyAndReturn()\n [....Destroy(this.gameObject)....return this;..|YOU ARE HERE|..");
             Debug.Log("");
+            return this;
         }
 
         private void OnDestroy()

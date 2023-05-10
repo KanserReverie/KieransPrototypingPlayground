@@ -7,9 +7,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
     {
         private IStrategy strategy;
 
-        public void SetStrategy(IStrategy _strategy)
+        public void SetStrategy(IStrategy strategy)
         {
-            this.strategy = _strategy;
+            this.strategy = strategy;
         }
 
         public void ExecuteStrategy()

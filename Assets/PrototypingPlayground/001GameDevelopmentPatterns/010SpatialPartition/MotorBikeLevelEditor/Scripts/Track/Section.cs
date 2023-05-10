@@ -37,9 +37,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             }
         }
 
-        public void InitSection(GameObject _thisGameObject)
+        public void InitSection(GameObject thisGameObject)
         {
-            thisSectionGameObject = _thisGameObject;
+            thisSectionGameObject = thisGameObject;
             InitializeLoadRows();
             AddAllRowsToLoad();
             InitializeDespawnRows();
@@ -70,12 +70,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
             }
         }
         
-        private GameObject InstantiateRow(GameObject _row)
+        private GameObject InstantiateRow(GameObject row)
         {
             Vector3 position = thisSectionGameObject.transform.position;
             float rowZSpawnPosition = position.z + (ZDistanceBetweenRows * rowsToDespawn.Count);
             Vector3 rowSpawnPosition = new Vector3(position.x, position.y, rowZSpawnPosition);
-            return Instantiate(_row, rowSpawnPosition, thisSectionGameObject.transform.rotation, thisSectionGameObject.transform);
+            return Instantiate(row, rowSpawnPosition, thisSectionGameObject.transform.rotation, thisSectionGameObject.transform);
         }
 
         public void AttemptToDespawnLastRow()

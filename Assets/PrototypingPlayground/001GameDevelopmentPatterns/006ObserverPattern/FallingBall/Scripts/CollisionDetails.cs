@@ -3,45 +3,45 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
 {
     public class CollisionDetails
     {
-        public readonly Collision collision;
-        public readonly Material material;
-        public readonly Vector3 location;
-        public readonly Quaternion rotation;
-        public readonly float strength;
-        public readonly int instanceID;
-        public readonly bool haveWeCollidedWithTheSameGameObject;
+        public readonly Collision Collision;
+        public readonly Material Material;
+        public readonly Vector3 Location;
+        public readonly Quaternion Rotation;
+        public readonly float Strength;
+        public readonly int InstanceID;
+        public readonly bool HaveWeCollidedWithTheSameGameObject;
         
-        public CollisionDetails(Collision _collision)
+        public CollisionDetails(Collision collision)
         {
-            collision = _collision;
-            strength = _collision.impulse.magnitude * Time.fixedDeltaTime;
-            location = _collision.GetContact(0).point;
-            rotation = _collision.transform.rotation;
-            material = _collision.gameObject.GetComponentInChildren<Renderer>().material;
-            instanceID = _collision.gameObject.GetInstanceID();
+            Collision = collision;
+            Strength = collision.impulse.magnitude * Time.fixedDeltaTime;
+            Location = collision.GetContact(0).point;
+            Rotation = collision.transform.rotation;
+            Material = collision.gameObject.GetComponentInChildren<Renderer>().material;
+            InstanceID = collision.gameObject.GetInstanceID();
 
-            if (material == null)
+            if (Material == null)
             {
-                material = new Material(material);
+                Material = new Material(Material);
             }
-            haveWeCollidedWithTheSameGameObject = false;
+            HaveWeCollidedWithTheSameGameObject = false;
         }
 
-        public CollisionDetails(CollisionDetails _lastCollision, Collision _collision)
+        public CollisionDetails(CollisionDetails lastCollision, Collision collision)
         {
-            collision = _collision;
-            strength = _collision.impulse.magnitude * Time.fixedDeltaTime;
-            location = _collision.GetContact(0).point;
-            rotation = _collision.transform.rotation;
-            instanceID = _collision.gameObject.GetInstanceID();
-            material = _collision.gameObject.GetComponentInChildren<Renderer>().material;
+            Collision = collision;
+            Strength = collision.impulse.magnitude * Time.fixedDeltaTime;
+            Location = collision.GetContact(0).point;
+            Rotation = collision.transform.rotation;
+            InstanceID = collision.gameObject.GetInstanceID();
+            Material = collision.gameObject.GetComponentInChildren<Renderer>().material;
 
-            if (material == null)
+            if (Material == null)
             {
-                material = new Material(material);
+                Material = new Material(Material);
             }
 
-            haveWeCollidedWithTheSameGameObject = (_lastCollision.instanceID == instanceID);
+            HaveWeCollidedWithTheSameGameObject = (lastCollision.InstanceID == InstanceID);
         }
     }
 }

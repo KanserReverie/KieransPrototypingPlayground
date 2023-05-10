@@ -48,18 +48,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             obstacleComponent.StartMovement(obstacleMovement);
         }
         
-        private IObstacleMovement AddRandomMovement(GameObject _spawnedObstacle)
+        private IObstacleMovement AddRandomMovement(GameObject spawnedObstacle)
         {
             int obstacleToSpawn = Random.Range(0, 2);
             if (obstacleToSpawn == 0)
             {
                 if (debugLogThisComponent) Debug.Log($"AddFastMovement to Obstacle");
-                return _spawnedObstacle.AddComponent<FastMovement>();
+                return spawnedObstacle.AddComponent<FastMovement>();
             }
             else
             {
                 if (debugLogThisComponent) Debug.Log($"AddNormalMovement to Obstacle");
-                return _spawnedObstacle.AddComponent<NormalMovement>();
+                return spawnedObstacle.AddComponent<NormalMovement>();
             }
         }
 

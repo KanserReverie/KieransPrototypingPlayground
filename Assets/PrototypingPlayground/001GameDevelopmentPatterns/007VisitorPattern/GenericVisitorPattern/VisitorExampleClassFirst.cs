@@ -12,23 +12,23 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.G
     public class VisitorExampleClassFirst : IVisitor
     { 
         // The curse effect for different Humans.
-        public void Visit(VisitableExampleClassFirst _visitableExample)
+        public void Visit(VisitableExampleClassFirst visitableExample)
         {
-            if (_visitableExample.typeOfUser == VisitableExampleClassFirst.TypeOfUser.Human)
-                _visitableExample.displayingUI = false;
-            else if (_visitableExample.typeOfUser == VisitableExampleClassFirst.TypeOfUser.Computer)
-                _visitableExample.sporadicMovement = true;
+            if (visitableExample.ThisUserType == VisitableExampleClassFirst.TypeOfUser.Human)
+                visitableExample.DisplayingUI = false;
+            else if (visitableExample.ThisUserType == VisitableExampleClassFirst.TypeOfUser.Computer)
+                visitableExample.SporadicMovement = true;
         }
 
-        public void Visit(VisitableExampleClassSecond _visitableExample)
+        public void Visit(VisitableExampleClassSecond visitableExample)
         {
             // Since this only effects human NPCs this will have no effect on goblins.
         }
 
-        public void Visit(VisitableExampleClassThird _visitableExample)
+        public void Visit(VisitableExampleClassThird visitableExample)
         {
             // Quest NPCs are invulnerable to everything.
-           Debug.Log("This character is invulnerable.");
+            Debug.Log("This character is invulnerable.");
         }
     }
 }

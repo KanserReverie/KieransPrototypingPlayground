@@ -9,15 +9,15 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
         [SerializeField] private TextMeshProUGUI countDownText;
         [SerializeField] private GameObject readyPanel;
         
-        private int _currentCountDownTimer;
+        private int currentCountDownTimer;
 
-        private GameManagerEventBus _gameManagerEventBus;
+        private GameManagerEventBus gameManagerEventBus;
 
         private void Start()
         {
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
             
-            _currentCountDownTimer = countDownTimerStart;
+            currentCountDownTimer = countDownTimerStart;
             StartCoroutine(StartCountDown());
         }
         
@@ -25,14 +25,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
         {
             do
             {
-                countDownText.text = ($"Game starts in {_currentCountDownTimer}");
-                _currentCountDownTimer--;
+                countDownText.text = ($"Game starts in {currentCountDownTimer}");
+                currentCountDownTimer--;
                 yield return new WaitForSeconds(1);
-            } while (_currentCountDownTimer > 0);
+            } while (currentCountDownTimer > 0);
 
-            if (_gameManagerEventBus != null)
+            if (gameManagerEventBus != null)
             {
-                _gameManagerEventBus.PublishEvent(PlatformerEvents.START);
+                gameManagerEventBus.PublishEvent(PlatformerEvents.Start);
                 countDownText.text = ("Go!");
                 yield return new WaitForSeconds(1);
                 readyPanel.SetActive(false);

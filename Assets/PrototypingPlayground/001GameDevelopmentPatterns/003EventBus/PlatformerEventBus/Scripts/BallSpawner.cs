@@ -6,42 +6,42 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
     {
         [SerializeField] private GameObject ballToSpawn;
         [SerializeField, Range(0.1f,10f)] private float timeBetweenSpawns = 4f;
-        private bool _areWeSpawningBalls;
+        private bool areWeSpawningBalls;
 
-        private GameManagerEventBus _gameManagerEventBus;
+        private GameManagerEventBus gameManagerEventBus;
 
         private void Start()
         {
-            _areWeSpawningBalls = false;
+            areWeSpawningBalls = false;
 
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
-            _gameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.START);
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus.SubscribeActionToEvent(SpawnBall,PlatformerEvents.Start);
         }
 
         #region Subscribe and Unsubscribe to Event Bus at OnEnable/OnDisable
         
         private void OnEnable()
         {
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
-            _gameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.START);
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus.SubscribeActionToEvent(StartSpawningBalls,PlatformerEvents.Start);
         }
 
         private void OnDisable()
         {
-            _gameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.START);
+            gameManagerEventBus.UnsubscribeActionFromEvent(StartSpawningBalls, PlatformerEvents.Start);
         }
         
         #endregion
 
         private void StartSpawningBalls()
         {
-            _areWeSpawningBalls = true;
+            areWeSpawningBalls = true;
             StartCoroutine(RepeatSpawningBalls());
         }
 
         private IEnumerator RepeatSpawningBalls()
         {
-            while (_areWeSpawningBalls)
+            while (areWeSpawningBalls)
             {
                 yield return new WaitForSeconds(timeBetweenSpawns);
                 SpawnBall();

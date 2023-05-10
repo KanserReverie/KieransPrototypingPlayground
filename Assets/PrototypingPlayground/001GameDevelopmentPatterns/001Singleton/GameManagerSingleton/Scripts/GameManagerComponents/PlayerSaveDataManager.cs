@@ -56,10 +56,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
             playerSaveData = JsonUtility.FromJson<PlayerSaveData>(json);
             
             GameObject playerInScene = GameObject.FindGameObjectWithTag("Player");
-            playerInScene.transform.position = playerSaveData.location;
-            playerInScene.transform.rotation = playerSaveData.rotation;
-            Rigidbody playerRigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
-            playerRigidbody = playerSaveData.rigidbody;
+            playerInScene.transform.position = playerSaveData.Location;
+            playerInScene.transform.rotation = playerSaveData.Rotation;
+            playerInScene.GetComponentInChildren<Rigidbody>();
         }
 
         private void GetPlayerData()
@@ -69,9 +68,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
                 Debug.Log("Sorry, cant find a GameObject with a 'Player' tag");
             else
             {
-                playerSaveData.location = playerInScene.transform.position;
-                playerSaveData.rotation = playerInScene.transform.rotation;
-                playerSaveData.rigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
+                playerSaveData.Location = playerInScene.transform.position;
+                playerSaveData.Rotation = playerInScene.transform.rotation;
+                playerSaveData.Rigidbody = playerInScene.GetComponentInChildren<Rigidbody>();
             }
         }
     }

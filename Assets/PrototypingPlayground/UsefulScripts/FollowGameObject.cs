@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground.UsefulScripts
@@ -6,7 +5,7 @@ namespace PrototypingPlayground.UsefulScripts
     public class FollowGameObject : MonoBehaviour
     {
         [SerializeField] private Transform transformToFollow;
-        [SerializeField] private bool followRotation = false;
+        [SerializeField] private bool followRotation;
         [SerializeField] private Vector3 offsetPosition;
         [SerializeField] private Vector3 offsetRotation;
         

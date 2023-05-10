@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public interface IGUIDisplayMessage
     {
-        void DisplayMessageOnGUI(string _message, float _duration);
+        void DisplayMessageOnGUI(string message, float duration);
     }
 }

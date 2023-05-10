@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
 {
     public interface IElement
     {
-        void Accept(IVisitor _visitor);
+        void Accept(IVisitor visitor);
     }
 }

@@ -38,19 +38,19 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dr
             return newDrone;
         }
         
-        private void OnReturnedToPool(Drone _drone)
+        private void OnReturnedToPool(Drone drone)
         {
-            _drone.gameObject.SetActive(false);
+            drone.gameObject.SetActive(false);
         }
         
-        private void OnTakeFromPool(Drone _drone)
+        private void OnTakeFromPool(Drone drone)
         {
-            _drone.gameObject.SetActive(true);
+            drone.gameObject.SetActive(true);
         }
         
-        private void OnDestroyPoolObject(Drone _drone)
+        private void OnDestroyPoolObject(Drone drone)
         {
-            Destroy(_drone.gameObject);
+            Destroy(drone.gameObject);
         }
     }
 }

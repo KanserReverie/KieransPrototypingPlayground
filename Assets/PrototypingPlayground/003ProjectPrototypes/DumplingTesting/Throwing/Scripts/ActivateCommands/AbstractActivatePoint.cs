@@ -3,6 +3,6 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Throwing.A
 {
     public abstract class AbstractActivatePoint :  MonoBehaviour
     {
-        public abstract AbstractActivateCommands GetActivePointCommand(Rigidbody _playerRigidbody);
+        public abstract AbstractActivateCommands GetActivePointCommand(Rigidbody playerRigidbody);
     }
 }

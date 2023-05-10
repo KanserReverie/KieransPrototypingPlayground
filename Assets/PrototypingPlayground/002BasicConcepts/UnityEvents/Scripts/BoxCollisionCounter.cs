@@ -6,18 +6,18 @@ namespace PrototypingPlayground._002BasicConcepts.UnityEvents
     {
         [SerializeField] private TMP_Text boxCounterTMPText;
         
-        private int _boxCounter;
+        private int boxCounter;
         
         private void Start()
         {
-            _boxCounter = 0;
-            boxCounterTMPText.text = $"Count = {_boxCounter}";
+            boxCounter = 0;
+            boxCounterTMPText.text = $"Count = {boxCounter}";
         }
         
         public void AddOneToBoxCounter()
         {
-            _boxCounter++;
-            boxCounterTMPText.text = $"Count = {_boxCounter}";
+            boxCounter++;
+            boxCounterTMPText.text = $"Count = {boxCounter}";
         }
     }
 }

@@ -8,7 +8,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
     public abstract class AbstractObserverBehaviour : MonoBehaviour
     {
         /// <summary> Triggered when the "Subject" state changes. </summary>
-        /// <param name="_abstractSubjectBehaviour">The current state of the "Subject".</param>
-        public abstract void Notify(AbstractSubjectBehaviour _abstractSubjectBehaviour);
+        /// <param name="abstractSubjectBehaviour">The current state of the "Subject".</param>
+        public abstract void Notify(AbstractSubjectBehaviour abstractSubjectBehaviour);
     }
 }

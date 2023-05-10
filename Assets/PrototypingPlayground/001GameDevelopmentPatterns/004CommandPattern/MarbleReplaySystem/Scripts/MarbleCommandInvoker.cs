@@ -28,13 +28,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
         private bool jumpInput;
         private Vector2 horizontalMovementInput;
 
-        public void Init(PlayerInput _playerInput, MarbleController _marbleController, TMP_Text _timerTMPText, TMP_Text _statusTMPText, float _startingGameTimer)
+        public void Init(PlayerInput playerInput, MarbleController marbleController, TMP_Text timerTMPText, TMP_Text statusTMPText, float startingGameTimer)
         {
-            playerInput = _playerInput;
-            marbleController = _marbleController;
-            timerTMPText = _timerTMPText;
-            statusTMPText = _statusTMPText;
-            startingGameTimer = _startingGameTimer;
+            this.playerInput = playerInput;
+            this.marbleController = marbleController;
+            this.timerTMPText = timerTMPText;
+            this.statusTMPText = statusTMPText;
+            this.startingGameTimer = startingGameTimer;
         }
 
         private void Start()
@@ -124,19 +124,19 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
             }
         }
 
-        public void ExecuteCommand(AbstractMarbleCommand _marbleCommandToRun)
+        public void ExecuteCommand(AbstractMarbleCommand marbleCommandToRun)
         {
-            _marbleCommandToRun.ExecuteCommand();
+            marbleCommandToRun.ExecuteCommand();
             if (weAreRecording)
             {
                 if (recordedCommands.ContainsKey(playTime))
                 {
                     // This is just encase there is already an input at this frame. 
-                    recordedCommands.Add(playTime + (Time.fixedDeltaTime / 4), _marbleCommandToRun);
+                    recordedCommands.Add(playTime + (Time.fixedDeltaTime / 4), marbleCommandToRun);
                 }
                 else
                 {
-                    recordedCommands.Add(playTime, _marbleCommandToRun);
+                    recordedCommands.Add(playTime, marbleCommandToRun);
                 }
             }
             if (WeAreReplaying)

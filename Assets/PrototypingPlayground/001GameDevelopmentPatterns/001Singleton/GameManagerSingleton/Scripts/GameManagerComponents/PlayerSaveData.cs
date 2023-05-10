@@ -5,8 +5,8 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
     // ReSharper disable once ClassNeverInstantiated.Global
     public class PlayerSaveData
     {
-        public Vector3 location;
-        public Quaternion rotation;
-        public Rigidbody rigidbody;
+        public Vector3 Location;
+        public Quaternion Rotation;
+        public Rigidbody Rigidbody;
     }
 }

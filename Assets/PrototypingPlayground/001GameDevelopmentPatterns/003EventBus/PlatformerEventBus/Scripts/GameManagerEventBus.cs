@@ -5,12 +5,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
 {
     public class GameManagerEventBus : MonoBehaviour
     {
-        private readonly IDictionary<PlatformerEvents, UnityEvent> _platformerEventsToUnityEvents = new Dictionary<PlatformerEvents, UnityEvent>();
+        private readonly IDictionary<PlatformerEvents, UnityEvent> platformerEventsToUnityEvents = new Dictionary<PlatformerEvents, UnityEvent>();
 
         public void SubscribeActionToEvent (UnityAction unityActionToInvoke, PlatformerEvents platformerEvent)
         {
             UnityEvent tempUnityEvent;
-            if (_platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
+            if (platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
             {
                 tempUnityEvent.AddListener(unityActionToInvoke);
             }
@@ -18,14 +18,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
             {
                 tempUnityEvent = new UnityEvent();
                 tempUnityEvent.AddListener(unityActionToInvoke);
-                _platformerEventsToUnityEvents.Add(platformerEvent, tempUnityEvent);
+                platformerEventsToUnityEvents.Add(platformerEvent, tempUnityEvent);
             }
         }
 
         public void UnsubscribeActionFromEvent(UnityAction unityAction, PlatformerEvents platformerEvent)
         {
             UnityEvent tempUnityEvent;
-            if (_platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
+            if (platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
             {
                 tempUnityEvent.RemoveListener(unityAction);
             }
@@ -34,7 +34,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
         public void PublishEvent(PlatformerEvents platformerEvent)
         {
             UnityEvent tempUnityEvent;
-            if (_platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
+            if (platformerEventsToUnityEvents.TryGetValue(platformerEvent, out tempUnityEvent))
             {
                 tempUnityEvent?.Invoke();
             }
@@ -42,7 +42,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
 
         public static GameManagerEventBus FindEventBusInScene()
         {
-            GameManagerEventBus sceneGameManagerEventBus = null;
+            GameManagerEventBus sceneGameManagerEventBus;
             sceneGameManagerEventBus = FindObjectOfType<GameManagerEventBus>();
             
             if(sceneGameManagerEventBus == null)

@@ -30,7 +30,7 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.DeathAndRe
         {
             if(instance == null)
             {
-                instance = this as LivesManager;
+                instance = this;
                 DontDestroyOnLoad(gameObject);
             } 
             else

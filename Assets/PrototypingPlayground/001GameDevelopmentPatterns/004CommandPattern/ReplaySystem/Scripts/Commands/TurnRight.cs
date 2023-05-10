@@ -4,9 +4,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
     {
         private readonly BikeController bikeController;
         
-        public TurnRight(BikeController _bikeController)
+        public TurnRight(BikeController bikeController)
         {
-            bikeController = _bikeController;
+            this.bikeController = bikeController;
         }
         public override void Execute()
         {

@@ -1,6 +1,7 @@
 using System.Collections;
 using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
+// ReSharper disable All
 namespace PrototypingPlayground._002BasicConcepts.Properties
 {
     public class PropertiesExample : MonoBehaviour

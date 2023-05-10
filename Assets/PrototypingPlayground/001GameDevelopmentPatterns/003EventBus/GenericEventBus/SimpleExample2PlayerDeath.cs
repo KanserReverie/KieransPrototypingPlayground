@@ -11,9 +11,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Generic
     /// </summary>
     public class SimpleExample2PlayerDeath : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider _collider)
+        private void OnTriggerEnter(Collider collider)
         {
-            if (_collider.gameObject.CompareTag($"Player"))
+            if (collider.gameObject.CompareTag($"Player"))
             {
                 StaticEventBusManager.Publish(EventBusEvent.Event3);
             }

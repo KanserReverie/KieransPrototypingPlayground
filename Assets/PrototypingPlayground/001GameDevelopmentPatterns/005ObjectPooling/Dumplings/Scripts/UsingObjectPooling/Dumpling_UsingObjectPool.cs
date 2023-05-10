@@ -4,21 +4,21 @@ using UnityEngine.Pool;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dumplings.UsingObjectPooling
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class Dumpling_UsingObjectPool : MonoBehaviour
+    public class DumplingUsingObjectPool : MonoBehaviour
     {
-        public IObjectPool<Dumpling_UsingObjectPool> DumplingPool { get; set; }
+        public IObjectPool<DumplingUsingObjectPool> DumplingPool { get; set; }
         
         private NavMeshAgent dumplingNavMeshAgent;
         private Vector3 finalDestination;
         public NavMeshAgent NavMeshAgent => dumplingNavMeshAgent;
 
         // Call this when you create the dumpling.
-        public void Initialize(Vector3 _finalDestination, Vector3 _startingLocation, Quaternion _startingRotation)
+        public void Initialize(Vector3 finalDestination, Vector3 startingLocation, Quaternion startingRotation)
         {
             dumplingNavMeshAgent = GetComponent<NavMeshAgent>();
-            dumplingNavMeshAgent.Warp(_startingLocation);
-            transform.rotation = _startingRotation; 
-            SetDestination(_finalDestination);
+            dumplingNavMeshAgent.Warp(startingLocation);
+            transform.rotation = startingRotation; 
+            SetDestination(finalDestination);
         }
 
         private void FixedUpdate()
@@ -40,10 +40,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             dumplingNavMeshAgent.destination = gameObject.transform.position;
         }
 
-        private void SetDestination(Vector3 _newDestination)
+        private void SetDestination(Vector3 newDestination)
         {
-            dumplingNavMeshAgent.destination = _newDestination;
-            finalDestination = _newDestination;
+            dumplingNavMeshAgent.destination = newDestination;
+            finalDestination = newDestination;
         }
     }
 }

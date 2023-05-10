@@ -3,17 +3,17 @@ namespace PrototypingPlayground._002BasicConcepts.AbstractClasses
 {
     public class SpawnableCube : CubeBehaviour
     {
-        public SpawnableCube(float _cubeLifeSpan, float _cubeScale)
+        public SpawnableCube(float cubeLifeSpan, float cubeScale)
         {
-            cubeLifeSpan = _cubeLifeSpan;
-            cubeScale = _cubeScale;
+            CubeLifeSpan = cubeLifeSpan;
+            CubeScale = cubeScale;
         }
 
-        public override void Setup(float _scale, float _lifeSpan)
+        public override void Setup(float scale, float lifeSpan)
         {
             gameObject.AddComponent<BoxCollider>();
             gameObject.AddComponent<Rigidbody>();
-            base.Setup(_scale, _lifeSpan);
+            base.Setup(scale, lifeSpan);
         }
     }
 }

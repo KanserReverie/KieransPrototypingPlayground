@@ -45,11 +45,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
 
         public void SpawnObstacle()
         {
-                GameObject dropObject =  Instantiate(
-                    obstaclePrefab,
-                    (bikeController.transform.position + dropLocation + (Vector3.forward * dropDistance)), 
-                    transform.rotation);
-                lastDrop = dropObject.transform.position;
+            GameObject dropObject =  Instantiate(
+                obstaclePrefab,
+                (bikeController.transform.position + dropLocation + (Vector3.forward * dropDistance)), 
+                transform.rotation);
+            lastDrop = dropObject.transform.position;
         }
 
         public void SpawnFinish()

@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 {
     public interface IObstacleMovement
     {
-        void Maneuver(Obstacle _obstacleToMove);
+        void Maneuver(Obstacle obstacleToMove);
     }
 }

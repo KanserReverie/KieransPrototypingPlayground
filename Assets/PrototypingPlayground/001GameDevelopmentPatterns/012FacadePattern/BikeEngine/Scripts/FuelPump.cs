@@ -6,14 +6,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern.Bi
     public class FuelPump : MonoBehaviour
     {
         public BikeEngine engine;
-        public IEnumerator burnFuel;
+        public IEnumerator BurnFuel;
 
         private void Start()
         {
-            burnFuel = BurnFuel();
+            BurnFuel = BurnUpFuel();
         }
 
-        private IEnumerator BurnFuel()
+        private IEnumerator BurnUpFuel()
         {
             while (true)
             {

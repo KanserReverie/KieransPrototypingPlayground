@@ -25,22 +25,22 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Throwing
             dumplingRigidbody.AddForce(new Vector3(horizontalMoveInput.x, 0, horizontalMoveInput.y) * horizontalMovementSpeed);
         }
 
-        public void OnMove(InputAction.CallbackContext _moveInput)
+        public void OnMove(InputAction.CallbackContext moveInput)
         {
-            horizontalMoveInput = _moveInput.ReadValue<Vector2>().normalized;
+            horizontalMoveInput = moveInput.ReadValue<Vector2>().normalized;
         }
 
-        public void OnActivate(InputAction.CallbackContext _Activate)
+        public void OnActivate(InputAction.CallbackContext activate)
         {
-            if (_Activate.started)
+            if (activate.started)
             {
                 activateAction?.Invoke();
             }
         }
 
-        private void OnTriggerEnter(Collider _other)
+        private void OnTriggerEnter(Collider other)
         {
-            AbstractActivatePoint activePoint = _other.gameObject.GetComponent<AbstractActivatePoint>();
+            AbstractActivatePoint activePoint = other.gameObject.GetComponent<AbstractActivatePoint>();
             
             if (activePoint != null)
             {
@@ -51,9 +51,9 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Throwing
             }
         }
         
-        private void OnTriggerExit(Collider _other)
+        private void OnTriggerExit(Collider other)
         {
-            AbstractActivatePoint activePoint = _other.gameObject.GetComponent<AbstractActivatePoint>();
+            AbstractActivatePoint activePoint = other.gameObject.GetComponent<AbstractActivatePoint>();
             
             if (activePoint != null)
             {

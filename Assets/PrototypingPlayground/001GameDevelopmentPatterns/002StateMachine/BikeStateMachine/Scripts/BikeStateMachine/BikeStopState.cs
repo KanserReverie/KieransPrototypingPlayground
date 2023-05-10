@@ -6,12 +6,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
     {
         private BikeController bikeController;
 
-        public void Handle(BikeController _bikeController)
+        public void Handle(BikeController bikeController)
         {
-            if (!bikeController)
-                bikeController = _bikeController;
+            if (!this.bikeController)
+                this.bikeController = bikeController;
 
-            bikeController.CurrentSpeed = 0;
+            this.bikeController.CurrentSpeed = 0;
         }
     }
 }

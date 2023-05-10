@@ -3,18 +3,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
 {
     public class Boundary : MonoBehaviour
     {
-        private GameManagerEventBus _gameManagerEventBus;
+        private GameManagerEventBus gameManagerEventBus;
 
         private void Start()
         {
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
         }
 
         private void OnTriggerStay(Collider other)
         {
             if (other.gameObject.CompareTag($"Player"))
             {
-                _gameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
+                gameManagerEventBus.PublishEvent(PlatformerEvents.Die);
             }
             else
             {
@@ -26,7 +26,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
         {
             if (other.gameObject.CompareTag($"Player"))
             {
-                _gameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
+                gameManagerEventBus.PublishEvent(PlatformerEvents.Die);
             }
             else
             {

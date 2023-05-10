@@ -33,9 +33,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
         {
             bikeStateContext.Transition(stopState);
         }
-        public void TurnBike(Direction _direction)
+        public void TurnBike(Direction direction)
         {
-            CurrentDirection = _direction;
+            CurrentDirection = direction;
             bikeStateContext.Transition(turnState);
         }
     }

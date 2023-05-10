@@ -15,9 +15,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
             Debug.Log("Weapon Fired!!");
         }
         
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
-            _visitor.Visit(this);
+            visitor.Visit(this);
         }
 
         private void OnGUI()

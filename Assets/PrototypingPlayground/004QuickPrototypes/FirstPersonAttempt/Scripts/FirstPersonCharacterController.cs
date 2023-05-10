@@ -1,4 +1,3 @@
-using System;
 using PrototypingPlayground.CustomInspector.SerializableProperties;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -34,13 +33,13 @@ namespace PrototypingPlayground._004QuickPrototypes.FirstPersonAttempt.Scripts
             movementThisFrame.y = FixedUpdateVerticalMovementGravity();
 
             movementSpeed = movementThisFrame;
-            FixedUpdateMoveCharacter(movementSpeed);
+            FixedUpdateMoveCharacter();
         }
         
-        private void FixedUpdateMoveCharacter(Vector3 _movementSpeed)
+        private void FixedUpdateMoveCharacter()
         {
             Vector3 characterMovementThisFixedUpdate;
-            characterMovementThisFixedUpdate = movementSpeed; 
+            characterMovementThisFixedUpdate = this.movementSpeed; 
             characterMovementThisFixedUpdate *= Time.fixedDeltaTime;
             characterController.Move(characterMovementThisFixedUpdate);
         }
@@ -74,9 +73,9 @@ namespace PrototypingPlayground._004QuickPrototypes.FirstPersonAttempt.Scripts
             return forwardAndBackMovement;
         }
 
-        public void OnMove(InputAction.CallbackContext _moveInput)
+        public void OnMove(InputAction.CallbackContext moveInput)
         {
-            movementInput = _moveInput.ReadValue<Vector2>();
+            movementInput = moveInput.ReadValue<Vector2>();
             movementInput.Normalize();
         }
 

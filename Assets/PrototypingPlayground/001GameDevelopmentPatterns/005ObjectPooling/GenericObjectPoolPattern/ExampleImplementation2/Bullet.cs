@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.GenericObjectPoolPattern.ExampleImplementation2

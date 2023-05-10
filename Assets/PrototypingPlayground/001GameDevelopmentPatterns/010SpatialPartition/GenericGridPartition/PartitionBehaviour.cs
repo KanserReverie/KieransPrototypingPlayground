@@ -14,10 +14,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         [SerializeField] protected PartitionBehaviour<T> partitionGrid;
         [SerializeField] protected Vector3 partitionCoordinates;
 
-        public void SetPartitionDetails(PartitionBehaviour<T> _partitionGrid, Vector3 _partitionCoordinates)
+        public void SetPartitionDetails(PartitionBehaviour<T> partitionGrid, Vector3 partitionCoordinates)
         {
-            partitionGrid = _partitionGrid;
-            partitionCoordinates = _partitionCoordinates;
+            this.partitionGrid = partitionGrid;
+            this.partitionCoordinates = partitionCoordinates;
         }
     }
 }

@@ -24,22 +24,22 @@ namespace PrototypingPlayground._002BasicConcepts.CombiningColours.Scripts
             colourMadeDisplayImage.color = finalColour;
         }
 
-        public void UpdateRed(float _newRedValue)
+        public void UpdateRed(float newRedValue)
         {
-            redValue = _newRedValue;
+            redValue = newRedValue;
         }
         
-        public void UpdateBlue(float _newBlueValue)
+        public void UpdateBlue(float newBlueValue)
         {
-            blueValue = _newBlueValue;
+            blueValue = newBlueValue;
         }
-        public void UpdateGreen(float _newGreenValue)
+        public void UpdateGreen(float newGreenValue)
         {
-            greenValue = _newGreenValue;
+            greenValue = newGreenValue;
         }
-        public void UpdateAlpha(float _newAlphaValue)
+        public void UpdateAlpha(float newAlphaValue)
         {
-            alphaValue = _newAlphaValue;
+            alphaValue = newAlphaValue;
         }
     }
 }

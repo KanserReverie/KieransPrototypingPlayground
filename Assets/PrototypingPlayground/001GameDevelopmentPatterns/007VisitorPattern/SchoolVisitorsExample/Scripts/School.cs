@@ -13,11 +13,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
                 new Kid("Pam")
             };
         }
-        public void PerformOperation(IVisitor _visitor)
+        public void PerformOperation(IVisitor visitor)
         {
             foreach (IElement kid in elements)
             {
-                kid.Accept(_visitor);
+                kid.Accept(visitor);
             }
         }
     }

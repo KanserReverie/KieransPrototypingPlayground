@@ -9,11 +9,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2
 
         public bool IsPlayerAlive => aliveStatus;
         
-        public void SpawnPlayer(float _startingHealth)
+        public void SpawnPlayer(float startingHealth)
         {
             aliveStatus = true;
-            startingHealth = _startingHealth;
-            currentHealth = startingHealth;
+            this.startingHealth = startingHealth;
+            currentHealth = this.startingHealth;
         }
         
         public void KillPlayer()

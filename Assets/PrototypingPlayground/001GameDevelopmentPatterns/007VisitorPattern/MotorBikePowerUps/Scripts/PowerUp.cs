@@ -20,49 +20,49 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
         [Tooltip("Boost weapon strength in increments upto 50%")] [Range(0.0f, 50.0f)]
         public float weaponStrength;
 
-        public void Visit(BikeShield _bikeShield)
+        public void Visit(BikeShield bikeShield)
         {
             if (healShield)
             {
-                _bikeShield.health = 100.0f;
+                bikeShield.health = 100.0f;
             }
         }
-        public void Visit(BikeWeapon _bikeWeapon)
+        public void Visit(BikeWeapon bikeWeapon)
         {
-            int range = _bikeWeapon.range += weaponRange;
+            int range = bikeWeapon.range += weaponRange;
 
-            if (range >= _bikeWeapon.maxRange)
+            if (range >= bikeWeapon.maxRange)
             {
-                _bikeWeapon.range = _bikeWeapon.maxRange;
+                bikeWeapon.range = bikeWeapon.maxRange;
             }
             else
             {
-                _bikeWeapon.range = range;
+                bikeWeapon.range = range;
             }
 
-            float strength = _bikeWeapon.strength += Mathf.Round(_bikeWeapon.strength * weaponStrength / 100);
+            float strength = bikeWeapon.strength += Mathf.Round(bikeWeapon.strength * weaponStrength / 100);
 
-            if (strength >= _bikeWeapon.maxStrength)
+            if (strength >= bikeWeapon.maxStrength)
             {
-                _bikeWeapon.strength = _bikeWeapon.maxStrength;
+                bikeWeapon.strength = bikeWeapon.maxStrength;
             }
             else
             {
-                _bikeWeapon.strength = strength;
+                bikeWeapon.strength = strength;
             }
         }
-        public void Visit(BikeEngine _bikeEngine)
+        public void Visit(BikeEngine bikeEngine)
         {
-            float boost = _bikeEngine.turboBoost += turboBoost;
+            float boost = bikeEngine.turboBoost += turboBoost;
 
             if (boost < 0.0f)
             {
-                _bikeEngine.turboBoost = 0.0f;
+                bikeEngine.turboBoost = 0.0f;
             }
 
-            if (boost >= _bikeEngine.maxTurboBoost)
+            if (boost >= bikeEngine.maxTurboBoost)
             {
-                _bikeEngine.turboBoost = _bikeEngine.maxTurboBoost;
+                bikeEngine.turboBoost = bikeEngine.maxTurboBoost;
             }
         }
     }

@@ -1,4 +1,3 @@
-using System;
 using PrototypingPlayground.UsefulScripts;
 using UnityEngine;
 
@@ -13,14 +12,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
         [Header("Fast Movement")]
         public float secondsUntilDespawnFast = 1.0f;
 
-        public void StartMovement(IObstacleMovement _movement)
+        public void StartMovement(IObstacleMovement movement)
         {
-            _movement.Maneuver(this);
+            movement.Maneuver(this);
         }
 
-        private void OnTriggerEnter(Collider _collider)
+        private void OnTriggerEnter(Collider collider)
         {
-            if (_collider.GetComponentInChildren<PlatformingCharacterController>())
+            if (collider.GetComponentInChildren<PlatformingCharacterController>())
             {
                 CommonlyUsedStaticMethods.ResetCurrentScene();
             }

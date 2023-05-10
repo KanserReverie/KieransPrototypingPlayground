@@ -4,17 +4,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.G
 {
     public class FirstAdaptedEnemy : EnemyThirdPartyAsset, IEnemyThirdPartyAsset
     {
-        private EnemyThirdPartyAsset enemyThirdPartyAsset;
-
         private void Awake()
         {
             maxHealth = 100;
             health = maxHealth;
             attackDamage = 10;
-        }
-        public FirstAdaptedEnemy(EnemyThirdPartyAsset _enemy)
-        {
-            this.enemyThirdPartyAsset = _enemy;
         }
         
         // This would allow us to now be able to attack with a crit modifier.

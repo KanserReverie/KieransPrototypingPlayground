@@ -1,4 +1,5 @@
 using UnityEngine;
+// ReSharper disable All
 namespace PrototypingPlayground.CustomInspector.SerializableProperties
 {
     public class PlayerScript : MonoBehaviour

@@ -5,14 +5,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
     {
         private string Name { get; set; }
         
-        public Salesman(string _name)
+        public Salesman(string name)
         {
-            Name = _name;
+            Name = name;
         }
         
-        public void Visit(IElement _element)
+        public void Visit(IElement element)
         {
-            Kid kid = (Kid)_element;
+            Kid kid = (Kid)element;
             Debug.Log($"Salesman: {this.Name} gave the school bag to the child: {kid.KidName}");
         }
     }

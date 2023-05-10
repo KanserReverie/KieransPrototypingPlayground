@@ -11,10 +11,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
     {
         void SyncInventories();
 
-        void AddItem(InventoryItem _item, SaveLocation _location);
+        void AddItem(InventoryItem item, SaveLocation location);
 
-        void RemoveItem(InventoryItem _item, SaveLocation _location);
+        void RemoveItem(InventoryItem item, SaveLocation location);
 
-        List<InventoryItem> GetInventory(SaveLocation _location);
+        List<InventoryItem> GetInventory(SaveLocation location);
     }
 }

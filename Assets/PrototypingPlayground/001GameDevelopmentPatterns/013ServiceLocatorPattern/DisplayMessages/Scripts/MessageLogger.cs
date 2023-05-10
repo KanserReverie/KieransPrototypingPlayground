@@ -5,21 +5,21 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public class MessageLogger : MonoBehaviour, IMessageLogger
     {
-        public void Log(string _message, MessageSeverity _messageSeverity)
+        public void Log(string message, MessageSeverity messageSeverity)
         {
-            switch (_messageSeverity)
+            switch (messageSeverity)
             {
                 case MessageSeverity.Normal:
-                    Debug.Log($"Logged Message: {_message}");
+                    Debug.Log($"Logged Message: {message}");
                     break;
                 case MessageSeverity.Warning:
-                    Debug.LogWarning($"Logged Warning: {_message}");
+                    Debug.LogWarning($"Logged Warning: {message}");
                     break;
                 case MessageSeverity.Error:
-                    Debug.LogError($"Logged Error: {_message}");
+                    Debug.LogError($"Logged Error: {message}");
                     break;
                 default:
-                    throw new ArgumentOutOfRangeException(nameof(_messageSeverity), _messageSeverity, null);
+                    throw new ArgumentOutOfRangeException(nameof(messageSeverity), messageSeverity, null);
             }
         }
     }

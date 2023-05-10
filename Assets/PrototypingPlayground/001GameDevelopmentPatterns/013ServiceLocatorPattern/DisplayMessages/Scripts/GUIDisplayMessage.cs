@@ -1,34 +1,32 @@
-
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPattern.DisplayMessages
 {
     public class GUIDisplayMessage : MonoBehaviour, IGUIDisplayMessage
     {
-        private bool _areWeDisplayingMessage;
-        private string _currentMessageToDisplay;
-        private float _currentMessageDisplayDuration;
+        private bool areWeDisplayingMessage;
+        private string currentMessageToDisplay;
+        private float currentMessageDisplayDuration;
         
-        public void DisplayMessageOnGUI(string _message, float _duration)
+        public void DisplayMessageOnGUI(string message, float duration)
         {
-            if (_message == null || _duration <= 0)
+            if (message == null || duration <= 0)
             {
                 ClearMessage();
                 return;
             }
-            _currentMessageToDisplay = _message;
-            _currentMessageDisplayDuration = _duration;
-            _areWeDisplayingMessage = true;
+            currentMessageToDisplay = message;
+            currentMessageDisplayDuration = duration;
+            areWeDisplayingMessage = true;
         }
 
         private void Update()
         {
-            if (!_areWeDisplayingMessage) return;
+            if (!areWeDisplayingMessage) return;
             
-            _currentMessageDisplayDuration -= Time.deltaTime;
+            currentMessageDisplayDuration -= Time.deltaTime;
             
-            if (_currentMessageDisplayDuration <= 0)
+            if (currentMessageDisplayDuration <= 0)
             {
                 ClearMessage();
             }
@@ -36,9 +34,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 
         private void OnGUI()
         {
-            if (!_areWeDisplayingMessage) return;
+            if (!areWeDisplayingMessage) return;
         
-            GUILayout.Label($"{_currentMessageToDisplay}");
+            GUILayout.Label($"{currentMessageToDisplay}");
         }
 
         private void OnEnable()
@@ -53,9 +51,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 
         private void ClearMessage()
         {
-            _currentMessageToDisplay = "";
-            _currentMessageDisplayDuration = 0;
-            _areWeDisplayingMessage = false;
+            currentMessageToDisplay = "";
+            currentMessageDisplayDuration = 0;
+            areWeDisplayingMessage = false;
         }
     }
 }

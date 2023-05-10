@@ -3,6 +3,6 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Teleportin
 {
     public abstract class AbstractActivatePoint :  MonoBehaviour
     {
-        public abstract AbstractActivateCommands GetActivePointCommand(Rigidbody _playerRigidbody);
+        public abstract AbstractActivateCommands GetActivePointCommand(Rigidbody playerRigidbody);
     }
 }

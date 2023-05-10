@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground._002BasicConcepts.Generics.Scripts
@@ -6,7 +5,7 @@ namespace PrototypingPlayground._002BasicConcepts.Generics.Scripts
     public class SampleGenericImplementations <T>
     {
         // This will count how many times we have run this
-        public int outputCount;
+        public int OutputCount;
 
         private void PrintType()
         {
@@ -14,11 +13,11 @@ namespace PrototypingPlayground._002BasicConcepts.Generics.Scripts
         }
         
         // Takes in any class type object and returns the object.
-        public U OutputAnyType<U>(U _parameter)
+        public U OutputAnyType<U>(U parameter)
         {
             PrintType();
-            outputCount++;
-            return _parameter;
+            OutputCount++;
+            return parameter;
         }
     }
 }

@@ -7,13 +7,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
     /// </summary>
     public interface IInventorySystem
     {
-        void AddItemToTradeInventory(InventoryItem _item);
+        void AddItemToTradeInventory(InventoryItem item);
 
-        void RemoveItemFromTradeInventory(InventoryItem _item);
+        void RemoveItemFromTradeInventory(InventoryItem item);
 
-        bool IsItemInInventory(InventoryItem _item);
+        bool IsItemInInventory(InventoryItem item);
 
-        InventoryItem TradeItem(InventoryItem _itemReceiving, InventoryItem _itemGiving);
+        InventoryItem TradeItem(InventoryItem itemReceiving, InventoryItem itemGiving);
         
         List<InventoryItem> GetInventory();
         void PrintTradeInventory();

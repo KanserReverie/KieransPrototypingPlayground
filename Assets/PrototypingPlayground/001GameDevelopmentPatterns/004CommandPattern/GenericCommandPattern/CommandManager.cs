@@ -10,10 +10,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
     {
         private readonly Stack<ICommand> commandStack = new Stack<ICommand>();
 
-        public void ExecuteCommand(ICommand _command)
+        public void ExecuteCommand(ICommand command)
         {
-            _command.ExecuteCommand();
-            commandStack.Push(_command);
+            command.ExecuteCommand();
+            commandStack.Push(command);
         }
 
         public void UndoLastCommand()

@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public interface ILoggerService
     {
-        void Log(string _message);
+        void Log(string message);
     }
 }

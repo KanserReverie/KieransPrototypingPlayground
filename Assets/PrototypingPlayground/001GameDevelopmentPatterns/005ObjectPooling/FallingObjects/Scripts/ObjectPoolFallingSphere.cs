@@ -17,28 +17,28 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Fa
                 if (pool == null)
                 {
                     pool = new ObjectPool<FallingSphere>(CreatedPooledItem, 
-                            OnTakeFromPool, 
-                            OnReturnedToPool, 
-                            OnDestroyPoolObject, 
-                            true, 
-                            defaultPoolCapacity,
-                            maxPoolSize);
+                        OnTakeFromPool, 
+                        OnReturnedToPool, 
+                        OnDestroyPoolObject, 
+                        true, 
+                        defaultPoolCapacity,
+                        maxPoolSize);
                 }
                 return pool;
             }
         }
-        private void OnDestroyPoolObject(FallingSphere _obj)
+        private void OnDestroyPoolObject(FallingSphere obj)
         {
-            Destroy(_obj.gameObject);
+            Destroy(obj.gameObject);
         }
-        private void OnReturnedToPool(FallingSphere _obj)
+        private void OnReturnedToPool(FallingSphere obj)
         {
-            _obj.transform.parent = this.transform;
-            _obj.gameObject.SetActive(false);
+            obj.transform.parent = this.transform;
+            obj.gameObject.SetActive(false);
         }
-        private void OnTakeFromPool(FallingSphere _obj)
+        private void OnTakeFromPool(FallingSphere obj)
         {
-            _obj.gameObject.SetActive(true);
+            obj.gameObject.SetActive(true);
         }
         private FallingSphere CreatedPooledItem()
         {

@@ -37,13 +37,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
             }
         }
         
-        public override void Notify(AbstractSubjectBehaviour _abstractSubjectBehaviour)
+        public override void Notify(AbstractSubjectBehaviour abstractSubjectBehaviour)
         {
-            collisionLocation = fallingBall.lastCollision.location;
-            collisionRotation = fallingBall.lastCollision.rotation;
-            collisionStrength = fallingBall.lastCollision.strength;
-            haveWeCollidedWithAnythingYet = fallingBall.haveWeCollidedWithAnythingYet;
-            haveWeCollidedWithTheSameGameObject = fallingBall.lastCollision.haveWeCollidedWithTheSameGameObject;
+            collisionLocation = FallingBall.LastCollision.Location;
+            collisionRotation = FallingBall.LastCollision.Rotation;
+            collisionStrength = FallingBall.LastCollision.Strength;
+            haveWeCollidedWithAnythingYet = FallingBall.haveWeCollidedWithAnythingYet;
+            haveWeCollidedWithTheSameGameObject = FallingBall.LastCollision.HaveWeCollidedWithTheSameGameObject;
         }
     }
 }

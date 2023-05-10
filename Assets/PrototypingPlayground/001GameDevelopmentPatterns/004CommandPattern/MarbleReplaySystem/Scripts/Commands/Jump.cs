@@ -2,11 +2,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
 {
     public class Jump : AbstractMarbleCommand
     {
-        public Jump (MarbleController _marbleController) : base(_marbleController) { }
+        public Jump (MarbleController marbleController) : base(marbleController) { }
         
         public override void ExecuteCommand()
         {
-            marbleController.Jump();
+            MarbleController.Jump();
         }
     }
 }

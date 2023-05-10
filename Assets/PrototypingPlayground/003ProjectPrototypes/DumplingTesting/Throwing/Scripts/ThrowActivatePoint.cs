@@ -6,9 +6,9 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Throwing
     {
         [SerializeField] private Vector3 throwForce;
 
-        public override AbstractActivateCommands GetActivePointCommand(Rigidbody _playerRigidbody)
+        public override AbstractActivateCommands GetActivePointCommand(Rigidbody playerRigidbody)
         {
-            return new ThrowCommand(_playerRigidbody, throwForce);
+            return new ThrowCommand(playerRigidbody, throwForce);
         }
     }
 }

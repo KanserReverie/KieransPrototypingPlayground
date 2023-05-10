@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+// ReSharper disable All
 namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.BasicPlatformer
 {
     public class BasicPlatformerRigidbodyCharacterController : MonoBehaviour
@@ -32,20 +32,20 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.B
             }
         }
 
-        public void Jump(InputAction.CallbackContext _jumpInput)
+        public void Jump(InputAction.CallbackContext jumpInput)
         {
-            jumping = _jumpInput.performed;
+            jumping = jumpInput.performed;
         }
 
-        public void Move(InputAction.CallbackContext _moveInput)
+        public void Move(InputAction.CallbackContext moveInput)
         {
-            movementInput.x = _moveInput.ReadValue<float>();
+            movementInput.x = moveInput.ReadValue<float>();
             Debug.Log($"Move Input = {movementInput}");
-         }
+        }
 
-        public void UseAbility(InputAction.CallbackContext _useAbilityInput)
+        public void UseAbility(InputAction.CallbackContext useAbilityInput)
         {
-            usingAbility = _useAbilityInput.ReadValue<float>() > 0.1f;
+            usingAbility = useAbilityInput.ReadValue<float>() > 0.1f;
         }
     }
 }

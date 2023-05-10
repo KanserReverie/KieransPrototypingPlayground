@@ -3,7 +3,7 @@ using UnityEngine.AI;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dumplings.WithoutObjectPooling
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    public class Dumpling_WithoutObjectPool : MonoBehaviour
+    public class DumplingWithoutObjectPool : MonoBehaviour
     {
         private NavMeshAgent dumplingNavMeshAgent;
         private Vector3 finalDestination;
@@ -15,11 +15,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
         }
         
         // Call this when you create the dumpling.
-        public void Initialize(Vector3 _finalDestination, Vector3 _startingLocation, Quaternion _startingRotation)
+        public void Initialize(Vector3 finalDestination, Vector3 startingLocation, Quaternion startingRotation)
         {
-            SetDestination(_finalDestination);
-            dumplingNavMeshAgent.Warp(_startingLocation);
-            transform.rotation = _startingRotation; 
+            SetDestination(finalDestination);
+            dumplingNavMeshAgent.Warp(startingLocation);
+            transform.rotation = startingRotation; 
         }
 
         private void FixedUpdate()
@@ -34,10 +34,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             Destroy(this.gameObject);
         }
         
-        private void SetDestination(Vector3 _newDestination)
+        private void SetDestination(Vector3 newDestination)
         {
-            dumplingNavMeshAgent.destination = _newDestination;
-            finalDestination = _newDestination;
+            dumplingNavMeshAgent.destination = newDestination;
+            finalDestination = newDestination;
         }
     }
 }

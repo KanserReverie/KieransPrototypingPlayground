@@ -46,9 +46,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dr
             yield return new WaitForSeconds(timeToSelfDestruct);
             TakeDamage(maxHealth);
         }
-        public void TakeDamage(float _amount)
+        public void TakeDamage(float amount)
         {
-            CurrentHealth -= _amount;
+            CurrentHealth -= amount;
 
             if (CurrentHealth <= 0)
             {

@@ -7,9 +7,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
     {
         private readonly BaseValues baseValues;
 
-        public DecoratableClass(BaseValues _baseValues)
+        public DecoratableClass(BaseValues baseValues)
         {
-            baseValues = _baseValues;
+            this.baseValues = baseValues;
         }
         
         public float DecoratableVariable1

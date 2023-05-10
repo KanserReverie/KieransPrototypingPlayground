@@ -10,18 +10,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.G
     public class VisitableExampleClassFirst : MonoBehaviour, IVisitable
     {
         // We are using internal instead of private so that visitors can modify but not other classes outside.
-        internal bool alive = true;
+        internal bool Alive = true;
         
-        internal TypeOfUser typeOfUser;
-        internal bool displayingUI = true;
-        internal bool sporadicMovement = false;
+        internal TypeOfUser ThisUserType;
+        internal bool DisplayingUI = true;
+        internal bool SporadicMovement = false;
         
-        internal int health = 10;
+        internal int Health = 10;
         
         public enum TypeOfUser { Human, Computer }
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
-            _visitor.Visit(this);
+            visitor.Visit(this);
         }
         
         

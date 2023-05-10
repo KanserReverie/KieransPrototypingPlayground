@@ -9,11 +9,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
         public PowerUp weaponPowerUp;
 
         // Adding a bike controller.
-        private BikeController _bikeController;
+        private BikeController bikeController;
 
         void Start()
         {
-            _bikeController = gameObject.AddComponent<BikeController>();
+            bikeController = gameObject.AddComponent<BikeController>();
         }
 
         void OnGUI()
@@ -21,13 +21,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
             // Gets the bike controller and lets it be visited by one of these 3 power ups.
             
             if (GUILayout.Button("PowerUp Shield"))
-                _bikeController.Accept(shieldPowerUp);
+                bikeController.Accept(shieldPowerUp);
 
             if (GUILayout.Button("PowerUp Engine"))
-                _bikeController.Accept(enginePowerUp);
+                bikeController.Accept(enginePowerUp);
 
             if (GUILayout.Button("PowerUp Weapon"))
-                _bikeController.Accept(weaponPowerUp);
+                bikeController.Accept(weaponPowerUp);
         }
     }
 }

@@ -8,16 +8,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
             if (other.gameObject.CompareTag($"Player"))
             {
                 Debug.Log("Die");
-                GameManagerEventBus.FindEventBusInScene().PublishEvent(PlatformerEvents.DIE);
+                GameManagerEventBus.FindEventBusInScene().PublishEvent(PlatformerEvents.Die);
             }
             Destroy(this);
         }
-        private void OnCollisionHit(Collision other)
+        private void OnCollisionEnter(Collision other)
         {
             if (other.gameObject.CompareTag($"Player"))
             {
                 Debug.Log("Die");
-                GameManagerEventBus.FindEventBusInScene().PublishEvent(PlatformerEvents.DIE);
+                GameManagerEventBus.FindEventBusInScene().PublishEvent(PlatformerEvents.Die);
             }
             Destroy(this);
         }

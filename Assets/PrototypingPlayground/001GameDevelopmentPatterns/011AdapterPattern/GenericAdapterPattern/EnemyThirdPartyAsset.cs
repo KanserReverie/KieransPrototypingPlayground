@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.GenericAdapterPattern
@@ -36,10 +35,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.G
             Debug.Log($"ThirdPartyEnemy attacked for {attackDamage} damage.");
         }
 
-        public void TakeDamage(int _damage)
+        public void TakeDamage(int damage)
         {
-            health -= _damage;
-            Debug.Log($"ThirdPartyEnemy took {_damage} damage! \n {health} health");
+            health -= damage;
+            Debug.Log($"ThirdPartyEnemy took {damage} damage! \n {health} health");
             if (health <= 0)
             {
                 Debug.Log("ThirdPartyEnemy has been defeated!");

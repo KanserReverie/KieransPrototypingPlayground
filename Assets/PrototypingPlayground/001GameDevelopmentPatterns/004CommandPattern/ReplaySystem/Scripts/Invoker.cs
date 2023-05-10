@@ -6,39 +6,39 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
 {
     public class Invoker : MonoBehaviour
     {
-        private bool _isRecording;
-        private bool _isReplaying;
+        private bool isRecording;
+        private bool isReplaying;
 
-        private float _recordTime;
-        private float _replayTime;
+        private float recordTime;
+        private float replayTime;
 
-        private SortedList<float, Command> _recordedCommands = new SortedList<float, Command>();
+        private SortedList<float, Command> recordedCommands = new SortedList<float, Command>();
 
         public void ExecuteCommand(Command command)
         {
             command.Execute();
 
-            if (_isRecording)
+            if (isRecording)
             {
-                _recordedCommands.Add(_recordTime, command);
+                recordedCommands.Add(recordTime, command);
             }
 
-            Debug.Log($"Recorded at: {_recordTime}");
+            Debug.Log($"Recorded at: {recordTime}");
             Debug.Log($"Recorded Command: {command}");
         }
 
         public void Record()
         {
-            _isRecording = true;
-            _recordTime = 0.0f;
+            isRecording = true;
+            recordTime = 0.0f;
         }
 
         public void Replay()
         {
-            _isReplaying = true;
-            _replayTime = 0.0f;
+            isReplaying = true;
+            replayTime = 0.0f;
 
-            if (_recordedCommands.Count <= 0)
+            if (recordedCommands.Count <= 0)
             {
                 Debug.Log("No Commands to replay!");
             }
@@ -46,29 +46,29 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
 
         private void FixedUpdate()
         {
-            if (_isRecording)
+            if (isRecording)
             {
-                _recordTime += Time.fixedDeltaTime;
+                recordTime += Time.fixedDeltaTime;
             }
 
-            if (_isReplaying)
+            if (isReplaying)
             {
-                _replayTime += Time.fixedDeltaTime;
-                if (_recordedCommands.Any())
+                replayTime += Time.fixedDeltaTime;
+                if (recordedCommands.Any())
                 {
-                    if (Mathf.Approximately( _recordedCommands.Keys[0],_replayTime))
+                    if (Mathf.Approximately( recordedCommands.Keys[0],replayTime))
                     {
-                        _recordedCommands.Values[0].Execute();
+                        recordedCommands.Values[0].Execute();
                         
-                        Debug.Log($"Replay Time: {_replayTime}");
-                        Debug.Log($"Replay Action: {_recordedCommands.Values[0]}");
+                        Debug.Log($"Replay Time: {replayTime}");
+                        Debug.Log($"Replay Action: {recordedCommands.Values[0]}");
 
-                        _recordedCommands.RemoveAt(0);
+                        recordedCommands.RemoveAt(0);
                     }
                 }
                 else
                 {
-                    _isReplaying = false;
+                    isReplaying = false;
                 }
             }
         }

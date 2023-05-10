@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public interface IMessageLogger
     {
-        void Log(string _message, MessageSeverity _messageSeverity);
+        void Log(string message, MessageSeverity messageSeverity);
     }
 }

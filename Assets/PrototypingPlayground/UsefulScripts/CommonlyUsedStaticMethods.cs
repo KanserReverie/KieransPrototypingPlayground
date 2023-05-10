@@ -12,7 +12,7 @@ namespace PrototypingPlayground.UsefulScripts
         public static void QuitGame()
         {
             Debug.Log($"Quitting Game");
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
 				Application.Quit();

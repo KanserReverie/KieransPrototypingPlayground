@@ -1,4 +1,5 @@
 using UnityEngine;
+// ReSharper disable All
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2dCharacter.CharacterController
 {

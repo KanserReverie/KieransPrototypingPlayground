@@ -3,16 +3,16 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
 {
     public class HairDresser : IVisitor
     {
-        public string name { get; set; }
+        public string Name { get; set; }
         
-        public HairDresser(string _name)
+        public HairDresser(string name)
         {
-            name = _name;
+            Name = name;
         }
-        public void Visit(IElement _element)
+        public void Visit(IElement element)
         {
-            Kid kid = (Kid)_element;
-            Debug.Log($"{this.name} gave a haircut to {kid.KidName}.");
+            Kid kid = (Kid)element;
+            Debug.Log($"{this.Name} gave a haircut to {kid.KidName}.");
         }
     }
 }

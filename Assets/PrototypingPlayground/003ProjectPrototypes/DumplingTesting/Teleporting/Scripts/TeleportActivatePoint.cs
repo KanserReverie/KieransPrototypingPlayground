@@ -6,9 +6,9 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Teleportin
     {
         [SerializeField] private Transform teleportPoint;
         
-        public override AbstractActivateCommands GetActivePointCommand(Rigidbody _playerRigidbody)
+        public override AbstractActivateCommands GetActivePointCommand(Rigidbody playerRigidbody)
         {
-            return new TeleportCommand(_playerRigidbody, teleportPoint.position);
+            return new TeleportCommand(playerRigidbody, teleportPoint.position);
         }
     }
 }

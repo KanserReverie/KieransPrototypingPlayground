@@ -7,12 +7,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
     /// </summary>
     public class InventorySystem
     {
-        public void AddItem(InventoryItem _item)
+        public void AddItem(InventoryItem item)
         {
             Debug.Log("Adding item to the cloud");
         }
 
-        public void RemoveItem(InventoryItem _item)
+        public void RemoveItem(InventoryItem item)
         {
             Debug.Log("Removing item from the cloud.");
         }

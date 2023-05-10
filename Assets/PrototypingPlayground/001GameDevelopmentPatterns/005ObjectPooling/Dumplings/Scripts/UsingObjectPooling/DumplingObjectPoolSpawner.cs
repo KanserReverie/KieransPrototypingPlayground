@@ -23,7 +23,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
         private void SpawnDumpling()
         {
             spawnPerimeter.GenerateRandomSpawnPointAndDestination();
-            Dumpling_UsingObjectPool spawnedDumpling = dumplingObjectPool.Pool.Get();
+            DumplingUsingObjectPool spawnedDumpling = dumplingObjectPool.Pool.Get();
             spawnedDumpling.Initialize(spawnPerimeter.GetEndDestinationPosition(),spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation()); 
             spawnedDumpling.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
         }

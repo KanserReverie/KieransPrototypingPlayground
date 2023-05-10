@@ -3,9 +3,9 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.DeathAndRe
 {
     public class DeathPoint : MonoBehaviour
     {
-        private void OnTriggerEnter(Collider _other)
+        private void OnTriggerEnter(Collider other)
         {
-            DumplingController dumplingController = _other.gameObject.GetComponent<DumplingController>();
+            DumplingController dumplingController = other.gameObject.GetComponent<DumplingController>();
             
             if (dumplingController != null)
             {

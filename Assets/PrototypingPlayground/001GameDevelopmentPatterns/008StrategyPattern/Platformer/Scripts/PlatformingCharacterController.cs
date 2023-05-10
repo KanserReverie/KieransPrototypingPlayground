@@ -1,4 +1,3 @@
-using System;
 using PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.Platformer.Obstacles;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -88,24 +87,24 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
             return false;
         }
 
-        public void OnMove(InputAction.CallbackContext _moveInput)
+        public void OnMove(InputAction.CallbackContext moveInput)
         {
-            horizontalMoveInput = _moveInput.ReadValue<Vector2>().x;
+            horizontalMoveInput = moveInput.ReadValue<Vector2>().x;
         }
         
-        public void OnJump(InputAction.CallbackContext _jumpInput)
+        public void OnJump(InputAction.CallbackContext jumpInput)
         {
-            if (_jumpInput.performed)
+            if (jumpInput.performed)
             {
                 playerJumpInput = true;
             }
         }
         
-        public void OnAbility(InputAction.CallbackContext _abilityInput)
+        public void OnAbility(InputAction.CallbackContext abilityInput)
         {
-            if (_abilityInput.performed)
+            if (abilityInput.performed)
             {
-                playerAbilityInput = _abilityInput.ReadValue<Vector2>();
+                playerAbilityInput = abilityInput.ReadValue<Vector2>();
             }
         }
     }

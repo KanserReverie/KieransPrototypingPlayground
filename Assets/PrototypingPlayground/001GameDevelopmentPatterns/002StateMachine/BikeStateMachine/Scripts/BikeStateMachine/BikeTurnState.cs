@@ -8,18 +8,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
 
         private Vector3 turningDirection;
         
-        public void Handle(BikeController _bikeController)
+        public void Handle(BikeController bikeController)
         {
-            if (!bikeController)
-                bikeController = _bikeController;
+            if (!this.bikeController)
+                this.bikeController = bikeController;
 
-            turningDirection.x = (float)bikeController.CurrentDirection;
+            turningDirection.x = (float)this.bikeController.CurrentDirection;
 
-            if (!(bikeController.CurrentSpeed > 0))
+            if (!(this.bikeController.CurrentSpeed > 0))
                 return;
-            if((Mathf.Abs(transform.position.x + (turningDirection.x * bikeController.turningDistance)) > 4f))
+            if((Mathf.Abs(transform.position.x + (turningDirection.x * this.bikeController.turningDistance)) > 4f))
                 return;
-            bikeController.transform.Translate(turningDirection * bikeController.turningDistance);
+            this.bikeController.transform.Translate(turningDirection * this.bikeController.turningDistance);
         }
     }
 }

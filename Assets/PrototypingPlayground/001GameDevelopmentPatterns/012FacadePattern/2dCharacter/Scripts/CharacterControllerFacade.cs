@@ -57,9 +57,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern._2
             Debug.Log("Respawning");
         }
 
-        public void Move(Vector2 _moveInput)
+        public void Move(Vector2 moveInput)
         {
-            playerMovement.Walk(_moveInput.x, walkSpeed);
+            playerMovement.Walk(moveInput.x, walkSpeed);
         }
         public void Jump()
         {

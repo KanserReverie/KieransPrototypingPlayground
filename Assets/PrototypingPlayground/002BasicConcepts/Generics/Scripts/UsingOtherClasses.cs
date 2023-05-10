@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -16,7 +15,7 @@ namespace PrototypingPlayground._002BasicConcepts.Generics.Scripts
 
         private void Update()
         {
-            callCountText.text = genericExampleClass.outputCount.ToString();
+            callCountText.text = genericExampleClass.OutputCount.ToString();
         }
 
         public void CallMethod()

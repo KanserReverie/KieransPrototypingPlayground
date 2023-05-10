@@ -5,15 +5,15 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
     public class CountDownTimer : MonoBehaviour
     {
         [SerializeField] private float countDownDuration = 3f;
-        private float _currentCountDownTime;
+        private float currentCountDownTime;
 
         private void OnEnable()
         {
-            RaceEventBus.Subscribe(RaceEventType.COUNTDOWN,StartCountDown);
+            RaceEventBus.Subscribe(RaceEventType.Countdown,StartCountDown);
         }
         private void OnDisable()
         {
-            RaceEventBus.Unsubscribe(RaceEventType.COUNTDOWN,StartCountDown);
+            RaceEventBus.Unsubscribe(RaceEventType.Countdown,StartCountDown);
         }
 
         private void StartCountDown()
@@ -22,20 +22,20 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
         }
         private IEnumerator StartCountDownTimer()
         {
-            _currentCountDownTime = countDownDuration;
+            currentCountDownTime = countDownDuration;
 
-            while (_currentCountDownTime > 0)
+            while (currentCountDownTime > 0)
             {
                 yield return new WaitForSeconds(1f);
-                _currentCountDownTime--;
+                currentCountDownTime--;
             }
-            RaceEventBus.Publish(RaceEventType.START);
+            RaceEventBus.Publish(RaceEventType.Start);
         }
 
         private void OnGUI()
         {
             GUI.color = Color.black;
-            GUI.Label(new Rect(Screen.width/2-50,5, 100, 30), $"COUNTDOWN: {_currentCountDownTime}");
+            GUI.Label(new Rect(Screen.width/2-50,5, 100, 30), $"COUNTDOWN: {currentCountDownTime}");
         }
     }
 }

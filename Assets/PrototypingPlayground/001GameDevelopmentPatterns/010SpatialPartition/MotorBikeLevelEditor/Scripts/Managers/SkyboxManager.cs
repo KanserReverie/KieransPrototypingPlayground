@@ -4,7 +4,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
     public class SkyboxManager : MonoBehaviour
     {
         /// <summary> Loads skybox into scene. </summary>
-        public void LoadSkybox(Skybox _skybox)
+        public void LoadSkybox(Skybox skybox)
         {
             
         }

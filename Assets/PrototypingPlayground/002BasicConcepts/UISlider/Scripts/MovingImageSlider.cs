@@ -19,9 +19,9 @@ namespace PrototypingPlayground._002BasicConcepts.UISlider
         }
 
         // This is attached to the slider.
-        public void ChangeImageHeight(float _changedHeight)
+        public void ChangeImageHeight(float changedHeight)
         {
-            imageHeight = _changedHeight;
+            imageHeight = changedHeight;
         }
     }
 }

@@ -82,14 +82,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Fa
             playerRigidbody.angularVelocity = Vector3.zero;
         }
 
-        public void OnMove(InputAction.CallbackContext _movementInput)
+        public void OnMove(InputAction.CallbackContext movementInput)
         {
-            horizontalInput = _movementInput.ReadValue<float>();
+            horizontalInput = movementInput.ReadValue<float>();
         }
         
-        public void OnJump(InputAction.CallbackContext _jumpInput)
+        public void OnJump(InputAction.CallbackContext jumpInput)
         {
-            if (_jumpInput.performed)
+            if (jumpInput.performed)
             {
                 if (IsGrounded())
                 {

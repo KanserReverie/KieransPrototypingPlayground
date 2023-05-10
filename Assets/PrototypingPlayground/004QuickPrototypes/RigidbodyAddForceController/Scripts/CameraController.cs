@@ -10,9 +10,9 @@ namespace PrototypingPlayground._004QuickPrototypes.RigidbodyAddForceController
         {
             transform.Rotate(cameraInput);
         }
-        public void OnCameraMovement(InputAction.CallbackContext _cameraInput)
+        public void OnCameraMovement(InputAction.CallbackContext cameraInput)
         {
-            cameraInput =  _cameraInput.ReadValue<Vector2>();
+            this.cameraInput =  cameraInput.ReadValue<Vector2>();
         }
     }
 }

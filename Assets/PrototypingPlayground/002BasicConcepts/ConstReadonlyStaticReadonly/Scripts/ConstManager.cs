@@ -3,7 +3,7 @@ namespace PrototypingPlayground._002BasicConcepts.ConstReadonlyStaticReadonly
 {
     public class ConstManager : MonoBehaviour
     {
-        [SerializeField] private const string CONST_TEST = "this is a const";
+        private const string CONST_TEST = "this is a const";
 
         private void Start()
         {

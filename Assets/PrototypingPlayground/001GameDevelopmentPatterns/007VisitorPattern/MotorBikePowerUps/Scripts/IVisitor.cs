@@ -2,8 +2,8 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
 {
     public interface IVisitor
     {
-        void Visit(BikeShield _bikeShield);
-        void Visit(BikeWeapon _bikeWeapon);
-        void Visit(BikeEngine _bikeEngine);
+        void Visit(BikeShield bikeShield);
+        void Visit(BikeWeapon bikeWeapon);
+        void Visit(BikeEngine bikeEngine);
     }
 }

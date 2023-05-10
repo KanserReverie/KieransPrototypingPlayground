@@ -7,10 +7,10 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Throwing
         private Rigidbody playerRigidbody;
         private Vector3 playerForce;
         
-        public ThrowCommand(Rigidbody _playerRigidbody, Vector3 _playerForce)
+        public ThrowCommand(Rigidbody playerRigidbody, Vector3 playerForce)
         {
-            playerRigidbody = _playerRigidbody;
-            playerForce = _playerForce;
+            this.playerRigidbody = playerRigidbody;
+            this.playerForce = playerForce;
         }
         
         public override void ExecuteCommand()

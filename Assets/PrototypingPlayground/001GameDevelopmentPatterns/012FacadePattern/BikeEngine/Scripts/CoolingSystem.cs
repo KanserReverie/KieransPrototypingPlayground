@@ -1,17 +1,18 @@
 using System.Collections;
 using UnityEngine;
+// ReSharper disable All
 
 namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern.BikeEngine
 {
     public class CoolingSystem : MonoBehaviour
     {
         public BikeEngine engine;
-        public IEnumerator coolEngine;
+        public IEnumerator CoolEngine;
         private bool isPaused;
 
         private void Start()
         {
-            coolEngine = CoolEngine();
+            CoolEngine = CoolDownEngine();
         }
 
         public void PauseCooling() 
@@ -24,7 +25,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern.Bi
             engine.currentTemp = 0.0f;
         }
 
-        private IEnumerator CoolEngine() {
+        private IEnumerator CoolDownEngine() {
             while (true) {
                 yield return new WaitForSeconds(1);
 

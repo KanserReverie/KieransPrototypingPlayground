@@ -13,11 +13,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
             bikeElements.Add(gameObject.AddComponent<BikeEngine>());
         }
 
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
             foreach (IBikeElement bikeElement in bikeElements)
             {
-                bikeElement.Accept(_visitor);
+                bikeElement.Accept(visitor);
             }
         }
     }

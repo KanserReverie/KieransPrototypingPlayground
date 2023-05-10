@@ -28,9 +28,9 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.DeathAndRe
             }
         }
 
-        public void OnMove(InputAction.CallbackContext _moveInput)
+        public void OnMove(InputAction.CallbackContext moveInput)
         {
-            horizontalMoveInput = _moveInput.ReadValue<Vector2>().normalized;
+            horizontalMoveInput = moveInput.ReadValue<Vector2>().normalized;
         }
 
         public void Die()

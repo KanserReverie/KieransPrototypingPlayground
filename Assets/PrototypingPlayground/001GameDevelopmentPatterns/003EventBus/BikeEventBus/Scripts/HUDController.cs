@@ -3,30 +3,30 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
 {
     public class HUDController : MonoBehaviour
     {
-        private bool _isHUDDisplayOn;
+        private bool isHUDDisplayOn;
 
         private void OnEnable()
         {
-            RaceEventBus.Subscribe(RaceEventType.START,DisplayHUD);
+            RaceEventBus.Subscribe(RaceEventType.Start,DisplayHUD);
         }
         private void OnDisable()
         {
-            RaceEventBus.Unsubscribe(RaceEventType.STOP,DisplayHUD);
+            RaceEventBus.Unsubscribe(RaceEventType.Stop,DisplayHUD);
         }
 
         private void DisplayHUD()
         {
-            _isHUDDisplayOn = true;
+            isHUDDisplayOn = true;
         }
 
         private void OnGUI()
         {
-            if (!_isHUDDisplayOn)
+            if (!isHUDDisplayOn)
                 return;
             if(GUILayout.Button("Stop Race"))
             {
-                RaceEventBus.Publish(RaceEventType.STOP);
-                _isHUDDisplayOn = false;
+                RaceEventBus.Publish(RaceEventType.Stop);
+                isHUDDisplayOn = false;
             }
         }
     }

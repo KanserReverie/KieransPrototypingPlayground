@@ -1,4 +1,5 @@
 using UnityEngine;
+// ReSharper disable All
 namespace PrototypingPlayground._004QuickPrototypes.MenuItems.Scripts
 {
     public class NameBehaviour : MonoBehaviour

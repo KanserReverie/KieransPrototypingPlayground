@@ -1,7 +1,10 @@
 using UnityEngine;
 using System.Collections;
+using System.Diagnostics.CodeAnalysis;
+
 namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.FighterDrones.DroneStrategies
 {
+    [SuppressMessage("ReSharper", "IteratorNeverReturns")]
     public class BoppingManeuver : MonoBehaviour, IDroneStrategy
     {
         public void ImplementStrategy(Drone drone)

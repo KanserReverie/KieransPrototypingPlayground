@@ -4,14 +4,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
     {
         public string KidName { get; set; }
         
-        public Kid(string _name)
+        public Kid(string name)
         {
-            KidName = _name;
+            KidName = name;
         }
         
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
-            _visitor.Visit(this);
+            visitor.Visit(this);
         }
     }
 }

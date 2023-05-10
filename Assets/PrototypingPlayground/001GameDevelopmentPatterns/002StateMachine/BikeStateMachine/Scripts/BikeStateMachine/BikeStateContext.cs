@@ -6,18 +6,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
         
         private readonly BikeController bikeController;
 
-        public BikeStateContext(BikeController _bikeController)
+        public BikeStateContext(BikeController bikeController)
         {
-            bikeController = _bikeController;
+            this.bikeController = bikeController;
         }
 
         public void Transition()
         {
             CurrentState.Handle(bikeController);
         }
-        public void Transition(IBikeState _bikeState)
+        public void Transition(IBikeState bikeState)
         {
-            CurrentState = _bikeState;
+            CurrentState = bikeState;
             CurrentState.Handle(bikeController);
         }
     }

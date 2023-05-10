@@ -11,19 +11,19 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Gen
         private readonly ClientWithStates clientWithStates;
 
         // Our constructor, making sure to take in and set our client.
-        public StateMachine(ClientWithStates _clientWithStates)
+        public StateMachine(ClientWithStates clientWithStates)
         {
-            clientWithStates = _clientWithStates;
+            this.clientWithStates = clientWithStates;
         }
         
         // This handles transitioning the client between states.
         // This make sure the "entering" method will be called when changing state. 
-        public void ChangeState(IState _newState)
+        public void ChangeState(IState newState)
         {
             // Changes the state.
-            CurrentState = _newState;
+            CurrentState = newState;
             // Calls the new state EnterState() method.
-            _newState.EnterState(clientWithStates);
+            newState.EnterState(clientWithStates);
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace PrototypingPlayground._002BasicConcepts.UISlider
@@ -22,9 +21,9 @@ namespace PrototypingPlayground._002BasicConcepts.UISlider
             particleSystemMainModule.startColor = currentColour;
         }
 
-        public void ChangeColour(float _lerpValue)
+        public void ChangeColour(float lerpValue)
         {
-            currentColour = Color.Lerp(colour1, colour2, _lerpValue);
+            currentColour = Color.Lerp(colour1, colour2, lerpValue);
         }
     }
 }

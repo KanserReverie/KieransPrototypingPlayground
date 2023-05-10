@@ -55,9 +55,9 @@ namespace PrototypingPlayground._002BasicConcepts.Assertions
             Assert.IsTrue(playerRigidbody.velocity.magnitude < 100); // Velocity is done in meters a second.
         }
 
-        public void OnMove(InputAction.CallbackContext _movementInput)
+        public void OnMove(InputAction.CallbackContext movementInput)
         {
-            horizontalInput = _movementInput.ReadValue<Vector2>();
+            horizontalInput = movementInput.ReadValue<Vector2>();
             // Checking if normalized
             Assert.IsFalse(horizontalInput.magnitude > 1);
         }

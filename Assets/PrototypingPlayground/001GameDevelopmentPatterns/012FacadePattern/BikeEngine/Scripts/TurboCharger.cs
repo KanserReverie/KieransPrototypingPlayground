@@ -9,9 +9,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._012FacadePattern.Bi
         private bool isTurboOn;
         private CoolingSystem coolingSystem;
 
-        public void ToggleTurbo(CoolingSystem _coolingSystem)
+        public void ToggleTurbo(CoolingSystem coolingSystem)
         {
-            this.coolingSystem = _coolingSystem;
+            this.coolingSystem = coolingSystem;
             
             if (!isTurboOn)
                 StartCoroutine(TurboCharge());

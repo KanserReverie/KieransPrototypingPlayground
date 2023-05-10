@@ -4,9 +4,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public class Logger: ILoggerService
     {
-        public void Log(string _message)
+        public void Log(string message)
         {
-            Debug.Log($"Logged Message: {_message}");
+            Debug.Log($"Logged Message: {message}");
         }
     }
 }

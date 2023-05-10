@@ -9,11 +9,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.G
     /// </summary>
     public class VisitableExampleClassSecond : MonoBehaviour, IVisitable
     {
-        internal bool alive = true;
+        internal bool Alive = true;
 
-        public void Accept(IVisitor _visitor)
+        public void Accept(IVisitor visitor)
         {
-            _visitor.Visit(this);
+            visitor.Visit(this);
         }
     }
 }

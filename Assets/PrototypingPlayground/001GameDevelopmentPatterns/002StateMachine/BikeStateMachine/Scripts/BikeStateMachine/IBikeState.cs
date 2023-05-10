@@ -2,7 +2,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
 {
     public interface IBikeState
     {
-        public void Handle(BikeController _controller)
+        public void Handle(BikeController controller)
         {
             
         }

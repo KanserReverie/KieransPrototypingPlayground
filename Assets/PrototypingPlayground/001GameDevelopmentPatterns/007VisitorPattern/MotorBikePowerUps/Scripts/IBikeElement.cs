@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.M
 {
     public interface IBikeElement
     {
-        void Accept(IVisitor _visitor);
+        void Accept(IVisitor visitor);
     }
 }

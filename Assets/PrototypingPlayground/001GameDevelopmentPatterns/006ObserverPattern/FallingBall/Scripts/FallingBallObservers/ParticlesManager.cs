@@ -15,10 +15,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
             AttachToFallingBallInScene();
         }
         
-        public override void Notify(AbstractSubjectBehaviour _abstractSubjectBehaviour)
+        public override void Notify(AbstractSubjectBehaviour abstractSubjectBehaviour)
         {
-            particleLocation = fallingBall.lastCollision.location;
-            paticleRotation = fallingBall.lastCollision.rotation;
+            particleLocation = FallingBall.LastCollision.Location;
+            paticleRotation = FallingBall.LastCollision.Rotation;
             paticleRotation *= Quaternion.Euler(0,0,90);
 
             GameObject collisionParticles = Instantiate(particlesToPlayOnImpact, particleLocation, paticleRotation, this.transform);

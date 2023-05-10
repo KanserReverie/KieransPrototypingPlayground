@@ -12,7 +12,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Ge
         [SerializeField] private float spawnRatePerMinute = 30;
         
         // Current spawn count
-        private int currentCount = 0;
+        private int currentCount;
 
         // Reference to used object pool
         [SerializeField] private TimedObjectObjectPool objectPool;

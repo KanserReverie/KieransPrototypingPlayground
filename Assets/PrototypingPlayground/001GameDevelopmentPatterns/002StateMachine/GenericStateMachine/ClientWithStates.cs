@@ -1,4 +1,3 @@
-using System;
 using PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.GenericStateMachine.ExampleStates;
 using UnityEngine;
 
@@ -17,7 +16,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Gen
         public string normalString = "Player 1";
         public string unknownSting = "????????";
         public float normalFloat = 2;
-        public float hiddenFloat = 0;
+        public float hiddenFloat;
         
         private IState firstExampleState, secondExampleState, thirdExampleState;
 

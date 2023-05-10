@@ -14,7 +14,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
         private void Start()
         {
             AttachToFallingBallInScene();
-            haveWeCollidedWithAnythingYet = fallingBall.haveWeCollidedWithAnythingYet;
+            haveWeCollidedWithAnythingYet = FallingBall.haveWeCollidedWithAnythingYet;
             ballRenderer = GetComponent<Renderer>();
             defaultColor = ballRenderer.material.color;
         }
@@ -25,18 +25,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
             DarkenMaterialRender(Time.deltaTime);
         }
 
-        private void DarkenMaterialRender(float _time)
+        private void DarkenMaterialRender(float time)
         {
-            ballRenderer.material.color = Color.Lerp(ballRenderer.material.color, defaultColor, -(degradingSpeed-1)*_time);
+            ballRenderer.material.color = Color.Lerp(ballRenderer.material.color, defaultColor, -(degradingSpeed-1)*time);
         }
 
-        public override void Notify(AbstractSubjectBehaviour _abstractSubjectBehaviour)
+        public override void Notify(AbstractSubjectBehaviour abstractSubjectBehaviour)
         {
-            haveWeCollidedWithAnythingYet = fallingBall.haveWeCollidedWithAnythingYet;
+            haveWeCollidedWithAnythingYet = FallingBall.haveWeCollidedWithAnythingYet;
 
-            if (!fallingBall.lastCollision.haveWeCollidedWithTheSameGameObject)
+            if (!FallingBall.LastCollision.HaveWeCollidedWithTheSameGameObject)
             {
-                ballRenderer.material = fallingBall.lastCollision.material;
+                ballRenderer.material = FallingBall.LastCollision.Material;
             }
         }
     }

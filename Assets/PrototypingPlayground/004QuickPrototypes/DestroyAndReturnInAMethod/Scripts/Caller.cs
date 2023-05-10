@@ -1,8 +1,8 @@
-using System;
 using PrototypingPlayground.UsefulScripts;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
+// ReSharper disable All
 
 namespace PrototypingPlayground._004QuickPrototypes.DestroyAndReturnInAMethod.Scripts
 {

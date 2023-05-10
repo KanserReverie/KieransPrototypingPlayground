@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.ExternalInventoryAsset;
 using UnityEngine;
+// ReSharper disable All
 namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.InventoryAsset.InventorySavingAdapter
 {
     /// <summary>

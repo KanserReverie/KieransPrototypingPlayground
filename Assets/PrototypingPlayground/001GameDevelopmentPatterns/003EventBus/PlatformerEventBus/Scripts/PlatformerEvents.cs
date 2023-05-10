@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
 {
     public enum PlatformerEvents
     {
-        COUNTDOWN, START, RESTART, DIE, FINISH
+        Countdown, Start, Restart, Die, Finish
     }
 }

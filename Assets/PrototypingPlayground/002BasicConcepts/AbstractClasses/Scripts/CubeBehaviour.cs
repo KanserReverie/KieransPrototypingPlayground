@@ -4,23 +4,23 @@ namespace PrototypingPlayground._002BasicConcepts.AbstractClasses
     public abstract class CubeBehaviour : MonoBehaviour
     {
         private static int cubeCount;
-        protected float cubeLifeSpan = 1f;
+        protected float CubeLifeSpan = 1f;
         private float currentCubeLifeSpan;
-        protected float cubeScale = 1f;
+        protected float CubeScale = 1f;
 
-        public virtual void Setup(float _scale, float _lifeSpan)
+        public virtual void Setup(float scale, float lifeSpan)
         {
-            cubeLifeSpan = _lifeSpan;
-            cubeScale = _scale;
+            CubeLifeSpan = lifeSpan;
+            CubeScale = scale;
             cubeCount++;
             Debug.Log($"Cube {cubeCount}");
-            gameObject.transform.localScale = new Vector3(cubeScale,cubeScale,cubeScale);
-            Invoke(nameof(DeleteCube), cubeLifeSpan);
+            gameObject.transform.localScale = new Vector3(CubeScale,CubeScale,CubeScale);
+            Invoke(nameof(DeleteCube), CubeLifeSpan);
         }
 
         private void Start()
         {
-            currentCubeLifeSpan = cubeLifeSpan;
+            currentCubeLifeSpan = CubeLifeSpan;
         }
         private void Update()
         {

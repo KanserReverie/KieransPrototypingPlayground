@@ -6,7 +6,6 @@ namespace PrototypingPlayground._004QuickPrototypes.RigidbodyAddForceController
     {
         [SerializeField] private float jumpForce = 10;
         private Rigidbody playerRigidbody;
-        private Vector2 horizontalMovementInput;
         private bool jumpInput;
         
         void Start()
@@ -26,15 +25,11 @@ namespace PrototypingPlayground._004QuickPrototypes.RigidbodyAddForceController
             jumpInput = false;
         }
 
-        public void OnHorizontalMovement(InputAction.CallbackContext _horizontalInput)
+        public void OnJump(InputAction.CallbackContext jumpInput)
         {
-            horizontalMovementInput = _horizontalInput.ReadValue<Vector2>().normalized;
-        }
-        public void OnJump(InputAction.CallbackContext _jumpInput)
-        {
-            if (_jumpInput.performed)
+            if (jumpInput.performed)
             {
-                jumpInput = true;
+                this.jumpInput = true;
             }
         }
     }

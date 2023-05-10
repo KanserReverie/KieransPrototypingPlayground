@@ -7,42 +7,40 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
     public class FallingBallSubject : AbstractSubjectBehaviour
     {
         public bool haveWeCollidedWithAnythingYet;
-        public CollisionDetails lastCollision;
+        public CollisionDetails LastCollision;
         
         private void Start()
         {
-            lastCollision = null;
+            LastCollision = null;
             haveWeCollidedWithAnythingYet = false;
         }
 
-        private void OnCollisionEnter(Collision _collision)
+        private void OnCollisionEnter(Collision collision)
         {
-            if (lastCollision == null)
+            if (LastCollision == null)
             {
                 haveWeCollidedWithAnythingYet = true;
             }
-            SaveLastCollision(_collision);
+            SaveLastCollision(collision);
             NotifyObservers();
         }
-        private void Update()
+
+        private void SaveLastCollision(Collision collision)
         {
-        }
-        private void SaveLastCollision(Collision _collision)
-        {
-            if (lastCollision == null)
+            if (LastCollision == null)
             {
-                lastCollision = new CollisionDetails(_collision);
+                LastCollision = new CollisionDetails(collision);
             }
             else
             {
-                CollisionDetails newCollision = new CollisionDetails(lastCollision, _collision);
-                lastCollision = newCollision;
+                CollisionDetails newCollision = new CollisionDetails(LastCollision, collision);
+                LastCollision = newCollision;
             }
         }
 
-        private void OnTriggerEnter(Collider _collider)
+        private void OnTriggerEnter(Collider collider)
         {
-            AbstractTransitionObjectBehaviour transitionObject = _collider.gameObject.GetComponent<AbstractTransitionObjectBehaviour>();
+            AbstractTransitionObjectBehaviour transitionObject = collider.gameObject.GetComponent<AbstractTransitionObjectBehaviour>();
             if (transitionObject != null)
             {
                 transitionObject.TransitionMethod();

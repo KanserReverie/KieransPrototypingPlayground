@@ -10,9 +10,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.G
         // This will be the object we will be affecting with commands.
         private readonly CommandReceiver commandReceiver;
 
-        public SecondExampleCommand(CommandReceiver _commandReceiver)
+        public SecondExampleCommand(CommandReceiver commandReceiver)
         {
-            commandReceiver = _commandReceiver;
+            this.commandReceiver = commandReceiver;
         }
         
         public void ExecuteCommand()

@@ -4,7 +4,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
     public class MusicManager : MonoBehaviour
     {
         /// <summary> Plays music in scene on repeat.  </summary>
-        public void LoadMusic(AudioClip _music)
+        public void LoadMusic(AudioClip music)
         {
             
         }

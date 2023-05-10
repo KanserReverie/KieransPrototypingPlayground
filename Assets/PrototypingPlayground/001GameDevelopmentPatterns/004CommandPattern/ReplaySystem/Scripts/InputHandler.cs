@@ -5,99 +5,99 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
 {
     public class InputHandler : MonoBehaviour
     {
-        private bool _isRecording, _isReplaying;
-        private Invoker _invoker;
-        private BikeController _bikeController;
-        private Command _buttonLeft, _buttonRight, _buttonTurbo;
-        private bool _buttonLeftPressed, _buttonRightPressed, _buttonTurboHeld;
+        private bool isRecording, isReplaying;
+        private Invoker invoker;
+        private BikeController bikeController;
+        private Command buttonLeft, buttonRight, buttonTurbo;
+        private bool buttonLeftPressed, buttonRightPressed, buttonTurboHeld;
         [SerializeField] private GameObject playerTrailRenderer;
         [SerializeField] private GameObject playerCamera;
-        private Transform _cameraStartPoint;
+        private Transform cameraStartPoint;
 
         private void Start()
         {
-            _invoker = gameObject.AddComponent<Invoker>();
-            _bikeController = FindObjectOfType<BikeController>();
+            invoker = gameObject.AddComponent<Invoker>();
+            bikeController = FindObjectOfType<BikeController>();
 
-            _buttonLeft = new TurnLeft(_bikeController);
-            _buttonRight = new TurnRight(_bikeController);
-            _buttonTurbo = new ToggleTurbo(_bikeController);
+            buttonLeft = new TurnLeft(bikeController);
+            buttonRight = new TurnRight(bikeController);
+            buttonTurbo = new ToggleTurbo(bikeController);
         }
 
         private void FixedUpdate()
         {
-            if(_isRecording && !_isReplaying)
+            if(isRecording && !isReplaying)
             {
-                if (_buttonLeftPressed)
+                if (buttonLeftPressed)
                 {
-                    _invoker.ExecuteCommand(_buttonLeft);
-                    _buttonLeftPressed = false;
+                    invoker.ExecuteCommand(buttonLeft);
+                    buttonLeftPressed = false;
                 }
-                if (_buttonRightPressed)
+                if (buttonRightPressed)
                 {
-                    _invoker.ExecuteCommand(_buttonRight);
-                    _buttonRightPressed = false;
+                    invoker.ExecuteCommand(buttonRight);
+                    buttonRightPressed = false;
                 }
-                if (_buttonTurboHeld)
+                if (buttonTurboHeld)
                 {
-                    _invoker.ExecuteCommand(_buttonTurbo);
-                    _buttonTurboHeld = false;
+                    invoker.ExecuteCommand(buttonTurbo);
+                    buttonTurboHeld = false;
                 }
             }
         }
 
         public void OnLeftButtonPressed(InputAction.CallbackContext context)
         {
-            _buttonLeftPressed = context.action.triggered;
+            buttonLeftPressed = context.action.triggered;
         }
         
         public void OnRightButtonPressed(InputAction.CallbackContext context)
         {
-            _buttonRightPressed = context.action.triggered;
+            buttonRightPressed = context.action.triggered;
         }
         
         public void OnTurboButtonHeld(InputAction.CallbackContext context)
         {
             if(context.started)
-                _buttonTurboHeld = true;
+                buttonTurboHeld = true;
             if(context.canceled)
-                _buttonTurboHeld = true;
+                buttonTurboHeld = true;
         }
         
         void OnGUI()
         {
             if (GUILayout.Button("Start Recording"))
             {
-                _bikeController.ResetPosition();
-                _isReplaying = false;
-                _isRecording = true;
-                _invoker.Record();
+                bikeController.ResetPosition();
+                isReplaying = false;
+                isRecording = true;
+                invoker.Record();
                 playerTrailRenderer.SetActive(true);
-                _cameraStartPoint = playerCamera.transform;
-                _bikeController.TurnOffTurbo();
+                cameraStartPoint = playerCamera.transform;
+                bikeController.TurnOffTurbo();
             }
 
             if (GUILayout.Button("Stop Recording"))
             {
-                _bikeController.ResetPosition();
-                _isRecording = false;
+                bikeController.ResetPosition();
+                isRecording = false;
                 playerTrailRenderer.SetActive(false);
-                playerCamera.transform.position = _cameraStartPoint.position;
-                playerCamera.transform.rotation = _cameraStartPoint.rotation;
-                _bikeController.TurnOffTurbo();
+                playerCamera.transform.position = cameraStartPoint.position;
+                playerCamera.transform.rotation = cameraStartPoint.rotation;
+                bikeController.TurnOffTurbo();
             }
 
-            if (!_isRecording)
+            if (!isRecording)
             {
                 if (GUILayout.Button("Start Replay"))
                 {
-                    _bikeController.ResetPosition();
-                    _isRecording = false;
-                    _isReplaying = true;
-                    _invoker.Replay();
+                    bikeController.ResetPosition();
+                    isRecording = false;
+                    isReplaying = true;
+                    invoker.Replay();
                     playerTrailRenderer.SetActive(true);
-                    _cameraStartPoint = playerCamera.transform;
-                    _bikeController.TurnOffTurbo();
+                    cameraStartPoint = playerCamera.transform;
+                    bikeController.TurnOffTurbo();
                 }
             }
         }

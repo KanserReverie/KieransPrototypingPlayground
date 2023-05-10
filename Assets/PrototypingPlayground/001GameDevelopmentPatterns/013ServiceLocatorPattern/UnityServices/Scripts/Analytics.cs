@@ -4,9 +4,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public class Analytics : IAnalyticsService
     {
-        public void SendEvent(string _eventName)
+        public void SendEvent(string eventName)
         {
-            Debug.Log($"Sent: {_eventName}");
+            Debug.Log($"Sent: {eventName}");
         }
     }
 }

@@ -11,13 +11,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
         
         private void Awake()
         {
-            Assert.IsNotNull(dumplingPrefab.GetComponent<Dumpling_WithoutObjectPool>());
+            Assert.IsNotNull(dumplingPrefab.GetComponent<DumplingWithoutObjectPool>());
         }
         
         void Start()
         {
             spawnPerimeter = new SpawnPerimeter(dumplingSpawnPerimeter, this.transform);
-            Dumpling_WithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
+            DumplingWithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
             newDumplingWithoutObjectPool.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
         }
         private void OnGUI()
@@ -25,7 +25,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             if (GUILayout.Button("Spawn Dumpling"))
             {
                 spawnPerimeter.GenerateRandomSpawnPointAndDestination();
-                Dumpling_WithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
+                DumplingWithoutObjectPool newDumplingWithoutObjectPool = SpawnDumpling(spawnPerimeter.GetSpawnPointPosition(), spawnPerimeter.GetSpawnPointRotation());
                 newDumplingWithoutObjectPool.NavMeshAgent.SetDestination(spawnPerimeter.GetEndDestinationPosition());
             }
         }
@@ -54,12 +54,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             Handles.DrawBezier(allCorners[2],allCorners[3],allCorners[2],allCorners[3], Color.yellow,null,thickness);
             Handles.DrawBezier(allCorners[3],allCorners[0],allCorners[3],allCorners[0], Color.yellow,null,thickness);
         }
-        private Dumpling_WithoutObjectPool SpawnDumpling(Vector3 _spawnLocation, Quaternion _spawnRotation)
+        private DumplingWithoutObjectPool SpawnDumpling(Vector3 spawnLocation, Quaternion spawnRotation)
         {
-                GameObject newDumpling = Instantiate(dumplingPrefab, _spawnLocation, _spawnRotation);
-                Dumpling_WithoutObjectPool dumplingWithoutObjectPool = newDumpling.GetComponent<Dumpling_WithoutObjectPool>();
-                dumplingWithoutObjectPool.NavMeshAgent.Warp(_spawnLocation);
-                return dumplingWithoutObjectPool;
+            GameObject newDumpling = Instantiate(dumplingPrefab, spawnLocation, spawnRotation);
+            DumplingWithoutObjectPool dumplingWithoutObjectPool = newDumpling.GetComponent<DumplingWithoutObjectPool>();
+            dumplingWithoutObjectPool.NavMeshAgent.Warp(spawnLocation);
+            return dumplingWithoutObjectPool;
         }
     }
 }

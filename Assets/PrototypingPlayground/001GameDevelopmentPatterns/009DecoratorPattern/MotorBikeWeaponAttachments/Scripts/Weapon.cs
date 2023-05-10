@@ -25,9 +25,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
 
         private readonly WeaponConfiguration configuration;
 
-        public Weapon(WeaponConfiguration _weaponConfiguration)
+        public Weapon(WeaponConfiguration weaponConfiguration)
         {
-            configuration = _weaponConfiguration;
+            configuration = weaponConfiguration;
         }
     }
 }

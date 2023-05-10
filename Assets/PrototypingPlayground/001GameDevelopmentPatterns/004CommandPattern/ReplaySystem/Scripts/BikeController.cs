@@ -9,30 +9,30 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.R
             Right = 1
         }
 
-        private bool _isTurboOn;
-        private float _distance = 1.0f;
+        private bool isTurboOn;
+        private float distance = 1.0f;
         [SerializeField] private float turboSpeed = 1.0f;
 
-        public void TurnOffTurbo() => _isTurboOn = false;
+        public void TurnOffTurbo() => isTurboOn = false;
 
         public void ToggleTurbo()
         {
-            _isTurboOn = !_isTurboOn;
-            Debug.Log("Turbo Active: " + _isTurboOn.ToString());
+            isTurboOn = !isTurboOn;
+            Debug.Log("Turbo Active: " + isTurboOn.ToString());
         }
         public void FixedUpdate()
         {
-            if(_isTurboOn)
+            if(isTurboOn)
                 transform.Translate(Vector3.forward * turboSpeed * Time.fixedDeltaTime);
         }
 
         public void Turn(TurnDirection direction)
         {
             if (direction == TurnDirection.Left) 
-                transform.Translate(Vector3.left * _distance);
+                transform.Translate(Vector3.left * distance);
         
             if (direction == TurnDirection.Right)
-                transform.Translate(Vector3.right * _distance);
+                transform.Translate(Vector3.right * distance);
         }
 
         public void ResetPosition()

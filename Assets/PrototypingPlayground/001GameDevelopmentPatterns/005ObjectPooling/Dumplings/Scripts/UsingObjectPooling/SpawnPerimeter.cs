@@ -44,24 +44,24 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             spawnPointRotation = Quaternion.FromToRotation(spawnPointPosition, endDestinationPosition);
         }
 
-        private void GetSpawnPerimeter(Rect _dumplingSpawnPerimeter, Transform _transform)
+        private void GetSpawnPerimeter(Rect dumplingSpawnPerimeter, Transform transform)
         {
-            Vector3 startLocation = new Vector3(_transform.position.x + _dumplingSpawnPerimeter.x, _transform.position.y, _transform.position.z + _dumplingSpawnPerimeter.y);
+            Vector3 startLocation = new Vector3(transform.position.x + dumplingSpawnPerimeter.x, transform.position.y, transform.position.z + dumplingSpawnPerimeter.y);
 
             for (int i = 0; i < corners.Length; i++)
             {
                 corners[i] = new Vector3();
             }
             // Get all Corners
-            corners[0] = startLocation + new Vector3(_dumplingSpawnPerimeter.width / 2, 0, _dumplingSpawnPerimeter.height / 2);
-            corners[1] = startLocation + new Vector3(-_dumplingSpawnPerimeter.width / 2, 0, _dumplingSpawnPerimeter.height / 2);
-            corners[2] = startLocation + new Vector3(-_dumplingSpawnPerimeter.width / 2, 0, -_dumplingSpawnPerimeter.height / 2);
-            corners[3] = startLocation + new Vector3(_dumplingSpawnPerimeter.width / 2, 0, -_dumplingSpawnPerimeter.height / 2);
+            corners[0] = startLocation + new Vector3(dumplingSpawnPerimeter.width / 2, 0, dumplingSpawnPerimeter.height / 2);
+            corners[1] = startLocation + new Vector3(-dumplingSpawnPerimeter.width / 2, 0, dumplingSpawnPerimeter.height / 2);
+            corners[2] = startLocation + new Vector3(-dumplingSpawnPerimeter.width / 2, 0, -dumplingSpawnPerimeter.height / 2);
+            corners[3] = startLocation + new Vector3(dumplingSpawnPerimeter.width / 2, 0, -dumplingSpawnPerimeter.height / 2);
         }
         
-        private Vector3 GenerateRandomPoint(Vector3 _point1, Vector3 _point2)
+        private Vector3 GenerateRandomPoint(Vector3 point1, Vector3 point2)
         {
-            return new Vector3(Random.Range(_point1.x, _point2.x), Random.Range(_point1.y, _point2.y), Random.Range(_point1.z, _point2.z));
+            return new Vector3(Random.Range(point1.x, point2.x), Random.Range(point1.y, point2.y), Random.Range(point1.z, point2.z));
         }
         
         private void OnDrawGizmos()

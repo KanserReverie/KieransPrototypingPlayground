@@ -11,9 +11,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Gen
         private ClientWithStates clientWithStates;
         
         // Called when the client enters this state. (We are taking in the client that we will change the state of)
-        public void EnterState(ClientWithStates _clientWithStates)
+        public void EnterState(ClientWithStates clientWithStates)
         {
-            clientWithStates = _clientWithStates;
+            this.clientWithStates = clientWithStates;
             
             // This is what happens to the client when they enter this state.
             ClientEntersThisState();

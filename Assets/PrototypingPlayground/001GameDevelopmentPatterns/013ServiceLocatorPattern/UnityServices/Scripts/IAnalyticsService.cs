@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
 {
     public interface IAnalyticsService
     {
-        void SendEvent(string _eventName);
+        void SendEvent(string eventName);
     }
 }

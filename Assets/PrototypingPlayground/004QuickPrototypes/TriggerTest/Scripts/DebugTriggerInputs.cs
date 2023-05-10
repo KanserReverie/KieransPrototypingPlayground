@@ -11,13 +11,13 @@ namespace PrototypingPlayground._004QuickPrototypes.TriggerTest
         {
             Debug.Log($"Left Trigger Value = {leftTriggerValue} || Right Trigger Value = {rightTriggerValue}");
         }
-        public void OnLeftTriggerInput(InputAction.CallbackContext _leftTriggerInput)
+        public void OnLeftTriggerInput(InputAction.CallbackContext leftTriggerInput)
         {
-            leftTriggerValue = _leftTriggerInput.ReadValue<float>();
+            leftTriggerValue = leftTriggerInput.ReadValue<float>();
         }
-        public void OnRightTriggerInput(InputAction.CallbackContext _rightTriggerInput)
+        public void OnRightTriggerInput(InputAction.CallbackContext rightTriggerInput)
         {
-            rightTriggerValue = _rightTriggerInput.ReadValue<float>();
+            rightTriggerValue = rightTriggerInput.ReadValue<float>();
         }
     }
 }

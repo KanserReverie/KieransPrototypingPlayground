@@ -2,6 +2,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
 {
     public enum RaceEventType
     {
-        COUNTDOWN, START, RESTART, PAUSE, STOP, FINISH, END
+        Countdown, Start, Restart, Pause, Stop, Finish, End
     }
 }

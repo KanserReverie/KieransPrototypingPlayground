@@ -3,7 +3,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
 {
     public class BikeEventBusController : MonoBehaviour
     {
-        private bool _isStartCountdownButtonOn;
+        private bool isStartCountdownButtonOn;
 
         private void Start()
         {
@@ -15,26 +15,26 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
         }
         private void OnEnable()
         {
-            RaceEventBus.Subscribe(RaceEventType.STOP, Restart);
+            RaceEventBus.Subscribe(RaceEventType.Stop, Restart);
         }
         private void OnDisable()
         {
-            RaceEventBus.Unsubscribe(RaceEventType.STOP, Restart);
+            RaceEventBus.Unsubscribe(RaceEventType.Stop, Restart);
         }
 
         private void Restart()
         {
-            _isStartCountdownButtonOn = true;
+            isStartCountdownButtonOn = true;
         }
 
         private void OnGUI()
         {
-            if (!_isStartCountdownButtonOn)
+            if (!isStartCountdownButtonOn)
                 return;
             if (GUILayout.Button("Start Countdown"))
             {
-                RaceEventBus.Publish(RaceEventType.COUNTDOWN);
-                _isStartCountdownButtonOn = false;
+                RaceEventBus.Publish(RaceEventType.Countdown);
+                isStartCountdownButtonOn = false;
             }
         }
     }

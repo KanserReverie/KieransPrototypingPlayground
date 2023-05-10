@@ -1,4 +1,3 @@
-using UnityEngine;
 namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.GenericEventBus
 {
     /// <summary>

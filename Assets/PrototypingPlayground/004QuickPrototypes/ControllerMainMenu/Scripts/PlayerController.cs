@@ -6,12 +6,12 @@ namespace PrototypingPlayground._004QuickPrototypes.ControllerMainMenu
     {
         [SerializeField] private GameObject mainMenu;
 
-        public void OnPause(InputAction.CallbackContext _inputPressed)
+        public void OnPause(InputAction.CallbackContext inputPressed)
         {
-            if (_inputPressed.performed && Time.timeScale != 0)
+            if (inputPressed.performed && Time.timeScale != 0)
             {
                 mainMenu.gameObject.SetActive(true);
             }
         }
-}
+    }
 }

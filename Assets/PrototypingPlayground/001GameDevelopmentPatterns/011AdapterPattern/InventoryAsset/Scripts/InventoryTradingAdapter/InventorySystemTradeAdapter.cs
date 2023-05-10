@@ -11,21 +11,21 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
     {
         private List<InventoryItem> inventory = new List<InventoryItem>();
         
-        public void AddItemToTradeInventory(InventoryItem _item)
+        public void AddItemToTradeInventory(InventoryItem item)
         {
-            AddItem(_item);
+            AddItem(item);
             
-            inventory.Add(_item);
+            inventory.Add(item);
             Debug.Log("Adding item to your trade inventory.");
         }
         
-        public void RemoveItemFromTradeInventory(InventoryItem _item)
+        public void RemoveItemFromTradeInventory(InventoryItem item)
         {
-            RemoveItem(_item);
+            RemoveItem(item);
             
             for (int i = 0; i < inventory.Count; i++)
             {
-                if (inventory[i] == _item)
+                if (inventory[i] == item)
                 {
                     inventory.RemoveAt(i);
                     Debug.Log("Removing item from your trade inventory.");
@@ -45,25 +45,25 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.I
         /// <summary>
         /// This is the new method we are going to create to add to the asset.
         /// </summary>
-        public InventoryItem TradeItem(InventoryItem _itemReceiving, InventoryItem _itemGiving)
+        public InventoryItem TradeItem(InventoryItem itemReceiving, InventoryItem itemGiving)
         {
-            if (IsItemInInventory(_itemGiving))
+            if (IsItemInInventory(itemGiving))
             {
-                RemoveItemFromTradeInventory(_itemGiving);
-                AddItemToTradeInventory(_itemReceiving);
-                Debug.Log($"Trade Complete: Received {_itemReceiving} for your {_itemReceiving}");
-                return _itemGiving;
+                RemoveItemFromTradeInventory(itemGiving);
+                AddItemToTradeInventory(itemReceiving);
+                Debug.Log($"Trade Complete: Received {itemReceiving} for your {itemReceiving}");
+                return itemGiving;
             }
             else
             {
-                Debug.Log($"Unable to Trade: You don't have a {_itemGiving} to trade.");
-                return _itemReceiving;
+                Debug.Log($"Unable to Trade: You don't have a {itemGiving} to trade.");
+                return itemReceiving;
             }
         }
         
-        public bool IsItemInInventory(InventoryItem _item)
+        public bool IsItemInInventory(InventoryItem item)
         {
-            return inventory.Any(_inventoryItem => _inventoryItem == _item);
+            return inventory.Any(inventoryItem => inventoryItem == item);
         }
     }
 }

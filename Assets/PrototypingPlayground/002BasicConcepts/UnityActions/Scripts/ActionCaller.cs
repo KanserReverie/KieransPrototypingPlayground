@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.Events;
+// ReSharper disable All
 namespace PrototypingPlayground._002BasicConcepts.UnityActions
 {
     public class ActionCaller : MonoBehaviour
     {
-        private UnityAction _firstUnityAction;
+        private UnityAction firstUnityAction;
         [SerializeField] private UnityEvent onFirstUnityEvent;
         
         private void Start()
@@ -35,7 +36,7 @@ namespace PrototypingPlayground._002BasicConcepts.UnityActions
             }
             if (GUILayout.Button("Call UnityAction"))
             {
-                _firstUnityAction?.Invoke();
+                firstUnityAction?.Invoke();
             }
             if (GUILayout.Button("Invoke UnityEvent"))
             {
@@ -46,14 +47,14 @@ namespace PrototypingPlayground._002BasicConcepts.UnityActions
         private void AddUnityActionToUnityEvent()
         {
             Debug.Log("We can add UnityAction to our UnityEvent");
-            onFirstUnityEvent.AddListener(_firstUnityAction);
+            onFirstUnityEvent.AddListener(firstUnityAction);
         }
         
         private void AddChangeColourToAction()
         {
             Debug.Log("Added a 'void ChangeCubeColor()'/[actionReceiver.ChangeCubeColor] to our UnityAction");
             ActionReceiver actionReceiver = GameObject.FindObjectOfType<ActionReceiver>();
-            _firstUnityAction += actionReceiver.ChangeCubeColor;
+            firstUnityAction += actionReceiver.ChangeCubeColor;
         }
 
         private void AddChangeColourToEvent()
@@ -65,9 +66,9 @@ namespace PrototypingPlayground._002BasicConcepts.UnityActions
         
         private void ClearUnityAction()
         {
-            _firstUnityAction = null;
+            firstUnityAction = null;
             onFirstUnityEvent = null;
-            Debug.Log($"Unity _firstUnityAction = {_firstUnityAction} (null) " +
+            Debug.Log($"Unity _firstUnityAction = {firstUnityAction} (null) " +
                       $"\n Unity firstUnityEvent = {onFirstUnityEvent} (null)");
         }
     }

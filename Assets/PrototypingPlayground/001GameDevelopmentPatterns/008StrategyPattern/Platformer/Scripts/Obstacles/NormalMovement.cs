@@ -4,23 +4,23 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 {
     public class NormalMovement : MonoBehaviour, IObstacleMovement
     {
-        public void Maneuver(Obstacle _obstacleToMove)
+        public void Maneuver(Obstacle obstacleToMove)
         {
-            StartCoroutine(MoveObstacle(_obstacleToMove));
+            StartCoroutine(MoveObstacle(obstacleToMove));
         }
         
-        IEnumerator MoveObstacle(Obstacle _obstacle)
+        IEnumerator MoveObstacle(Obstacle obstacle)
         {
             bool obstacleHasHitTheEnd = false;
-            Vector3 originalStartPoint = _obstacle.transform.position;
-            Vector3 endStartPoint = new Vector3(originalStartPoint.x - _obstacle.despawnDistance, originalStartPoint.y, originalStartPoint.z);
+            Vector3 originalStartPoint = obstacle.transform.position;
+            Vector3 endStartPoint = new Vector3(originalStartPoint.x - obstacle.despawnDistance, originalStartPoint.y, originalStartPoint.z);
             float time = 0;
             
             while (!obstacleHasHitTheEnd)
             {
-                _obstacle.transform.position = Vector3.Lerp(originalStartPoint, endStartPoint, time / _obstacle.secondsUntilDespawnNormal);
+                obstacle.transform.position = Vector3.Lerp(originalStartPoint, endStartPoint, time / obstacle.secondsUntilDespawnNormal);
 
-                if (Vector3.Distance(_obstacle.transform.position, endStartPoint) <= 0.01f)
+                if (Vector3.Distance(obstacle.transform.position, endStartPoint) <= 0.01f)
                 {
                     obstacleHasHitTheEnd = true;
                 }

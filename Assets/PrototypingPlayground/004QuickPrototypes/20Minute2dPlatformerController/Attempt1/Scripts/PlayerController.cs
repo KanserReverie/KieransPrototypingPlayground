@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 namespace PrototypingPlayground._004QuickPrototypes._20Minute2dPlatformerController.Attempt1.Scripts
@@ -19,22 +18,22 @@ namespace PrototypingPlayground._004QuickPrototypes._20Minute2dPlatformerControl
         private void FixedUpdate()
         {
             playerRigidbody.velocity = new Vector3(moveInput.x * speed, playerRigidbody.velocity.y, 0);
-            if (jumpInput == true)
+            if (jumpInput)
             {
                 playerRigidbody.velocity = new Vector3(playerRigidbody.velocity.x, jump, 0);
                 jumpInput = false;
             }
         }
-        public void onMove(InputAction.CallbackContext _input)
+        public void ONMove(InputAction.CallbackContext input)
         {
-            if (_input.performed)
+            if (input.performed)
             {
-                moveInput = _input.ReadValue<Vector2>();
+                moveInput = input.ReadValue<Vector2>();
             }
         }
-        public void oJump(InputAction.CallbackContext _input)
+        public void OJump(InputAction.CallbackContext input)
         {
-            if (_input.performed)
+            if (input.performed)
             {
                 jumpInput = true;
             }

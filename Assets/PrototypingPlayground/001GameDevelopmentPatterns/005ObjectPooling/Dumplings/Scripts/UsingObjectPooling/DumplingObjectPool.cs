@@ -12,17 +12,17 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
         private void Awake()
         {
             Assert.IsNotNull(dumplingPrefab);
-            Assert.IsNotNull(dumplingPrefab.GetComponent<Dumpling_UsingObjectPool>());
+            Assert.IsNotNull(dumplingPrefab.GetComponent<DumplingUsingObjectPool>());
         }
         
-        private IObjectPool<Dumpling_UsingObjectPool> pool;
-        public IObjectPool<Dumpling_UsingObjectPool> Pool
+        private IObjectPool<DumplingUsingObjectPool> pool;
+        public IObjectPool<DumplingUsingObjectPool> Pool
         {
             get
             {
                 if (pool == null)
                 {
-                    pool = new ObjectPool<Dumpling_UsingObjectPool>(
+                    pool = new ObjectPool<DumplingUsingObjectPool>(
                         OnCreatePooledDumpling, 
                         OnTakeDumplingFromPool,
                         OnReturnedDumplingToPool,
@@ -31,25 +31,25 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
                 return pool;
             }
         }
-        private Dumpling_UsingObjectPool OnCreatePooledDumpling()
+        private DumplingUsingObjectPool OnCreatePooledDumpling()
         {
             GameObject newDumplingGameObject = Instantiate(dumplingPrefab, this.transform, true);
             newDumplingGameObject.name = $"{dumplingPrefab.name}";
-            Dumpling_UsingObjectPool newDumplingWithoutObjectPool = newDumplingGameObject.GetComponentInChildren<Dumpling_UsingObjectPool>();
+            DumplingUsingObjectPool newDumplingWithoutObjectPool = newDumplingGameObject.GetComponentInChildren<DumplingUsingObjectPool>();
             newDumplingWithoutObjectPool.DumplingPool = Pool;
             return newDumplingWithoutObjectPool;
         }
-        private void OnTakeDumplingFromPool(Dumpling_UsingObjectPool _dumplingWithoutObjectPool)
+        private void OnTakeDumplingFromPool(DumplingUsingObjectPool dumplingWithoutObjectPool)
         {
-            _dumplingWithoutObjectPool.gameObject.SetActive(true);
+            dumplingWithoutObjectPool.gameObject.SetActive(true);
         }
-        private void OnReturnedDumplingToPool(Dumpling_UsingObjectPool _dumplingWithoutObjectPool)
+        private void OnReturnedDumplingToPool(DumplingUsingObjectPool dumplingWithoutObjectPool)
         {
-            _dumplingWithoutObjectPool.gameObject.SetActive(false);
+            dumplingWithoutObjectPool.gameObject.SetActive(false);
         }
-        private void OnDestroyedPooledDumpling(Dumpling_UsingObjectPool _dumplingWithoutObjectPool)
+        private void OnDestroyedPooledDumpling(DumplingUsingObjectPool dumplingWithoutObjectPool)
         {
-            Destroy(_dumplingWithoutObjectPool.gameObject);
+            Destroy(dumplingWithoutObjectPool.gameObject);
         }
     }
 }

@@ -16,13 +16,13 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
         /// <summary>
         /// Register the new service if one isn't already there with the same type.
         /// </summary>
-        public static void RegisterService<TTypeOfServiceToAdd>(TTypeOfServiceToAdd _service)
+        public static void RegisterService<TTypeOfServiceToAdd>(TTypeOfServiceToAdd service)
         {
             // Does our dictionary NOT contain the Key as a type?
             if (!Services.ContainsKey(typeof(TTypeOfServiceToAdd)))
             {
                 // At the Key Type of Service, add the _service.
-                Services[typeof(TTypeOfServiceToAdd)] = _service;
+                Services[typeof(TTypeOfServiceToAdd)] = service;
             }
             // Else (if we already have a key here).
             else

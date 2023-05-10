@@ -3,106 +3,106 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
 {
     public class PlayerCharacterController : MonoBehaviour
     {
-        private UnityEngine.CharacterController _characterController;
+        private CharacterController characterController;
         [Header("Physics Settings")]
         [SerializeField] private float playerMoveSpeed = 5f;
         [SerializeField] private float playerGravity = 9.81f;
         [SerializeField] private float playerJumpStrength = 6;
         [SerializeField] private float playerMaxVelocity = 10;
         [SerializeField] private float playerFallDelay = 0.2f;
-        private float _currentPlayerFallDelay = 0.2f;
+        private float currentPlayerFallDelay = 0.2f;
         [Header("Respawn")]
         [SerializeField] private Vector3 playerRespawnPointPosition;
         [SerializeField] private Quaternion playerRespawnPointRotation;
-        private bool _canThePlayerMove;
-        private Vector3 _playerMovement = Vector3.zero;
-        private GameManagerEventBus _gameManagerEventBus;
+        private bool canThePlayerMove;
+        private Vector3 playerMovement = Vector3.zero;
+        private GameManagerEventBus gameManagerEventBus;
 
         #region Subscribe and Unsubscribe to Event Bus at OnEnable/OnDisable
         
         private void OnEnable()
         {
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
-            _gameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.START);
-            _gameManagerEventBus.SubscribeActionToEvent(RespawnPlayer,PlatformerEvents.DIE);
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.Start);
+            gameManagerEventBus.SubscribeActionToEvent(RespawnPlayer,PlatformerEvents.Die);
         }
 
         private void OnDisable()
         {
-            _gameManagerEventBus.UnsubscribeActionFromEvent(TurnOnPlayerMovement, PlatformerEvents.START);
-            _gameManagerEventBus.UnsubscribeActionFromEvent(RespawnPlayer,PlatformerEvents.DIE);
+            gameManagerEventBus.UnsubscribeActionFromEvent(TurnOnPlayerMovement, PlatformerEvents.Start);
+            gameManagerEventBus.UnsubscribeActionFromEvent(RespawnPlayer,PlatformerEvents.Die);
         }
         
         #endregion
 
         private void Start()
         {
-            _currentPlayerFallDelay = 0;
+            currentPlayerFallDelay = 0;
             playerRespawnPointPosition = transform.position;
             playerRespawnPointRotation = transform.rotation;
-            _canThePlayerMove = false;
+            canThePlayerMove = false;
             
-            _gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
+            gameManagerEventBus = GameManagerEventBus.FindEventBusInScene();
 
-            if(_gameManagerEventBus != null)
-                _gameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.START);
+            if(gameManagerEventBus != null)
+                gameManagerEventBus.SubscribeActionToEvent(TurnOnPlayerMovement,PlatformerEvents.Start);
             
-            _characterController = GetComponent<UnityEngine.CharacterController>();
-            if (_characterController == null)
+            characterController = GetComponent<CharacterController>();
+            if (characterController == null)
             {
                 Debug.LogWarning("Please attach a Character Controller, adding a default one");
-                this.gameObject.AddComponent<UnityEngine.CharacterController>();
+                gameObject.AddComponent<CharacterController>();
             }
         }
 
         private void TurnOnPlayerMovement()
         {
-            _canThePlayerMove = true;
+            canThePlayerMove = true;
         }
         
         private void Update()
         {
-            if (_canThePlayerMove)
+            if (canThePlayerMove)
             {
-                _playerMovement.x = 0;
+                playerMovement.x = 0;
                 if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
                 {
-                    _playerMovement.x -= playerMoveSpeed * Time.deltaTime;
+                    playerMovement.x -= playerMoveSpeed * Time.deltaTime;
                 }
                 if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
                 {
-                    _playerMovement.x += playerMoveSpeed * Time.deltaTime;
+                    playerMovement.x += playerMoveSpeed * Time.deltaTime;
                 }
-                if (_characterController.isGrounded || _currentPlayerFallDelay > 0)
+                if (characterController.isGrounded || currentPlayerFallDelay > 0)
                 {
                     if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space))
                     {
-                        _playerMovement.y = playerJumpStrength;
-                        _currentPlayerFallDelay = 0;
+                        playerMovement.y = playerJumpStrength;
+                        currentPlayerFallDelay = 0;
                     }
                 }
             }
-            _characterController.Move(_playerMovement);
+            characterController.Move(playerMovement);
             
-            if (!_characterController.isGrounded)
+            if (!characterController.isGrounded)
             {
-                if (_currentPlayerFallDelay > 0)
+                if (currentPlayerFallDelay > 0)
                 {
-                    print(_currentPlayerFallDelay);
-                    _currentPlayerFallDelay -= Time.deltaTime;
+                    print(currentPlayerFallDelay);
+                    currentPlayerFallDelay -= Time.deltaTime;
                 }
                 else
                 { 
-                    if (_playerMovement.y < -playerMaxVelocity)
-                        _playerMovement.y = -playerMaxVelocity;
+                    if (playerMovement.y < -playerMaxVelocity)
+                        playerMovement.y = -playerMaxVelocity;
                     else
-                        _playerMovement.y -= playerGravity * Time.deltaTime;
+                        playerMovement.y -= playerGravity * Time.deltaTime;
                 }
             }
             else
             {
-                _playerMovement.y = -0.01f;
-                _currentPlayerFallDelay = playerFallDelay;
+                playerMovement.y = -0.01f;
+                currentPlayerFallDelay = playerFallDelay;
             }
         }
         
@@ -110,17 +110,17 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Platfor
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
-                _gameManagerEventBus.PublishEvent(PlatformerEvents.DIE);
+                gameManagerEventBus.PublishEvent(PlatformerEvents.Die);
                 Destroy(other.gameObject); 
             }
         }
         
         private void RespawnPlayer()
         {
-            _characterController.enabled = false;
-            _characterController.transform.position = playerRespawnPointPosition;
-            _characterController.transform.rotation = playerRespawnPointRotation;
-            _characterController.enabled = true;
+            characterController.enabled = false;
+            characterController.transform.position = playerRespawnPointPosition;
+            characterController.transform.rotation = playerRespawnPointRotation;
+            characterController.enabled = true;
         }
     }
 }

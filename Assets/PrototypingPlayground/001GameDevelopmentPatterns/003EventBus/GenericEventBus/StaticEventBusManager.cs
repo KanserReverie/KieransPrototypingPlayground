@@ -44,37 +44,37 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Generic
         /// <para>**<i>StaticEventBusManager.Publish(EventBusEvent)</i></para>
         /// </summary>
         /// 
-        /// <param name="_eventBusEventToSubscribeTo"> When this EventBusEvent is published your UnityAction will be called.</param>
-        /// <param name="_unityActionToSubscribe"> The UnityAction that will be Invoked when EventBusEvent is called.</param>
+        /// <param name="eventBusEventToSubscribeTo"> When this EventBusEvent is published your UnityAction will be called.</param>
+        /// <param name="unityActionToSubscribe"> The UnityAction that will be Invoked when EventBusEvent is called.</param>
         /// 
-        public static void Subscribe(EventBusEvent _eventBusEventToSubscribeTo, UnityAction _unityActionToSubscribe)
+        public static void Subscribe(EventBusEvent eventBusEventToSubscribeTo, UnityAction unityActionToSubscribe)
         {
             UnityEvent thisUnityEvent;
 
-            if (EventBusEventsToUnityEventsDictionary.TryGetValue(_eventBusEventToSubscribeTo, out thisUnityEvent))
+            if (EventBusEventsToUnityEventsDictionary.TryGetValue(eventBusEventToSubscribeTo, out thisUnityEvent))
             {
-                thisUnityEvent.AddListener(_unityActionToSubscribe);
+                thisUnityEvent.AddListener(unityActionToSubscribe);
             }
             else
             {
                 thisUnityEvent = new UnityEvent();
-                thisUnityEvent.AddListener(_unityActionToSubscribe);
-                EventBusEventsToUnityEventsDictionary.Add(_eventBusEventToSubscribeTo, thisUnityEvent);
+                thisUnityEvent.AddListener(unityActionToSubscribe);
+                EventBusEventsToUnityEventsDictionary.Add(eventBusEventToSubscribeTo, thisUnityEvent);
             }
         }
         
         /// <summary> 
         /// <para> Removes an UnityAction from selected EventBusEvent.</para> 
         /// </summary> 
-        /// <param name="_eventBusEventToUnsubscribeFrom"> The EventBusEvent you are removing selected UnityAction from.</param> 
-        /// <param name="_unityActionToUnsubscribe"> The UnityAction to be removed.</param>
+        /// <param name="eventBusEventToUnsubscribeFrom"> The EventBusEvent you are removing selected UnityAction from.</param> 
+        /// <param name="unityActionToUnsubscribe"> The UnityAction to be removed.</param>
         /// 
-        public static void Unsubscribe(EventBusEvent _eventBusEventToUnsubscribeFrom, UnityAction _unityActionToUnsubscribe)
+        public static void Unsubscribe(EventBusEvent eventBusEventToUnsubscribeFrom, UnityAction unityActionToUnsubscribe)
         {
             UnityEvent thisUnityEvent;
-            if (EventBusEventsToUnityEventsDictionary.TryGetValue(_eventBusEventToUnsubscribeFrom, out thisUnityEvent))
+            if (EventBusEventsToUnityEventsDictionary.TryGetValue(eventBusEventToUnsubscribeFrom, out thisUnityEvent))
             {
-                thisUnityEvent.RemoveListener(_unityActionToUnsubscribe);
+                thisUnityEvent.RemoveListener(unityActionToUnsubscribe);
             }
         }
 
@@ -83,12 +83,12 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.Generic
         /// 
         /// <para> This will Invoke all UnityActions linked to this event.</para>
         /// </summary>
-        /// <param name="_eventBusEventToPublish"> The EventBusEvent to publish.</param>
+        /// <param name="eventBusEventToPublish"> The EventBusEvent to publish.</param>
         /// 
-        public static void Publish(EventBusEvent _eventBusEventToPublish)
+        public static void Publish(EventBusEvent eventBusEventToPublish)
         {
             UnityEvent thisUnityEvent;
-            if (EventBusEventsToUnityEventsDictionary.TryGetValue(_eventBusEventToPublish, out thisUnityEvent))
+            if (EventBusEventsToUnityEventsDictionary.TryGetValue(eventBusEventToPublish, out thisUnityEvent))
             {
                 thisUnityEvent?.Invoke();
             }

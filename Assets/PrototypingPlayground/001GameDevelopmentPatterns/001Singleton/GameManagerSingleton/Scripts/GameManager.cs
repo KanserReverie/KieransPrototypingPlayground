@@ -10,18 +10,18 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._001Singleton.GameMa
 {
 	public class GameManager : SingletonBehaviour<GameManager>
 	{
-		[SerializeField] private bool resetListOnValidate = false;
+		[SerializeField] private bool resetListOnValidate;
 		// ReSharper disable once CollectionNeverQueried.Local
 		[SerializeField] private List<GameManagerComponentBehaviour> gameManagerComponents;
 
-		public void AddGameManagerComponent(GameManagerComponentBehaviour _gameManagerComponentBehaviour)
+		public void AddGameManagerComponent(GameManagerComponentBehaviour gameManagerComponentBehaviour)
 		{
-			gameManagerComponents.Add(_gameManagerComponentBehaviour);
+			gameManagerComponents.Add(gameManagerComponentBehaviour);
 		}
 		
-		public void RemoveGameManagerComponent(GameManagerComponentBehaviour _gameManagerComponentBehaviour)
+		public void RemoveGameManagerComponent(GameManagerComponentBehaviour gameManagerComponentBehaviour)
 		{
-			gameManagerComponents.Remove(_gameManagerComponentBehaviour);
+			gameManagerComponents.Remove(gameManagerComponentBehaviour);
 		}
 
 		private void OnValidate()

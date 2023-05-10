@@ -5,14 +5,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
     public class HorizontalMovement : AbstractMarbleCommand
     {
         private Vector2 movementDirection;
-        public HorizontalMovement(MarbleController _marbleController, Vector2 _movementDirection) : base(_marbleController)
+        public HorizontalMovement(MarbleController marbleController, Vector2 movementDirection) : base(marbleController)
         {
-            movementDirection = _movementDirection;
+            this.movementDirection = movementDirection;
         }
         
         public override void ExecuteCommand()
         {
-            marbleController.HorizontalMovement(movementDirection);
+            MarbleController.HorizontalMovement(movementDirection);
         }
     }
 }

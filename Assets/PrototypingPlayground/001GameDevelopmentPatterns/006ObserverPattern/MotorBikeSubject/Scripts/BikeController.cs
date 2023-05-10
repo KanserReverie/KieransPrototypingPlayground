@@ -68,9 +68,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
             }
         }
 
-        public void TakeDamage(float _ammount)
+        public void TakeDamage(float ammount)
         {
-            CurrentHealth -= _ammount;
+            CurrentHealth -= ammount;
             if (IsTurboOn)
                 IsTurboOn = false;
             NotifyObservers();

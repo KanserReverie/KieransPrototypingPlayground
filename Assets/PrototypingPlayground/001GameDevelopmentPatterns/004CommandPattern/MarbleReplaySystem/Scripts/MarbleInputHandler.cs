@@ -66,20 +66,20 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
             }
         }
 
-        public void OnJump(InputAction.CallbackContext _context)
+        public void OnJump(InputAction.CallbackContext context)
         {
-            if (_context.started)
+            if (context.started)
             {
                 jumpInput = true;
             }
         }
         
-        public void OnMove(InputAction.CallbackContext _context)
+        public void OnMove(InputAction.CallbackContext context)
         {
-            horizontalMovementInput = _context.ReadValue<Vector2>();
+            horizontalMovementInput = context.ReadValue<Vector2>();
         }
 
-        public void OnQuit(InputAction.CallbackContext _context)
+        public void OnQuit(InputAction.CallbackContext context)
         {
             CommonlyUsedStaticMethods.QuitGame();
         }

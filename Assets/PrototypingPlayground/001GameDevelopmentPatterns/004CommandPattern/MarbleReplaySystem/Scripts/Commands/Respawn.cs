@@ -2,11 +2,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._004CommandPattern.M
 {
     public class Respawn : AbstractMarbleCommand
     {
-        public Respawn(MarbleController _marbleController) : base(_marbleController) { }
+        public Respawn(MarbleController marbleController) : base(marbleController) { }
         
         public override void ExecuteCommand()
         {
-            marbleController.SpawnMarble();
+            MarbleController.SpawnMarble();
         }
     }
 }

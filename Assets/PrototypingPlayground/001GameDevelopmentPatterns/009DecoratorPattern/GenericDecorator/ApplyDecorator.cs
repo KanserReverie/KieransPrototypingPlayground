@@ -9,10 +9,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._009DecoratorPattern
         private readonly IDecoratableVariables decoratedClass;
         private readonly Decorator decorator;
 
-        public ApplyDecorator(IDecoratableVariables _class, Decorator _decorator) 
+        public ApplyDecorator(IDecoratableVariables @class, Decorator decorator) 
         {
-            decorator = _decorator;
-            decoratedClass = _class;
+            this.decorator = decorator;
+            decoratedClass = @class;
         }
         
         // This will "Add" the decorator modifications to the base class.

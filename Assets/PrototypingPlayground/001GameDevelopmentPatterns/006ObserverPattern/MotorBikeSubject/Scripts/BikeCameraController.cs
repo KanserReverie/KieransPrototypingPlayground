@@ -26,7 +26,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
             }
         }
 
-        public override void Notify(AbstractSubjectBehaviour _subjectBehaviour)
+        public override void Notify(AbstractSubjectBehaviour subjectBehaviour)
         {
             if (!bikeController)
             {

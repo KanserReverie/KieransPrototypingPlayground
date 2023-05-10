@@ -4,6 +4,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Gen
     public interface IState
     {
         // Called when the client enters this state.
-        void EnterState(ClientWithStates _clientWithStates);
+        void EnterState(ClientWithStates clientWithStates);
     }
 }

@@ -45,7 +45,10 @@ namespace PrototypingPlayground.UsefulScripts
             {
                 System.IO.File.AppendAllText(filename, logString + "\n");
             }
-            catch { }
+            catch
+            {
+                // ignored
+            }
         }
 
         void OnGUI()
@@ -63,11 +66,11 @@ namespace PrototypingPlayground.UsefulScripts
         /// <summary>
         /// This will Instantiate a GameObject for users to see the console log. 
         /// </summary>
-        /// <param name="_showGUIByDefault"> If you want to show the GUI when instantiated. </param>
-        public static void InstantiateConsoleToGUIInScene(bool _showGUIByDefault)
+        /// <param name="showGUIByDefault"> If you want to show the GUI when instantiated. </param>
+        public static void InstantiateConsoleToGUIInScene(bool showGUIByDefault)
         {
             GameObject instantiatedObject = Instantiate(Resources.Load(CONSOLE_TO_GUI_PREFAB_NAME) as GameObject);
-            instantiatedObject.GetComponentInChildren<ConsoleToGUI>().doShow = _showGUIByDefault;
+            instantiatedObject.GetComponentInChildren<ConsoleToGUI>().doShow = showGUIByDefault;
         }
         
         /// <summary>

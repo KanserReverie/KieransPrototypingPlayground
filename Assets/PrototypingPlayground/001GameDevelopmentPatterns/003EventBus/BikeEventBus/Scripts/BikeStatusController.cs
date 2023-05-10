@@ -3,32 +3,32 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
 {
     public class BikeStatusController : MonoBehaviour
     {
-        private string _bikeStatus;
+        private string bikeStatus;
 
         private void OnEnable()
         {
-            RaceEventBus.Subscribe(RaceEventType.START, StartBike);
-            RaceEventBus.Subscribe(RaceEventType.STOP, StopBike);
+            RaceEventBus.Subscribe(RaceEventType.Start, StartBike);
+            RaceEventBus.Subscribe(RaceEventType.Stop, StopBike);
         }
 
         private void OnDisable()
         {
-            RaceEventBus.Unsubscribe(RaceEventType.START, StartBike);
-            RaceEventBus.Unsubscribe(RaceEventType.STOP, StopBike);
+            RaceEventBus.Unsubscribe(RaceEventType.Start, StartBike);
+            RaceEventBus.Unsubscribe(RaceEventType.Stop, StopBike);
         }
         private void StartBike()
         {
-            _bikeStatus = "Started";
+            bikeStatus = "Started";
         }
         private void StopBike()
         {
-            _bikeStatus = "Stopped";
+            bikeStatus = "Stopped";
         }
         
         private void OnGUI()
         {
             GUI.color = Color.yellow;
-            GUI.Label(new Rect(15,50,200,20), $"BIKE STATUS: {_bikeStatus}");
+            GUI.Label(new Rect(15,50,200,20), $"BIKE STATUS: {bikeStatus}");
         }
     }
 }

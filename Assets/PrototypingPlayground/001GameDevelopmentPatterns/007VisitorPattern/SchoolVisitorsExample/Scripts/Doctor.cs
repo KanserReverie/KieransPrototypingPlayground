@@ -4,14 +4,14 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._007VisitorPattern.S
     public class Doctor : IVisitor
     {
         public string Name { get; set; }
-        public Doctor(string _name)
+        public Doctor(string name)
         {
-            Name = _name;
+            Name = name;
         }
         
-        public void Visit(IElement _element)
+        public void Visit(IElement element)
         {
-            Kid kid = (Kid)_element;
+            Kid kid = (Kid)element;
             Debug.Log($"Doctor {this.Name} did the health checkup of the child: {kid.KidName}");
         }
     }

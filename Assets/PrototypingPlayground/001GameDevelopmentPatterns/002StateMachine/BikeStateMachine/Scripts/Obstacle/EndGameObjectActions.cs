@@ -10,7 +10,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._002StateMachine.Bik
                 return;
             
             Debug.Log("YOU WIN!!!");
-                #if UNITY_EDITOR
+#if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
 				Application.Quit();

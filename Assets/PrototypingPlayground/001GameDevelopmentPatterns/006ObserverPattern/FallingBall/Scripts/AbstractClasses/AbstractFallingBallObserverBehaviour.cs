@@ -4,21 +4,21 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
 {
     public abstract class AbstractFallingBallObserverBehaviour : AbstractObserverBehaviour
     {
-        protected FallingBallSubject fallingBall;
+        protected FallingBallSubject FallingBall;
         
-        public abstract override void Notify(AbstractSubjectBehaviour _abstractSubjectBehaviour);
+        public abstract override void Notify(AbstractSubjectBehaviour abstractSubjectBehaviour);
         
         protected void AttachToFallingBallInScene()
         {
-            fallingBall = FindObjectOfType<FallingBallSubject>();
+            FallingBall = FindObjectOfType<FallingBallSubject>();
 
-            if (!fallingBall)
+            if (!FallingBall)
             {
                 Debug.Log("No falling ball in scene. \n Pausing Game;");
                 Debug.Break();
             }
             
-            fallingBall.AttachObserver(this);
+            FallingBall.AttachObserver(this);
         }
     }
 }

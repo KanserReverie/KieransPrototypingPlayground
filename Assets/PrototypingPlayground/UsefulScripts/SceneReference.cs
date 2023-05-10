@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+// ReSharper disable All
 #if UNITY_EDITOR
 #endif
 
@@ -11,13 +12,15 @@ namespace PrototypingPlayground.UsefulScripts
 {
 	/// <summary>
 	/// Keeps reference to a scene asset and tracks it's path, so it can be used in the game runtime.
-	///
+	/// 
 	/// It's a well known fact that scenes can't be referenced like prefabs etc.
 	/// The <see cref="UnityEngine.SceneManagement.SceneManager"/> API works with relative scene paths or names.
 	/// Use this class to avoid manually typing and updating scene path strings - it will try to do it for you as best as it can,
 	/// including when <b>building the player</b>.
-	///
-	/// Using <see cref="ISerializationCallbackReceiver" /> was inspired by the <see cref="https://github.com/JohannesMP/unity-scene-reference">unity-scene-reference</see> implementation.
+	/// 
+	/// Using <see cref="ISerializationCallbackReceiver" /> was inspired by the <see>unity-scene-reference
+	///     <cref>https://github.com/JohannesMP/unity-scene-reference</cref>
+	/// </see> implementation.
 	/// </summary>
 	[Serializable]
 	public class SceneReference : ISerializationCallbackReceiver
@@ -26,19 +29,19 @@ namespace PrototypingPlayground.UsefulScripts
 #if UNITY_EDITOR
 		// Reference to the asset used in the editor. Player builds don't know about SceneAsset.
 		// Will be used to update the scene path.
-		[SerializeField] private SceneAsset m_SceneAsset;
+		[SerializeField] private SceneAsset mSceneAsset;
 
 #pragma warning disable 0414 // Never used warning - will be used by SerializedProperty.
 		// Used to dirtify the data when needed upon displaying in the inspector.
 		// Otherwise the user will never get the changes to save (unless he changes any other field of the object / scene).
-		[SerializeField] private bool m_IsDirty;
+		[SerializeField] private bool mIsDirty;
 #pragma warning restore 0414
 #endif
 
 		// Player builds will use the path stored here. Should be updated in the editor or during build.
 		// If scene is deleted, path will remain.
 		[SerializeField]
-		private string m_ScenePath = string.Empty;
+		private string mScenePath = string.Empty;
 
 
 		/// <summary>
@@ -53,20 +56,20 @@ namespace PrototypingPlayground.UsefulScripts
 				AutoUpdateReference();
 #endif
 
-				return m_ScenePath;
+				return mScenePath;
 			}
 
 			set {
-				m_ScenePath = value;
+				mScenePath = value;
 
 #if UNITY_EDITOR
-				if (string.IsNullOrEmpty(m_ScenePath)) {
-					m_SceneAsset = null;
+				if (string.IsNullOrEmpty(mScenePath)) {
+					mSceneAsset = null;
 					return;
 				}
 
-				m_SceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(m_ScenePath);
-				if (m_SceneAsset == null) {
+				mSceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(mScenePath);
+				if (mSceneAsset == null) {
 					Debug.LogError($"Setting {nameof(SceneReference)} to {value}, but no scene could be located there.");
 				}
 #endif
@@ -89,11 +92,11 @@ namespace PrototypingPlayground.UsefulScripts
 
 		public SceneReference(SceneReference other)
 		{
-			m_ScenePath = other.m_ScenePath;
+			mScenePath = other.mScenePath;
 
 #if UNITY_EDITOR
-			m_SceneAsset = other.m_SceneAsset;
-			m_IsDirty = other.m_IsDirty;
+			mSceneAsset = other.mSceneAsset;
+			mIsDirty = other.mIsDirty;
 
 			AutoUpdateReference();
 #endif
@@ -103,7 +106,7 @@ namespace PrototypingPlayground.UsefulScripts
 
 		public override string ToString()
 		{
-			return m_ScenePath;
+			return mScenePath;
 		}
 
 		[Obsolete("Needed for the editor, don't use it in runtime code!", true)]
@@ -134,14 +137,14 @@ namespace PrototypingPlayground.UsefulScripts
 
 		private void AutoUpdateReference()
 		{
-			if (m_SceneAsset == null) {
-				if (string.IsNullOrEmpty(m_ScenePath))
+			if (mSceneAsset == null) {
+				if (string.IsNullOrEmpty(mScenePath))
 					return;
 
-				SceneAsset foundAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(m_ScenePath);
+				SceneAsset foundAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(mScenePath);
 				if (foundAsset) {
-					m_SceneAsset = foundAsset;
-					m_IsDirty = true;
+					mSceneAsset = foundAsset;
+					mIsDirty = true;
 
 					if (!Application.isPlaying) {
 						// NOTE: This doesn't work for scriptable objects, hence the m_IsDirty.
@@ -149,13 +152,13 @@ namespace PrototypingPlayground.UsefulScripts
 					}
 				}
 			} else {
-				string foundPath = AssetDatabase.GetAssetPath(m_SceneAsset);
+				string foundPath = AssetDatabase.GetAssetPath(mSceneAsset);
 				if (string.IsNullOrEmpty(foundPath))
 					return;
 
-				if (foundPath != m_ScenePath) {
-					m_ScenePath = foundPath;
-					m_IsDirty = true;
+				if (foundPath != mScenePath) {
+					mScenePath = foundPath;
+					mIsDirty = true;
 
 					if (!Application.isPlaying) {
 						// NOTE: This doesn't work for scriptable objects, hence the m_IsDirty.

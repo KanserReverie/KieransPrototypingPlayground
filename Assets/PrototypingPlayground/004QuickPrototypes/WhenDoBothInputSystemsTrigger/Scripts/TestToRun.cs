@@ -15,9 +15,9 @@ namespace PrototypingPlayground._004QuickPrototypes.WhenDoBothInputSystemsTrigge
             ChangeTestTurnedOn(testYouWantToRun);
         }
 
-        private void ChangeTestTurnedOn(Tests _test)
+        private void ChangeTestTurnedOn(Tests test)
         {
-            switch (_test)
+            switch (test)
             {
                 case Tests.NoTest:
                     FindObjectOfType<LegacyVsNewInputSystemTimings>().TurnOffThisTest();

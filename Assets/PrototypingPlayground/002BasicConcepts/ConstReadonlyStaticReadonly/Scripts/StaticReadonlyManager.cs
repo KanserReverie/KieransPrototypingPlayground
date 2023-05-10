@@ -1,4 +1,5 @@
 using UnityEngine;
+// ReSharper disable All
 namespace PrototypingPlayground._002BasicConcepts.ConstReadonlyStaticReadonly
 {
     public class StaticReadonlyManager : MonoBehaviour

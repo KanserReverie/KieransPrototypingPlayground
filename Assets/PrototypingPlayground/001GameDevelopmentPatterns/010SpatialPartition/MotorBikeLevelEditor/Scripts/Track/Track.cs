@@ -176,23 +176,23 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._010SpatialPartition
         
         private bool AreThereAnyMoreSectionsToDespawn() => sectionsToDespawn.Count > 0;
 
-        private Section SpawnTrackSection(Section _section)
+        private Section SpawnTrackSection(Section section)
         {
-            Section spawnedSectionGameObject = InstantiateSection(_section);
-            _section.InitSection(spawnedSectionGameObject.gameObject);
-            GetNextSpawnPosition(_section);
+            Section spawnedSectionGameObject = InstantiateSection(section);
+            section.InitSection(spawnedSectionGameObject.gameObject);
+            GetNextSpawnPosition(section);
             return spawnedSectionGameObject;
         }
         
-        private Section InstantiateSection(Section _section)
+        private Section InstantiateSection(Section section)
         {
-            GameObject newSpawnedTrack = Instantiate(_section.gameObject, sectionSpawnPosition, thisTrack.transform.rotation, thisTrack.transform);
+            GameObject newSpawnedTrack = Instantiate(section.gameObject, sectionSpawnPosition, thisTrack.transform.rotation, thisTrack.transform);
             return newSpawnedTrack.GetComponentInChildren<Section>();
         }
         
-        private void GetNextSpawnPosition(Section _section)
+        private void GetNextSpawnPosition(Section section)
         {
-            sectionSpawnPosition.z += _section.RowsInSection * Section.ZDistanceBetweenRows;
+            sectionSpawnPosition.z += section.RowsInSection * Section.ZDistanceBetweenRows;
         }
     }
 }

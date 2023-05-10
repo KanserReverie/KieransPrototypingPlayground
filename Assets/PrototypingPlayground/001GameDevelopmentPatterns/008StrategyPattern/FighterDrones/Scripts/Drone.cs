@@ -4,10 +4,10 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
     public class Drone : MonoBehaviour
     {
         // Ray parameters
-        private RaycastHit _hit;
-        private Vector3 _rayDirection;
-        private float _rayAngle = -45.0f;
-        private float _rayDistance = 15.0f;
+        private RaycastHit hit;
+        private Vector3 rayDirection;
+        private float rayAngle = -45.0f;
+        private float rayDistance = 15.0f;
 
         // Movement parameters
         public float speed = 1.0f;
@@ -19,25 +19,25 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._008StrategyPattern.
 
         void Start() 
         {
-            _rayDirection = transform.TransformDirection(Vector3.back) * _rayDistance;
+            rayDirection = transform.TransformDirection(Vector3.back) * rayDistance;
 
-            _rayDirection = Quaternion.Euler(_rayAngle, 0.0f, 0f) * _rayDirection;
+            rayDirection = Quaternion.Euler(rayAngle, 0.0f, 0f) * rayDirection;
         }
 
-        public void ApplyStrategy(IDroneStrategy _strategy) 
+        public void ApplyStrategy(IDroneStrategy strategy) 
         {
-            _strategy.ImplementStrategy(this);
+            strategy.ImplementStrategy(this);
         }
 
         void Update() 
         {
-            Debug.DrawRay(transform.position, _rayDirection, Color.blue);
+            Debug.DrawRay(transform.position, rayDirection, Color.blue);
 
-            if (Physics.Raycast(transform.position, _rayDirection, out _hit, _rayDistance)) 
+            if (Physics.Raycast(transform.position, rayDirection, out hit, rayDistance)) 
             {
-                if (_hit.collider)
+                if (hit.collider)
                 {
-                    Debug.DrawRay(transform.position, _rayDirection, Color.green);
+                    Debug.DrawRay(transform.position, rayDirection, Color.green);
                 }
             }
         }

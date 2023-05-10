@@ -7,10 +7,10 @@ namespace PrototypingPlayground._003ProjectPrototypes.DumplingTesting.Teleportin
         private Rigidbody playerRigidbody;
         private Vector3 teleportLocation;
         
-        public TeleportCommand(Rigidbody _playerRigidbody, Vector3 _teleportLocation)
+        public TeleportCommand(Rigidbody playerRigidbody, Vector3 teleportLocation)
         {
-            playerRigidbody = _playerRigidbody;
-            teleportLocation = _teleportLocation;
+            this.playerRigidbody = playerRigidbody;
+            this.teleportLocation = teleportLocation;
         }
         
         public override void ExecuteCommand()
