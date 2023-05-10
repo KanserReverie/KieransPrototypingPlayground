@@ -23,7 +23,7 @@ This is because they are:
 - Need to be accessible anywhere.
 - Can be changed and not affect gameplay.
 
-We should not use it for say a HUD, UI or Player Stats as they aren't always going to be used or turned on.
+We SHOULD NOT use it for say a HUD, UI or Player Stats as they aren't always going to be used or turned on.
 
 BASICALLY, 
 ONLY ADD THINGS THAT 

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+
 namespace PrototypingPlayground._002BasicConcepts.AbstractClasses
 {
     public class CubeSpawner : MonoBehaviour
@@ -27,9 +28,9 @@ namespace PrototypingPlayground._002BasicConcepts.AbstractClasses
             {
                 Debug.Log(lifeSpanInputField.text);
                 Debug.Log(lifeSpanInputField.text.Length);
-                if (float.TryParse(lifeSpanInputField.text.Replace(".",","), out float _lifeSpan))
+                if (float.TryParse(lifeSpanInputField.text.Replace(".",","), out float result))
                 {
-                    lifeSpan = _lifeSpan;
+                    lifeSpan = result;
                 }
                 else
                 {
@@ -49,9 +50,9 @@ namespace PrototypingPlayground._002BasicConcepts.AbstractClasses
             {
                 Debug.Log(scaleInputField.text);
                 Debug.Log(scaleInputField.text.Length);
-                if (float.TryParse(scaleInputField.text.Replace(".",","), out float _scale))
+                if (float.TryParse(scaleInputField.text.Replace(".",","), out float result))
                 {
-                    scale = _scale;
+                    scale = result;
                 }
                 else
                 {
