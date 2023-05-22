@@ -1,5 +1,0 @@
-Generic Service Locator Pattern
-
-This is based off Dino Fejzagićs simple service locator.
-
-https://medium.com/medialesson/simple-service-locator-for-your-unity-project-40e317aad307
