@@ -16,7 +16,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._013ServiceLocatorPa
      * in the active scene. If it not found, new GameObject with this script added
      * to it will be instantiated. 
      */
-    [AutoRegisteredService]
+    
+    
+    // [AutoRegisteredService] <--- THIS ATTRIBUTE CREATE A VERSION OF ITSELF WHEN THE GAME WAS BUILT.
     public class MonoBehaviourBasedService : MonoRegistrable
     {
         public void Work()
