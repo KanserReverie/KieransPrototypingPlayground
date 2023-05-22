@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.GenericAdapterPattern.ExampleImplementation2
+namespace PrototypingPlayground._001GameDevelopmentPatterns._011AdapterPattern.GenericAdapterPattern.Example2
 {
     public class SecondAdaptedEnemy : EnemyThirdPartyAsset
     {
