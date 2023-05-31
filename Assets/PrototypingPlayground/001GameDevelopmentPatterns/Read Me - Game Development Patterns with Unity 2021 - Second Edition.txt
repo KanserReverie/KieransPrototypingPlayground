@@ -1,0 +1,10 @@
+Game Development Patterns with Unity 2021 - Second Edition
+
+This now contains all pattens and either a:
+
+- Generic Version to use in another project, 
+
+- A simple example that can be copy and pasted then modified for a different project.
+
+“Game Development Patterns with Unity 2021 - Second Edition” ~ David Baron
+https://subscription.packtpub.com/book/game-development/9781800200814
