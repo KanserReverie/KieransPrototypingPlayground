@@ -7,16 +7,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._006ObserverPattern.
 {
     public class GroundTransition : AbstractTransitionObjectBehaviour
     {
-        [SerializeField] private SceneReference sceneToTransition;
-
-        private void Awake()
-        {
-            Assert.IsNotNull(sceneToTransition);
-        }
+        [SerializeField] private Scene sceneToTransition;
         
         public override void TransitionMethod()
         {
-            SceneManager.LoadScene(sceneToTransition.SceneName);
+            SceneManager.LoadScene(sceneToTransition.name);
         }
     }
 }

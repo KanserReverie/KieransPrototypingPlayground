@@ -33,6 +33,7 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C001gamedevelopmentpatterns_005C013servicelocatorpattern_005Cunityservices_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cabstractclasses_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cassertions_005Cscripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cchangingresolutionsettings_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cconstreadonlystaticreadonly_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cproperties_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C002basicconcepts_005Cruntimeinitializeonloadmethodattribute_005Cscripts/@EntryIndexedValue">True</s:Boolean>
@@ -44,6 +45,7 @@
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C003projectprototypes_005Cdumplingtesting_005Cthrowing_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C003projectprototypes_005Cvrandsplitscreenlocalgame_005Cpconlygameplay_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C004quickprototypes_005Ccontrollermainmenu_005Cscripts/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C004quickprototypes_005Cmenuitems_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C004quickprototypes_005Crigidbodyaddforcecontroller_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C004quickprototypes_005Ctriggertest_005Cscripts/@EntryIndexedValue">True</s:Boolean>
 	<s:Boolean x:Key="/Default/CodeInspection/NamespaceProvider/NamespaceFoldersToSkip/=assets_005Cprototypingplayground_005C004quickprototypes_005Cwhendobothinputsystemstrigger_005Cscripts/@EntryIndexedValue">True</s:Boolean>
