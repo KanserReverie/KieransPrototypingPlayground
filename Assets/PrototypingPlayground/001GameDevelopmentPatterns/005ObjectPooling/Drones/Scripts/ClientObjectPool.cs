@@ -15,7 +15,9 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dr
 
         private void OnGUI()
         {
+#if UNITY_EDITOR
             numberOfDronesToSpawn = EditorGUILayout.IntSlider(numberOfDronesToSpawn, 1, 5);
+#endif
             if(GUILayout.Button("Spawn Drones"))
                 Spawn();
         }

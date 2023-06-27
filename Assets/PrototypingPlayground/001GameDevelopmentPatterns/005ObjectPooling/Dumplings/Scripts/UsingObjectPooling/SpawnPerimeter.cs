@@ -64,6 +64,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             return new Vector3(Random.Range(point1.x, point2.x), Random.Range(point1.y, point2.y), Random.Range(point1.z, point2.z));
         }
         
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
@@ -88,6 +89,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             Handles.DrawBezier(allCorners[2],allCorners[3],allCorners[2],allCorners[3], Color.yellow,null,thickness);
             Handles.DrawBezier(allCorners[3],allCorners[0],allCorners[3],allCorners[0], Color.yellow,null,thickness);
         }
-
+#endif
     }
 }

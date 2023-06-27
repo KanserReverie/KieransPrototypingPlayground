@@ -69,9 +69,11 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Dr
             CurrentHealth = maxHealth;
         }
 
+#if UNITY_EDITOR
         private void OnDrawGizmosSelected()
         {
             Handles.Label(transform.position, $"{gameObject.name}");
         }
+#endif
     }
 }

@@ -30,6 +30,15 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             }
         }
         
+        private DumplingWithoutObjectPool SpawnDumpling(Vector3 spawnLocation, Quaternion spawnRotation)
+        {
+            GameObject newDumpling = Instantiate(dumplingPrefab, spawnLocation, spawnRotation);
+            DumplingWithoutObjectPool dumplingWithoutObjectPool = newDumpling.GetComponent<DumplingWithoutObjectPool>();
+            dumplingWithoutObjectPool.NavMeshAgent.Warp(spawnLocation);
+            return dumplingWithoutObjectPool;
+        }
+        
+#if UNITY_EDITOR
         private void OnDrawGizmos()
         {
             Gizmos.color = Color.yellow;
@@ -54,12 +63,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._005ObjectPooling.Du
             Handles.DrawBezier(allCorners[2],allCorners[3],allCorners[2],allCorners[3], Color.yellow,null,thickness);
             Handles.DrawBezier(allCorners[3],allCorners[0],allCorners[3],allCorners[0], Color.yellow,null,thickness);
         }
-        private DumplingWithoutObjectPool SpawnDumpling(Vector3 spawnLocation, Quaternion spawnRotation)
-        {
-            GameObject newDumpling = Instantiate(dumplingPrefab, spawnLocation, spawnRotation);
-            DumplingWithoutObjectPool dumplingWithoutObjectPool = newDumpling.GetComponent<DumplingWithoutObjectPool>();
-            dumplingWithoutObjectPool.NavMeshAgent.Warp(spawnLocation);
-            return dumplingWithoutObjectPool;
-        }
+#endif
     }
 }
