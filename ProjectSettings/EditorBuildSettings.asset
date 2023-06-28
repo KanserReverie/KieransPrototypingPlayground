@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/PrototypingPlayground/002BasicConcepts/ChangingResolutionSettings/Scenes/BasicConcepts_ChangingResolutionSettings.unity
     guid: 65a00aade2fe3084e9a67ebbb6ca8c56
   m_configObjects:
-    Unity.XR.Oculus.Settings: {fileID: 0}
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 228c949963e605b4b954d731125bd84f, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: 506ccbb9de217e34cad85d286b7fafa1, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 81cace0fc0840074baadc47213938cc6, type: 2}

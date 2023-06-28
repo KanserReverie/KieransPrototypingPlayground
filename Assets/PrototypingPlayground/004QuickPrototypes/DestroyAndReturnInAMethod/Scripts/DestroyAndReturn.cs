@@ -7,9 +7,9 @@ namespace PrototypingPlayground._004QuickPrototypes.DestroyAndReturnInAMethod.Sc
         public DestroyAndReturn RunDestroyAndReturn()
         {
             Debug.Log("");
-            Debug.Log("DestroyAndReturn.RunDestroyAndReturn()\n [..|YOU ARE HERE|..Destroy(this.gameObject)....return this;....]");
+            Debug.Log("DestroyAndReturn.RunDestroyAndReturn() [..|YOU ARE HERE|..Destroy(this.gameObject)....return this;....]");
             Destroy(this.gameObject);
-            Debug.Log("DestroyAndReturn.RunDestroyAndReturn()\n [....Destroy(this.gameObject)..|YOU ARE HERE|..return this;....]");
+            Debug.Log("DestroyAndReturn.RunDestroyAndReturn() [....Destroy(this.gameObject)..|YOU ARE HERE|..return this;....]");
             Debug.Log("");
             return this;
         }
