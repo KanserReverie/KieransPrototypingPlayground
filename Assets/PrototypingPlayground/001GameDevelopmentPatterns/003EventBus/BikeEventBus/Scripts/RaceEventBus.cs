@@ -4,8 +4,7 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
 {
     public static class RaceEventBus
     {
-        private static readonly IDictionary<RaceEventType, UnityEvent> RaceEventsToUnityEventsDictionary 
-            = new Dictionary<RaceEventType, UnityEvent>();
+        private static readonly IDictionary<RaceEventType, UnityEvent> RaceEventsToUnityEventsDictionary = new Dictionary<RaceEventType, UnityEvent>();
 
         public static void Subscribe(RaceEventType raceEventToSubscribeTo, UnityAction actionToSubscribe)
         {
@@ -30,7 +29,6 @@ namespace PrototypingPlayground._001GameDevelopmentPatterns._003EventBus.BikeEve
                 thisUnityEvent.RemoveListener(actionToUnsubscribe);
             }
         }
-
         public static void Publish(RaceEventType raceEventToPublish)
         {
             UnityEvent thisUnityEvent;
