@@ -1,4 +1,4 @@
-using Palmmedia.ReportGenerator.Core.Common;
+//using Palmmedia.ReportGenerator.Core.Common;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,7 +21,9 @@ namespace PrototypingPlayground._002BasicConcepts.InputFields
             changedString = inputFieldToModify.text;
             if (changedString != "")
             {
-                changedInt = changedString.ParseLargeInteger();
+                // NOT WORKING
+                //changedInt = changedString.ParseLargeInteger();
+                changedInt = 0;
             }
             else
             {
