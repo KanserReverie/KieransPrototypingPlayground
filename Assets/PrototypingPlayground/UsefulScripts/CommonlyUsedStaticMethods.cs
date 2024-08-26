@@ -61,5 +61,21 @@ namespace PrototypingPlayground.UsefulScripts
         {
             SceneManager.LoadSceneAsync(sceneName);
         }
+        
+        /// <summary>
+        /// This will Mute OR Unmute all audio in the game.
+        /// </summary>
+        /// <param name="makeMuted">Mute or Unmute Audio?</param>
+        public static void MuteAudioToggle(bool makeMuted)
+        {
+            if (makeMuted)
+            {
+                AudioListener.volume = 0;
+            }
+            else
+            {
+                AudioListener.volume = 1;
+            }
+        }
     }
 }
